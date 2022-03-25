@@ -74,7 +74,10 @@
             <img class="dg big hidden" id="dark" src="./imgs/living room/dialog/dark.png" style="opacity: 50%">
             <img class="dg big hidden" id="ddrew" src="./imgs/living room/dialog/drew.png">
             <img class="dg big hidden" id="textbox" src="./imgs/living room/dialog/textbox.png">
-            <div class="hidden" id="text"></div>
+            <div class="hidden" id="text">
+                <b id="charname" style="color: var(--c)">name: </b>
+                <span id="dialog">weewoo</span>
+            </div>
         </div>
     </body>
     <script
@@ -86,6 +89,8 @@
         let dark = document.getElementById('dark');
         let textbox = document.getElementById('textbox');
         let text = document.getElementById('text');
+        let charname = document.getElementById('charname');
+        let dialog = document.getElementById('dialog');
 
         let ddrew = document.getElementById('ddrew');
 
@@ -99,14 +104,16 @@
                 dark.classList.remove('hidden');
                 textbox.classList.remove('hidden');
                 text.classList.remove('hidden');
+                ddrew.classList.remove('hidden');
 
-                text.innerHTML = "this is " + title;
+                charname.innerHTML = 'drew:';
+                dialog.innerHTML = 'this is ' + title + '. but i already knew that.';
             }
             else {
-                text.innerHTML = '';
                 dark.classList.add('hidden');
                 textbox.classList.add('hidden');
                 text.classList.add('hidden');
+                ddrew.classList.add('hidden');
             }
         });
     </script>
