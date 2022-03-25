@@ -68,6 +68,14 @@ body {
 .companion:hover {
     cursor: pointer;
 }
+.bar {
+    position: absolute;
+    height: 30px;
+    background: var(--e);
+    color: var(--c);
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
 
 #text {
     position: absolute;

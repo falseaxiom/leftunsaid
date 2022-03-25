@@ -69,6 +69,9 @@
             <div class="hit" id="umap" style="width: 286px; height: 247px; top: 798px; left: 125px;" title="map"></div>
             <div class="hit" id="uleft" style="width: 41px; height: 115px; top: 862px; left: 36px;" title="goto rec room"></div>
             <div class="hit" id="uright" style="width: 41px; height: 115px; top: 862px; left: 1840px;" title="goto dining room"></div>
+            <div class="bar" style="width: 200px; top: 817px; left: 450px;">anxiety</div>
+            <div class="bar" style="width: 480px; top: 910px; left: 450px;">inebriation</div>
+            <div class="bar" style="width: 10px; top: 1001px; left: 450px;">random stat</div>
 
             <!-- dialog stuff -->
             <img class="dg big hidden" id="dark" src="./imgs/living room/dialog/dark.png" style="opacity: 50%">
@@ -97,7 +100,7 @@
         $(document).click(function(event) {
             let id = $(event.target).attr('id');
             let cl = $(event.target).attr('class').split(/\s+/);
-            if (id == 'bg' || id == 'inv' || cl.includes('small')) return;
+            if (id == 'bg' || id == 'inv' || cl.includes('small') || cl.includes('bar')) return;
             else if (dark.classList.contains('hidden')) {
                 var title = $(event.target).attr('title');
 
