@@ -1,0 +1,80 @@
+body {
+    top: 0;
+    left: 0;
+    font-family: 'Roboto Mono', monospace;
+    background: black;
+}
+.box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); /* for IE 9 */
+    -webkit-transform: translate(-50%, -50%); /* for Safari */
+    width: 1920px;
+    height: 1080px;
+
+    background: var(--a);
+}
+
+.hidden {
+    display: none;
+}
+
+.big {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+.small {
+    position: absolute;
+    /* background: pink; */
+}
+.hit {
+    position: absolute;
+    cursor: pointer;
+
+    /* background: blue;
+    opacity: 20%; */
+}
+
+.inventory {
+    position: absolute;
+    width: 550px;
+    height: 230px;
+    top: 810px;
+    left: 978px;
+}
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 3px 18px 17px 10px;
+    /* background: red; */
+}
+.item:hover {
+    cursor: pointer;
+}
+.companion {
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    top: 812px;
+    left: 1560px;
+    /* background: yellow; */
+}
+.companion:hover {
+    cursor: pointer;
+}
+
+#text {
+    position: absolute;
+    width: 1800px;
+    height: 220px;
+    top: 810px;
+    left: 60px;
+    color: var(--a);
+    font-size: 2rem;
+}
