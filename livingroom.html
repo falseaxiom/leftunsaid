@@ -100,6 +100,7 @@
         $(document).click(function(event) {
             let id = $(event.target).attr('id');
             let cl = $(event.target).attr('class').split(/\s+/);
+            
             if (id == 'bg' || id == 'inv' || cl.includes('small') || cl.includes('bar')) return;
             else if (dark.classList.contains('hidden')) {
                 var title = $(event.target).attr('title');
@@ -110,13 +111,16 @@
                 ddrew.classList.remove('hidden');
 
                 charname.innerHTML = 'drew:';
-                dialog.innerHTML = 'this is ' + title + '. but i already knew that.';
+                dialog.innerHTML = 'this is ' + title + '.';
             }
-            else {
+            else if (dialog.innerHTML == 'but i already knew that.') {
                 dark.classList.add('hidden');
                 textbox.classList.add('hidden');
                 text.classList.add('hidden');
                 ddrew.classList.add('hidden');
+            }
+            else {
+                dialog.innerHTML = 'but i already knew that.';
             }
         });
     </script>
