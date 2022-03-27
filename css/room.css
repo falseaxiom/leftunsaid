@@ -72,9 +72,11 @@ body {
     position: absolute;
     height: 30px;
     background: var(--e);
-    color: var(--c);
-    font-size: 1.4rem;
-    white-space: nowrap;
+}
+.barlabel {
+    position: absolute;
+    color: var(--d);
+    font-size: 1.5rem;
 }
 
 #text {
