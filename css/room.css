@@ -30,7 +30,6 @@ body {
 }
 .small {
     position: absolute;
-    /* background: pink; */
 }
 .hit {
     position: absolute;
@@ -38,6 +37,10 @@ body {
 
     /* background: blue;
     opacity: 20%; */
+}
+.hit:hover {
+    background: blue;
+    opacity: 20%;
 }
 
 .inventory {
@@ -56,6 +59,7 @@ body {
 }
 .item:hover {
     cursor: pointer;
+    background:red;
 }
 .companion {
     position: absolute;
@@ -67,6 +71,7 @@ body {
 }
 .companion:hover {
     cursor: pointer;
+    background:yellow;
 }
 .bar {
     position: absolute;

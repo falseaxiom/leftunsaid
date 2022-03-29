@@ -49,9 +49,9 @@ brad1a = [
 ]
 brad1b = [
     "yooo andy! what up, my man?",
-    "you want a beer? claw?",
+    "can i hit you up with something? a beer? a claw?",
     "oh, shit, i forgot--you don't drink, haha.",
-    "well, lisa's got that green in the backyard if you're lookin for a puff, yeah?"
+    "well, lisa's got that green in the backyard if you're lookin' for a puff, yeah?"
 ]
 
 //SUZY'S DIALOG
@@ -61,4 +61,49 @@ suzy1a = [
 
 suzy1b = [
     "this party is boring. when can we go home?"
+]
+
+// INTERACTIVE ITEMS
+couch = [
+    "a nice green couch. nothing wrong with that."
+]
+lamp = [
+    "a lamp. it doesn't seem to turn on."
+]
+joint = [
+    "an unsmoked joint. looks like brad dropped this.",
+    "well, it's yours now.",
+    "***"
+]
+rplay = [
+    "a record player. right now, it's playing mitski.",
+    "a weird vibe for a high school jock party."
+]
+rbox = [
+    "a box full of vinyl record players.",
+    "...it's all mitski..."
+]
+ps5 = [
+    "IT'S ME, BOY. I'M THE PS5.",
+    "SPEAKING TO YOU FROM INSIDE YOUR BRAIN.",
+    "LISTEN TO ME, BOY.",
+    "LEAVE THE GIRL. YOU DON'T NEED HER."
+]
+tv = [
+    "the tv is playing monday night football.",
+    "who's even watching this? everyone here is on the swim team."
+]
+
+// INVENTORY ITEMS
+iphone = [
+    "your cell phone. a favored object of study when things get awkward."
+]
+icup = [
+    "a cup of... some kind of liquid. you're not sure what it is exactly, but it's probably alcoholic."
+]
+ibook = [
+    "a high school yearbook. you don't really know why you're still carrying this around."
+]
+ijoint = [
+    "brad's fallen joint. it's expertly rolled--almost too good to be brad's handiwork."
 ]

@@ -69,8 +69,8 @@
             <div class="hit" id="umap" style="width: 286px; height: 247px; top: 798px; left: 125px;" title="map"></div>
             <div class="hit" id="uleft" style="width: 41px; height: 115px; top: 862px; left: 36px;" title="goto rec room"></div>
             <div class="hit" id="uright" style="width: 41px; height: 115px; top: 862px; left: 1840px;" title="goto dining room"></div>
-            <div class="bar" style="width: 200px; top: 817px; left: 450px;"></div>
-            <div class="bar" style="width: 480px; top: 943px; left: 450px;"></div>
+            <div class="bar" id="anxiety" style="width: 0px; top: 817px; left: 451px;"></div>
+            <div class="bar" id ="inebriation" style="width: 480px; top: 943px; left: 451px;"></div>
             <div class="barlabel" style="width: 480px; top: 867px; left: 435px;">anxiety</div>
             <div class="barlabel" style="width: 480px; top: 993px; left: 435px;">inebriation</div>
 
@@ -78,9 +78,9 @@
             <img class="dg big hidden" id="dark" src="./imgs/living room/dialog/dark.png" style="opacity: 50%">
             <img class="dg big hidden" id="ddrew" src="./imgs/living room/dialog/drew.png">
             <img class="dg big hidden" id="textbox" src="./imgs/living room/dialog/textbox.png">
-            <div class="hidden" id="text">
-                <b id="charname" style="color: var(--c)">name: </b>
-                <span id="dialog">weewoo</span>
+            <div class="dg hidden" id="text">
+                <b class="dg" id="charname" style="color: var(--c)">name: </b>
+                <span class="dg" id="dialog">weewoo</span>
             </div>
         </div>
     </body>
@@ -96,27 +96,28 @@
         let text = document.getElementById('text');
         let charname = document.getElementById('charname');
         let dialog = document.getElementById('dialog');
-
-        let ddrew = document.getElementById('ddrew');
+        let sprite;
 
         let i = 0;
         let a, b;
+        let type, thing;
 
         $(document).click(function(event) {
             let id = $(event.target).attr('id');
             let cl = $(event.target).attr('class').split(/\s+/);
 
             if (id == 'bg' || id == 'inv' || cl.includes('small') || cl.includes('bar') || cl.includes('barlabel')) return;
-            else if (dark.classList.contains('hidden')) {
+            else if (i == 0) { // begin dialog
                 var title = $(event.target).attr('title');
+
+                type = id.charAt(0);
+                thing = id.substring(1);
+                console.log('begin dialog:', thing);
 
                 dark.classList.remove('hidden');
                 textbox.classList.remove('hidden');
                 text.classList.remove('hidden');
-                // ddrew.classList.remove('hidden');
 
-                let type = id.charAt(0);
-                let thing = id.substring(1);
                 if (type == 'c') {
                     if (thing == 'jake') {a = jake1a; b = jake1b};
                     if (thing == 'angela') {a = angela1a; b = angela1b};
@@ -128,26 +129,67 @@
                     dialog.innerHTML = b[i];
                 }
                 else if (type == 'n') {
-                    if (thing == 'jake') {b};
+                    if (thing == 'couch') {b = couch};
+                    if (thing == 'lamp') {b = lamp};
+                    if (thing == 'joint') {b = joint};
+                    if (thing == 'rplay') {b = rplay};
+                    if (thing == 'rbox') {b = rbox};
+                    if (thing == 'ps5') {b = ps5};
+                    if (thing == 'tv') {b = tv};
                     charname.innerHTML = '';
-                    dialog.innerHTML = b[i];
+                    dialog.innerHTML = '[ '+b[i]+' ]';
+                }
+                else if (type == 'i') {
+                    if (thing == 'phone') {b = iphone};
+                    if (thing == 'cup') {b = icup};
+                    if (thing == 'book') {b = ibook};
+                    if (thing == 'joint') {b = ijoint};
+                    charname.innerHTML = '';
+                    dialog.innerHTML = '[ '+b[i]+' ]';
                 }
                 else {
-                    charname.innerHTML = a[i] + ':';
-                    dialog.innerHTML = b[i];
+                    b = [null];
+                    charname.innerHTML = '';
+                    dialog.innerHTML = '[ this is a navigation item. don\'t worry about it for now. ]';
                 }
+
                 i++;
             }
-            else if (i == a.length) {
+            else if (i == b.length) { // end dialog
+                console.log('end dialog');
+                dark.classList.add('hidden');
+                textbox.classList.add('hidden');
+                text.classList.add('hidden');
+                // ddrew.classList.add('hidden');
+
+                let anx = document.getElementById('anxiety');
+                if (type == 'c' && anx.offsetWidth < 480) anx.style.width = anx.offsetWidth + 120 + "px";
+
+                i = 0;
+            }
+            else if (b[i] == '***') { // pick up object & end dialog
+                console.log('pick up object & end dialog');
+                // hide object in scene
+                let nitem = document.getElementById(thing);
+                let nhit = document.getElementById('n' + thing);
+                nitem.classList.add('hidden');
+                nhit.classList.add('hidden');
+
+
+                // show object in inventory
+                let iitem = document.getElementById('i' + thing);
+                iitem.classList.remove('hidden');
+
                 dark.classList.add('hidden');
                 textbox.classList.add('hidden');
                 text.classList.add('hidden');
                 // ddrew.classList.add('hidden');
                 i = 0;
             }
-            else {
-                charname.innerHTML = a[i] + ':';
-                dialog.innerHTML = b[i];
+            else { // continue dialog
+                console.log('continue dialog');
+                if (type == 'c') { charname.innerHTML = a[i] + ':'; dialog.innerHTML = b[i]; }
+                else             dialog.innerHTML = '[ '+b[i]+' ]';
                 i++;
             }
         });
