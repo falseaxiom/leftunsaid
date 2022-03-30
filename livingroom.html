@@ -82,6 +82,14 @@
                 <b class="dg" id="charname" style="color: var(--c)">name: </b>
                 <span class="dg" id="dialog">weewoo</span>
             </div>
+
+            <!-- choices -->
+            <img class="dg big hidden" id="dark2" src="./imgs/living room/dialog/dark.png" style="opacity: 50%">
+            <div class="choicebox hidden" id="choicebox">
+                <button class="choice hidden" id="choice1">choice1</button>
+                <button class="choice hidden" id="choice2">choice2</button>
+                <button class="choice hidden" id="choice3">choice3</button>
+            </div>
         </div>
     </body>
     <script
@@ -98,6 +106,12 @@
         let dialog = document.getElementById('dialog');
         let sprite;
 
+        let dark2 = document.getElementById('dark2');
+        let choicebox = document.getElementById("choicebox");
+        let choice1 = document.getElementById("choice1");
+        let choice2 = document.getElementById("choice2");
+        let choice3 = document.getElementById("choice3");
+
         let i = 0;
         let a, b;
         let type, thing;
@@ -105,8 +119,37 @@
         $(document).click(function(event) {
             let id = $(event.target).attr('id');
             let cl = $(event.target).attr('class').split(/\s+/);
+            let val = $(event.target).attr('title');
 
             if (id == 'bg' || id == 'inv' || cl.includes('small') || cl.includes('bar') || cl.includes('barlabel')) return;
+            if (!choicebox.classList.contains('hidden')) {
+                if (!cl.includes('choice')) return;
+                console.log("choice made")
+
+                // hide everything again
+                dark2.classList.add('hidden');
+                choicebox.classList.add('hidden');
+                choice1.classList.add('hidden');
+                choice1.innerHTML = '';
+                choice1.title = '';
+                if (!choice2.classList.contains('hidden')) {
+                    choice2.classList.add('hidden');
+                    choice2.innerHTML = '';
+                    choice2.title = '';
+                }
+                if (!choice3.classList.contains('hidden')) {
+                    choice3.classList.add('hidden');
+                    choice3.innerHTML = '';
+                    choice3.title = '';
+                }
+
+                vals = val.split('-');
+                i += parseInt(vals[0]);
+                charname.innerHTML = a[i] + ':';
+                dialog.innerHTML = b[i];
+
+                i += 1 + parseInt(vals[1]) - parseInt(vals[0]);
+            }
             else if (i == 0) { // begin dialog
                 var title = $(event.target).attr('title');
 
@@ -155,7 +198,7 @@
 
                 i++;
             }
-            else if (i == b.length) { // end dialog
+            else if (i >= b.length) { // end dialog
                 console.log('end dialog');
                 dark.classList.add('hidden');
                 textbox.classList.add('hidden');
@@ -185,6 +228,36 @@
                 text.classList.add('hidden');
                 // ddrew.classList.add('hidden');
                 i = 0;
+            }
+            else if (b[i].substring(0,3) == "$$$") { // activate choice
+                console.log('activate choice');
+                charname.innerHTML = '';
+                dialog.innerHTML = '';
+
+                // unhide dark bg, choice container
+                dark2.classList.remove('hidden');
+                choicebox.classList.remove('hidden');
+
+                // unhide as many choices as needed
+                let choices = b[i].split('_');
+                choices.shift();
+                let ch1 = choices[0].split('^');
+                choice1.classList.remove('hidden');
+                choice1.innerHTML = ch1[0];
+                choice1.title = ch1[1];
+                if (choices.length >= 2) {
+                    let ch2 = choices[1].split('^');
+                    choice2.classList.remove('hidden');
+                    choice2.innerHTML = ch2[0];
+                    choice2.title = ch2[1];
+                }
+                if (choices.length == 3) {
+                    let ch3 = choices[2].split('^');
+                    choice3.classList.remove('hidden');
+                    choice3.innerHTML = ch3[0];
+                    choice3.title = ch3[1];
+                }
+                i++
             }
             else { // continue dialog
                 console.log('continue dialog');

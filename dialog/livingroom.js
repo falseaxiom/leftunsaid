@@ -49,38 +49,46 @@ brad1a = [
 ]
 brad1b = [
     "yooo andy! what up, my man?",
-    "can i hit you up with something? a beer? a claw?",
+    "can i hit you up with something? beer? claw?",
     "oh, shit, i forgot--you don't drink, haha.",
-    "well, lisa's got that green in the backyard if you're lookin' for a puff, yeah?"
+    "well, lisa's got that green in the backyard if you're lookin' for a smoke, yeah?"
 ]
 
 //SUZY'S DIALOG
 suzy1a = [
+    "suzy",
+    "",
+    "suzy",
+    "suzy",
+    "",
     "suzy"
 ]
 
 suzy1b = [
-    "this party is boring. when can we go home?"
+    "this party is boring. when can we go home?",
+    "$$$_we'll leave soon.^0-1_maybe you shouldn't have begged me to come along.^1-1",
+    "thank god.",
+    "well, i didn't know it was gonna be just for seniors!"
 ]
 
 // INTERACTIVE ITEMS
 couch = [
-    "a nice green couch. nothing wrong with that."
+    "a nice green COUCH. nothing wrong with that."
 ]
 lamp = [
-    "a lamp. it doesn't seem to turn on."
+    "a LAMP. it doesn't seem to turn on."
 ]
 joint = [
-    "an unsmoked joint. looks like brad dropped this.",
+    "an unsmoked JOINT. looks like BRAD dropped this.",
     "well, it's yours now.",
     "***"
 ]
 rplay = [
-    "a record player. right now, it's playing mitski.",
+    "a RECORD PLAYER. right now, it's playing mitski.",
     "a weird vibe for a high school jock party."
 ]
 rbox = [
-    "a box full of vinyl record players.",
+    "a BOX full of VINYL RECORDS.",
     "...it's all mitski..."
 ]
 ps5 = [
@@ -90,20 +98,20 @@ ps5 = [
     "LEAVE THE GIRL. YOU DON'T NEED HER."
 ]
 tv = [
-    "the tv is playing monday night football.",
+    "the TV is playing monday night football.",
     "who's even watching this? everyone here is on the swim team."
 ]
 
 // INVENTORY ITEMS
 iphone = [
-    "your cell phone. a favored object of study when things get awkward."
+    "your CELL PHONE. a favored object of study when things get awkward."
 ]
 icup = [
-    "a cup of... some kind of liquid. you're not sure what it is exactly, but it's probably alcoholic."
+    "a CUP of... some kind of liquid. you're not sure what it is exactly, but it's probably alcoholic."
 ]
 ibook = [
-    "a high school yearbook. you don't really know why you're still carrying this around."
+    "a high school YEARBOOK. you don't really know why you're still carrying this around."
 ]
 ijoint = [
-    "brad's fallen joint. it's expertly rolled--almost too good to be brad's handiwork."
+    "BRAD's fallen JOINT. it's expertly rolled--almost too good to be brad's handiwork."
 ]

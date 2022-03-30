@@ -1,3 +1,4 @@
+/* general */
 body {
     top: 0;
     left: 0;
@@ -17,10 +18,12 @@ body {
     background: var(--a);
 }
 
+/* for hiding things */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
+/* object tags */
 .big {
     position: absolute;
     top: 0;
@@ -42,7 +45,11 @@ body {
     background: blue;
     opacity: 20%;
 }
+.hit:hover > .small {
+    filter: invert(100%)
+}
 
+/* inventory */
 .inventory {
     position: absolute;
     width: 550px;
@@ -84,6 +91,7 @@ body {
     font-size: 1.5rem;
 }
 
+/* dialog text */
 #text {
     position: absolute;
     width: 1800px;
@@ -92,4 +100,29 @@ body {
     left: 60px;
     color: var(--a);
     font-size: 2rem;
+}
+
+/* choices */
+.choicebox {
+    width: 1570px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 200px;
+    left: 175px;
+}
+.choice {
+    border: none;
+    width: 1570px;
+    height: 100px;
+    background: var(--d);
+    color: var(--a);
+    font-size: 2rem;
+    font-family: inherit;
+}
+.choice:hover {
+    cursor: pointer;
+    background: var(--e);
 }
