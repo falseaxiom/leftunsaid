@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>left unsaid - demo</title>
+        <title>left unsaid</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <link rel="icon" type="image/x-icon" href="favicon.ico"/>
@@ -11,54 +11,49 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <style>
             :root {
-                --a: #021311;
-                --b: #0a3a2e;
-                --c: #155c38;
-                --d: #82c40d;
-                --e: #e7ff7b;
+                --yellow: #fdc316;
+                --red: #ff3542;
+                --purple: #cb74ff;
+                --teal: #01e09c;
+                --grey: #b9b9b9;
             }
             body {
                 top: 0;
                 left: 0;
+                color: white;
                 background: black;
                 font-family: 'Roboto Mono', monospace;
-                color: var(--e);
-                text-align: center;
             }
             .box {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%); /* for IE 9 */
-                -webkit-transform: translate(-50%, -50%); /* for Safari */
-                width: 1920px;
-                height: 1080px;
-
-                background: var(--b);
+                width: calc(100vw - 10px);
+                height: calc(100vh - 20px);
+                display: grid;
+                place-items: center;
+                text-align: center;
             }
-            .box h1 {
-                margin: 0;
-                margin-top: 400px;
-                font-weight: 400;
-                font-size: 4rem;
+            .imgContainer {
+                width: 50vh;
+                margin-top: -3em;
+                height: 50vh;
+                display: flex;
+                flex-direction: column;
             }
-            .box a {
-                text-decoration: none;
-                color: var(--d);
-                font-size: 3rem;
+            img {
+                margin-left: 15px;
+                max-width: 100%;
+                max-height: 100%;
             }
-            .box a:hover {
-                color: var(--a);
-                background: var(--d);
+            span {
+                margin-top: -30%;
             }
         </style>
     </head>
     <body>
         <div class="box">
-            <h1>left unsaid - demo</h1>
-            <br/><br/><br/><br/>
-            <a href="./livingroom.html">play</a>
+            <div class="imgContainer">
+                <img src="./imgs/placeholder.png">
+                <span>the party will begin on april 27, 2022</span>
+            </div>
         </div>
     </body>
     <script>

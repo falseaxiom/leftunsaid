@@ -3,6 +3,7 @@ body {
     top: 0;
     left: 0;
     font-family: 'Roboto Mono', monospace;
+    font-size: 2rem;
     background: black;
 }
 .box {
@@ -19,6 +20,9 @@ body {
 }
 
 /* for hiding things */
+.fadeout {
+    opacity: 0%;
+}
 .hidden {
     display: none !important;
 }
@@ -33,62 +37,11 @@ body {
 }
 .small {
     position: absolute;
+    padding: 10px;
+    border-radius: 10px;
 }
-.hit {
-    position: absolute;
-    cursor: pointer;
-
-    /* background: blue;
-    opacity: 20%; */
-}
-.hit:hover {
-    background: blue;
-    opacity: 20%;
-}
-.hit:hover > .small {
-    filter: invert(100%)
-}
-
-/* inventory */
-.inventory {
-    position: absolute;
-    width: 550px;
-    height: 230px;
-    top: 810px;
-    left: 978px;
-}
-.item {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    margin: 3px 18px 17px 10px;
-    /* background: red; */
-}
-.item:hover {
-    cursor: pointer;
-    background:red;
-}
-.companion {
-    position: absolute;
-    width: 225px;
-    height: 225px;
-    top: 812px;
-    left: 1560px;
-    /* background: yellow; */
-}
-.companion:hover {
-    cursor: pointer;
-    background:yellow;
-}
-.bar {
-    position: absolute;
-    height: 30px;
-    background: var(--e);
-}
-.barlabel {
-    position: absolute;
-    color: var(--d);
-    font-size: 1.5rem;
+.small:hover {
+    background: var(--f);
 }
 
 /* dialog text */
@@ -113,10 +66,20 @@ body {
     top: 200px;
     left: 175px;
 }
+.choicehelper {
+    position: absolute;
+    width: 1000px;
+    height: 1rem;
+    top: -4rem;
+    left: calc(50% - 500px);
+    color: var(--d);
+    text-align: center;
+}
 .choice {
     border: none;
-    width: 1570px;
-    height: 100px;
+    width: 1530px;
+    height: auto;
+    padding: 20px;
     background: var(--d);
     color: var(--a);
     font-size: 2rem;
@@ -125,4 +88,28 @@ body {
 .choice:hover {
     cursor: pointer;
     background: var(--e);
+}
+
+/* navbar */
+.nav {
+    width: 450px;
+    height: 2em;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 1080px;
+    left: 735px;
+    color: grey;
+}
+.nav > a {
+    text-decoration: none;
+}
+.nav > a:visited {
+    color: grey;
+}
+.nav > a:hover {
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
 }

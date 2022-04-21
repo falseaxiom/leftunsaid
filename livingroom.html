@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>left unsaid - demo</title>
+        <title>left unsaid</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <link rel="icon" type="image/x-icon" href="favicon.ico"/>
@@ -17,78 +17,66 @@
                 --c: #155c38;
                 --d: #82c40d;
                 --e: #e7ff7b;
+                --f: #e7ff7b55;
             }
         </style>
     </head>
     <body>
         <div class="box">
             <!-- background -->
-            <img class="big" id="bg" src="./imgs/living room/bg.png">
-            <!-- <img class="big" src="./imgs/living room/ref.png" style="opacity: 30%;"> -->
+            <img class="big" id="bg" src="./imgs/1 living room/bg.png">
+            <img class="big" src="./imgs/1 living room/ref.png" style="opacity: 30%;">
 
             <!-- interactive items -->
-            <img class="small" id="couch" src="./imgs/living room/interactive/couch.png" style="width: 832px; height: 452px; top: 262px; left: 909px;">
-            <img class="small" id="joint" src="./imgs/living room/interactive/joint.png" style="width: 78px; height: 39px; top: 699px; left: 1492px;">
-            <img class="small" id="lamp" src="./imgs/living room/interactive/lamp.png" style="width: 159px; height: 598px; top: 122px; left: 1711px;">
-            <img class="small" id="ps5" src="./imgs/living room/interactive/ps5.png" style="width: 95px; height: 169px; top: 305px; left: 175px;">
-            <img class="small" id="rbox" src="./imgs/living room/interactive/record box.png" style="width: 146px; height: 167px; top: 552px; left: 486px;">
-            <img class="small" id="rplay" src="./imgs/living room/interactive/record player.png" style="width: 153px; height: 124px; top: 268px; left: 316px;">
-            <img class="small" id="tv" src="./imgs/living room/interactive/tv.png" style="width: 123px; height: 392px; top: 83px; left: 39px;">
+            <img class="i small" id="tv" style="top: 73px; left: 39px; padding-left: 0;" src="./imgs/1 living room/interactive/tv.png">
+            <img class="i small" id="ps5" style="top: 295px; left: 165px;" src="./imgs/1 living room/interactive/ps5.png">
+            <img class="i small" id="recordplayer" style="top: 258px; left: 306px;" src="./imgs/1 living room/interactive/recordplayer.png">
+            <img class="i small" id="recordbox" style="top: 542px; left: 476px;" src="./imgs/1 living room/interactive/recordbox.png">
+            <img class="i small" id="couch" style="top: 252px; left: 899px;" src="./imgs/1 living room/interactive/couch.png">
+            <img class="i small" id="lamp" style="top: 112px; left: 1701px;" src="./imgs/1 living room/interactive/lamp.png">
 
             <!-- characters -->
-            <img class="small" id="jake" src="./imgs/living room/characters/jake.png"  style="width: 338px; height: 421px; top: 33px; left: 1221px;">
-            <img class="small" id="angela" src="./imgs/living room/characters/angela.png"  style="width: 319px; height: 592px; top: 175px; left: 945px;">
-            <img class="small" id="ellie" src="./imgs/living room/characters/ellie.png"  style="width: 239px; height: 654px; top: 99px; left: 678px;">
-            <img class="small" id="brad" src="./imgs/living room/characters/brad.png"  style="width: 457px; height: 576px; top: 179px; left: 1332px;">
+            <img class="c small" id="jake" style="top: 23px; left: 1211px;" src="./imgs/1 living room/characters/jake.png">
+            <img class="c small" id="ellie" style="top: 89px; left: 668px;" src="./imgs/1 living room/characters/ellie.png">
+            <img class="c small" id="angela" style="top: 165px; left: 935px;" src="./imgs/1 living room/characters/angela.png">
+            <img class="c small" id="brad" style="top: 169px; left: 1322px;" src="./imgs/1 living room/characters/brad.png">
 
-            <!-- hitboxes -->
-            <div class="hit" id="ncouch" style="width: 832px; height: 452px; top: 262px; left: 909px; border-radius: 100px;" title="couch"></div>
-            <div class="hit" id="njoint" style="width: 88px; height: 29px; top: 703px; left: 1487px; border-radius: 20px; transform: rotate(-23deg);" title="joint"></div>
-            <div class="hit" id="nlamp" style="width: 159px; height: 598px; top: 122px; left: 1711px; border-radius: 50px;" title="lamp"></div>
-            <div class="hit" id="nps5" style="width: 95px; height: 169px; top: 305px; left: 175px;" title="ps5"></div>
-            <div class="hit" id="nrbox" style="width: 146px; height: 167px; top: 552px; left: 486px;" title="record box"></div>
-            <div class="hit" id="nrplay" style="width: 153px; height: 124px; top: 268px; left: 316px;" title="record player"></div>
-            <div class="hit" id="ntv" style="width: 123px; height: 392px; top: 83px; left: 39px;" title="tv"></div>
-            <div class="hit" id="cjake" style="width: 250px; height: 350px; top: 30px; left: 1300px; border-radius: 100px;" title="jake"></div>
-            <div class="hit" id="cangela" style="width: 319px; height: 592px; top: 175px; left: 945px; border-radius: 120px;" title="angela"></div>
-            <div class="hit" id="cellie" style="width: 239px; height: 654px; top: 99px; left: 678px; border-radius: 20px;" title="ellie"></div>
-            <div class="hit" id="cbrad" style="width: 250px; height: 640px; top: 145px; left: 1385px; transform: rotate(30deg); border-radius: 100px;" title="brad"></div>
-
-            <!-- inventory -->
-            <div class="inventory" id="inv">
-                <img class="item" id="iphone" src="./imgs/living room/inventory/phone.png" title="phone">
-                <img class="item" id="icup" src="./imgs/living room/inventory/cup.png" title="cup">
-                <img class="item" id="ibook" src="./imgs/living room/inventory/yearbook.png" title="yearbook">
-                <img class="item hidden" id="ijoint" src="./imgs/living room/inventory/joint.png" title="joint">
-            </div>
-            
-            <!-- companion -->
-            <img class="companion" id="csuzy" src="./imgs/living room/inventory/com suzy.png" title="suzy">
-
-            <!-- other ui -->
-            <div class="hit" id="umap" style="width: 286px; height: 247px; top: 798px; left: 125px;" title="map"></div>
-            <div class="hit" id="uleft" style="width: 41px; height: 115px; top: 862px; left: 36px;" title="goto rec room"></div>
-            <div class="hit" id="uright" style="width: 41px; height: 115px; top: 862px; left: 1840px;" title="goto dining room"></div>
-            <div class="bar" id="anxiety" style="width: 0px; top: 817px; left: 451px;"></div>
-            <div class="bar" id ="inebriation" style="width: 480px; top: 943px; left: 451px;"></div>
-            <div class="barlabel" style="width: 480px; top: 867px; left: 435px;">anxiety</div>
-            <div class="barlabel" style="width: 480px; top: 993px; left: 435px;">inebriation</div>
+            <!-- ui -->
+            <img class="u small" id="umap" style="top: 787px; left: 30px;" src="./imgs/1 living room/ui/0 map.png">
+            <img class="u small" id="uphone" style="top: 832px; left: 391px;" src="./imgs/1 living room/ui/1 phone.png">
+            <img class="u small hidden" id="uyearbook" style="top: 830px; left: 571px;" src="./imgs/1 living room/ui/2 yearbook.png">
+            <img class="u small hidden" id="ubracelet" style="top: 820px; left: 844px;" src="./imgs/1 living room/ui/3 bracelet.png">
+            <img class="u small hidden" id="uscrunchie" style="top: 834px; left: 1061px;" src="./imgs/1 living room/ui/4 scrunchie.png">
+            <img class="u small hidden" id="ulighter" style="top: 824px; left: 1297px;" src="./imgs/1 living room/ui/5 lighter.png">
+            <img class="u small hidden" id="utrash" style="top: 814px; left: 1439px;" src="./imgs/1 living room/ui/6 trash.png">
+            <img class="u small" id="usuzy" style="top: 766px; left: 1678px; padding-bottom: 0;" src="./imgs/1 living room/ui/7 suzy.png">
 
             <!-- dialog stuff -->
-            <img class="dg big hidden" id="dark" src="./imgs/living room/dialog/dark.png" style="opacity: 50%">
-            <img class="dg big hidden" id="ddrew" src="./imgs/living room/dialog/drew.png">
-            <img class="dg big hidden" id="textbox" src="./imgs/living room/dialog/textbox.png">
-            <div class="dg hidden" id="text">
-                <b class="dg" id="charname" style="color: var(--c)">name: </b>
-                <span class="dg" id="dialog">weewoo</span>
+            <img class="d big hidden" id="dark" src="./imgs/1 living room/dialog/dark.png" style="opacity: 50%">
+            <img class="d big hidden" id="dsuzy" src="./imgs/1 living room/dialog/suzy.png">
+            <img class="d big hidden" id="dellie" src="./imgs/1 living room/dialog/ellie.png">
+            <img class="d big hidden" id="dangela" src="./imgs/1 living room/dialog/angela.png">
+            <img class="d big hidden" id="djake" src="./imgs/1 living room/dialog/jake.png">
+            <img class="d big hidden" id="dbrad" src="./imgs/1 living room/dialog/brad.png">
+            <img class="d big hidden" id="textbox" src="./imgs/1 living room/dialog/textbox.png">
+            <div class="d hidden" id="text">
+                <b class="d" id="charname" style="color: var(--c)">name: </b>
+                <span class="d" id="dialog">placeholder text</span>
             </div>
 
             <!-- choices -->
-            <img class="dg big hidden" id="dark2" src="./imgs/living room/dialog/dark.png" style="opacity: 50%">
-            <div class="choicebox hidden" id="choicebox">
+            <img class="d big hidden" id="dark2" src="./imgs/1 living room/dialog/dark.png" style="opacity: 50%">
+            <div class="d choicebox hidden" id="choicebox">
+                <em class="d choicehelper hidden" id="choicehelper">(click one of the dialog options to continue.)</em>
+                <button class="choice hidden" id="choice0">choice0</button>
                 <button class="choice hidden" id="choice1">choice1</button>
                 <button class="choice hidden" id="choice2">choice2</button>
-                <button class="choice hidden" id="choice3">choice3</button>
+            </div>
+
+            <!-- navbar -->
+            <div class="nav">
+                <a href="./">main menu</a>
+                <a onclick="reset()">reset game</a>
             </div>
         </div>
     </body>
@@ -99,172 +87,671 @@
     </script>
     <script src="./dialog/livingroom.js"></script>
     <script>
-        let dark = document.getElementById('dark');
-        let textbox = document.getElementById('textbox');
-        let text = document.getElementById('text');
-        let charname = document.getElementById('charname');
-        let dialog = document.getElementById('dialog');
-        let sprite;
-
-        let dark2 = document.getElementById('dark2');
+        /*** VARIABLES ***/
+        // dialog generic
+        let dark = document.getElementById("dark");
+        let textbox = document.getElementById("textbox");
+        let text = document.getElementById("text");
+        let charname = document.getElementById("charname");
+        let dialog = document.getElementById("dialog");
+        // dialog character sprites
+        let dsuzy = document.getElementById("dsuzy");
+        let dellie = document.getElementById("dellie");
+        let dangela = document.getElementById("dangela");
+        let djake = document.getElementById("djake");
+        let dbrad = document.getElementById("dbrad");
+        // choices
+        let dark2 = document.getElementById("dark2");
         let choicebox = document.getElementById("choicebox");
+        let choicehelper = document.getElementById("choicehelper");
+        let choice0 = document.getElementById("choice0");
         let choice1 = document.getElementById("choice1");
         let choice2 = document.getElementById("choice2");
-        let choice3 = document.getElementById("choice3");
+        // keep track of what dialog ur on
+        let currentDialog = ["", 0];
 
-        let i = 0;
-        let a, b;
-        let type, thing;
+        /*** SETUP ***/
+        // if first time opening this page, put vars in localStorage
+        if (!localStorage.getItem("livopening")) {
+            localStorage.setItem("livopening", 0) // gone thru living room opening?
+            localStorage.setItem("branch1", ""); // first branch - which old friend do u approach?
+            localStorage.setItem("sigs", ""); // signatures in yearbook
+        }
+        // do living room opening if not done yet
+        if (localStorage.getItem("livopening") == 0) livOpening();
+        // if yearbook picked up, display in inventory
+        if (localStorage.getItem("y") == 1) {
+            unhide(document.getElementById("uyearbook"));
+        }
+        // change current room
+        localStorage.setItem("curr", "livingroom")
 
+        /*** CLICKING ***/
         $(document).click(function(event) {
-            let id = $(event.target).attr('id');
-            let cl = $(event.target).attr('class').split(/\s+/);
-            let val = $(event.target).attr('title');
+            let id = $(event.target).attr('id');                 // id of clicked thing
+            let cl = $(event.target).attr('class').split(/\s+/); // classlist (array)
+            let val = $(event.target).attr('title');             // title/value
 
-            if (id == 'bg' || id == 'inv' || cl.includes('small') || cl.includes('bar') || cl.includes('barlabel')) return;
-            if (!choicebox.classList.contains('hidden')) {
-                if (!cl.includes('choice')) return;
-                console.log("choice made")
-
-                // hide everything again
-                dark2.classList.add('hidden');
-                choicebox.classList.add('hidden');
-                choice1.classList.add('hidden');
-                choice1.innerHTML = '';
-                choice1.title = '';
-                if (!choice2.classList.contains('hidden')) {
-                    choice2.classList.add('hidden');
-                    choice2.innerHTML = '';
-                    choice2.title = '';
-                }
-                if (!choice3.classList.contains('hidden')) {
-                    choice3.classList.add('hidden');
-                    choice3.innerHTML = '';
-                    choice3.title = '';
-                }
-
-                vals = val.split('-');
-                i += parseInt(vals[0]);
-                charname.innerHTML = a[i] + ':';
-                dialog.innerHTML = b[i];
-
-                i += 1 + parseInt(vals[1]) - parseInt(vals[0]);
+            // if currently on a dialog spiel
+            if (cl.includes("d")) {
+                if (!isHidden(dark2)) return; // if making a choice, must click one to move on
+                dialogSwitch();
+                return;
             }
-            else if (i == 0) { // begin dialog
-                var title = $(event.target).attr('title');
-
-                type = id.charAt(0);
-                thing = id.substring(1);
-                console.log('begin dialog:', thing);
-
-                dark.classList.remove('hidden');
-                textbox.classList.remove('hidden');
-                text.classList.remove('hidden');
-
-                if (type == 'c') {
-                    if (thing == 'jake') {a = jake1a; b = jake1b};
-                    if (thing == 'angela') {a = angela1a; b = angela1b};
-                    if (thing == 'ellie') {a = ellie1a; b = ellie1b};
-                    if (thing == 'brad') {a = brad1a; b = brad1b};
-                    if (thing == 'suzy') {a = suzy1a; b = suzy1b};
-
-                    charname.innerHTML = a[i] + ':';
-                    dialog.innerHTML = b[i];
-                }
-                else if (type == 'n') {
-                    if (thing == 'couch') {b = couch};
-                    if (thing == 'lamp') {b = lamp};
-                    if (thing == 'joint') {b = joint};
-                    if (thing == 'rplay') {b = rplay};
-                    if (thing == 'rbox') {b = rbox};
-                    if (thing == 'ps5') {b = ps5};
-                    if (thing == 'tv') {b = tv};
-                    charname.innerHTML = '';
-                    dialog.innerHTML = '[ '+b[i]+' ]';
-                }
-                else if (type == 'i') {
-                    if (thing == 'phone') {b = iphone};
-                    if (thing == 'cup') {b = icup};
-                    if (thing == 'book') {b = ibook};
-                    if (thing == 'joint') {b = ijoint};
-                    charname.innerHTML = '';
-                    dialog.innerHTML = '[ '+b[i]+' ]';
-                }
-                else {
-                    b = [null];
-                    charname.innerHTML = '';
-                    dialog.innerHTML = '[ this is a navigation item. don\'t worry about it for now. ]';
-                }
-
-                i++;
+            // if currently making a choice
+            if (cl.includes("choice")) {
+                currentDialog[1] += parseInt(val);
+                dialogSwitch();
+                return;
             }
-            else if (i >= b.length) { // end dialog
-                console.log('end dialog');
-                dark.classList.add('hidden');
-                textbox.classList.add('hidden');
-                text.classList.add('hidden');
-                // ddrew.classList.add('hidden');
-
-                let anx = document.getElementById('anxiety');
-                if (type == 'c' && anx.offsetWidth < 480) anx.style.width = anx.offsetWidth + 120 + "px";
-
-                i = 0;
-            }
-            else if (b[i] == '***') { // pick up object & end dialog
-                console.log('pick up object & end dialog');
-                // hide object in scene
-                let nitem = document.getElementById(thing);
-                let nhit = document.getElementById('n' + thing);
-                nitem.classList.add('hidden');
-                nhit.classList.add('hidden');
-
-
-                // show object in inventory
-                let iitem = document.getElementById('i' + thing);
-                iitem.classList.remove('hidden');
-
-                dark.classList.add('hidden');
-                textbox.classList.add('hidden');
-                text.classList.add('hidden');
-                // ddrew.classList.add('hidden');
-                i = 0;
-            }
-            else if (b[i].substring(0,3) == "$$$") { // activate choice
-                console.log('activate choice');
-                charname.innerHTML = '';
-                dialog.innerHTML = '';
-
-                // unhide dark bg, choice container
-                dark2.classList.remove('hidden');
-                choicebox.classList.remove('hidden');
-
-                // unhide as many choices as needed
-                let choices = b[i].split('_');
-                choices.shift();
-                let ch1 = choices[0].split('^');
-                choice1.classList.remove('hidden');
-                choice1.innerHTML = ch1[0];
-                choice1.title = ch1[1];
-                if (choices.length >= 2) {
-                    let ch2 = choices[1].split('^');
-                    choice2.classList.remove('hidden');
-                    choice2.innerHTML = ch2[0];
-                    choice2.title = ch2[1];
+            // if a character
+            if (cl.includes("c")) {
+                switch(id) {
+                    case("ellie"):
+                        toggleDialog();
+                        localStorage.getItem("branch1") == "" ? ellie1(0) : ellie2(0);
+                        break;
+                    case("angela"):
+                        toggleDialog();
+                        localStorage.getItem("branch1") == "" ? angela1(0) : angela2(0);
+                        break;
+                    case("brad"):
+                        toggleDialog();
+                        localStorage.getItem("branch1") == "" ? brad1(0) : brad2(0);
+                        break;
+                    case("jake"):
+                        toggleDialog();
+                        localStorage.getItem("branch1") == "" ? jake1(0) : jake2(0);
+                        break;
+                    default:
+                        break;
                 }
-                if (choices.length == 3) {
-                    let ch3 = choices[2].split('^');
-                    choice3.classList.remove('hidden');
-                    choice3.innerHTML = ch3[0];
-                    choice3.title = ch3[1];
-                }
-                i++
             }
-            else { // continue dialog
-                console.log('continue dialog');
-                if (type == 'c') { charname.innerHTML = a[i] + ':'; dialog.innerHTML = b[i]; }
-                else             dialog.innerHTML = '[ '+b[i]+' ]';
-                i++;
+            // if an interactive item
+            if (cl.includes("i")) {
+                switch(id) {
+                    case("tv"):
+                        toggleDialog();
+                        tv(0);
+                        break;
+                    case("ps5"):
+                        toggleDialog();
+                        ps5(0);
+                        break;
+                    case("recordplayer"):
+                        toggleDialog();
+                        recordplayer(0);
+                        break;
+                    case("recordbox"):
+                        toggleDialog();
+                        recordbox(0);
+                        break;
+                    case("couch"):
+                        toggleDialog();
+                        couch(0);
+                        break;
+                    case("lamp"):
+                        toggleDialog();
+                        lamp(0);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            // if a ui item
+            if (cl.includes("u")) {
+                switch(id) {
+                    case("umap"):
+                        toggleDialog();
+                        map(0);
+                        break;
+                    case("uphone"):
+                        toggleDialog();
+                        phone(0);
+                        break;
+                    case("uyearbook"):
+                        toggleDialog();
+                        yearbook(0);
+                        break;
+                    case("ubracelet"):
+                        toggleDialog();
+                        bracelet(0);
+                        break;
+                    case("uscrunchie"):
+                        toggleDialog();
+                        scrunchie(0);
+                        break;
+                    case("ulighter"):
+                        toggleDialog();
+                        lighter(0);
+                        break;
+                    case("utrash"):
+                        toggleDialog();
+                        trash(0);
+                        break;
+                    case("usuzy"):
+                        toggleDialog();
+                        suzy(0);
+                        break;
+                    default:
+                        break;
+                }
             }
         });
-    </script>
+
+        /*** GENERAL FUNCTIONS ***/
+        // borrowed from https://www.sitepoint.com/delay-sleep-pause-wait/
+        function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+                currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+        }
+        // hide/unhide items
+        function hide(div) { div.classList.add("hidden"); }
+        function unhide(div) { div.classList.remove("hidden"); }
+        // check if div is hidden
+        function isHidden(div) { return div.classList.contains("hidden"); }
+        // hide/unhide dialog
+        function toggleDialog() {
+            console.log("toggling dialog...")
+            if (isHidden(dark)) {
+                console.log("dialog is hidden")
+                unhide(dark);
+                unhide(textbox);
+                unhide(text);
+            }
+            else {
+                console.log("dialog is not hidden")
+                hide(dark);
+                hide(textbox);
+                hide(text);
+            }
+        }
+        // dialog switch
+        function dialogSwitch() {
+            switch (currentDialog[0]) {
+                    case ("auto"): // automatic dialog
+                        auto(currentDialog[1]);
+                        break;
+                    case ("ellie1"): // character
+                        ellie1(currentDialog[1]);
+                        break;
+                    case ("ellie2"):
+                        ellie2(currentDialog[1]);
+                        break;
+                    case ("angela1"):
+                        angela1(currentDialog[1]);
+                        break;
+                    case ("angela2"):
+                        angela2(currentDialog[1]);
+                        break;
+                    case ("brad1"):
+                        brad1(currentDialog[1]);
+                        break;
+                    case ("brad2"):
+                        brad2(currentDialog[1]);
+                        break;
+                    case ("jake1"):
+                        jake1(currentDialog[1]);
+                        break;
+                    case ("jake2"):
+                        jake2(currentDialog[1]);
+                        break;
+                    case ("tv"): // interactive
+                        tv(currentDialog[1]);
+                        break;
+                    case ("ps5"):
+                        ps5(currentDialog[1]);
+                        break;
+                    case ("recordplayer"):
+                        recordplayer(currentDialog[1]);
+                        break;
+                    case ("recordbox"):
+                        recordbox(currentDialog[1]);
+                        break;
+                    case ("couch"):
+                        couch(currentDialog[1]);
+                        break;
+                    case ("lamp"):
+                        lamp(currentDialog[1]);
+                        break;
+                    case ("map"): // ui
+                        map(currentDialog[1]);
+                        break;
+                    case ("phone"):
+                        phone(currentDialog[1]);
+                        break;
+                    case ("yearbook"):
+                        yearbook(currentDialog[1]);
+                        break;
+                    case ("bracelet"):
+                        bracelet(currentDialog[1]);
+                        break;
+                    case ("scrunchie"):
+                        scrunchie(currentDialog[1]);
+                        break;
+                    case ("lighter"):
+                        lighter(currentDialog[1]);
+                        break;
+                    case ("trash"):
+                        trash(currentDialog[1]);
+                        break;
+                    case ("suzy"):
+                        suzy(currentDialog[1]);
+                        break;
+                    default:
+                        break;
+                }
+        }
+        // show/hide choicebox
+        function toggleChoices() {
+            if (isHidden(dark2)) { unhide(dark2); unhide(choicebox); }
+            else {
+                hide(dark2);
+                hide(choicebox);
+                if (!isHidden(choice0)) hide(choice0);
+                if (!isHidden(choice1)) hide(choice1);
+                if (!isHidden(choice2)) hide(choice2);
+            }
+        }
+        // extract choices
+        function getChoices(str) {
+            toggleChoices();
+            console.log("making a choice...");
+            let choices = str.split("_");
+            console.log(choices);
+            choices.shift();
+            if (localStorage.getItem("y") == 0) { // if yearbook not picked up
+                for (let i = 0; i < choices.length; i++) {
+                    if (choices[i].substring(0,2) != "yy") continue;
+                    choices.splice(i,1);
+                    break;
+                }
+            }
+            for (let i = 0; i < choices.length; i++) {
+                if (choices[i].substring(0,2) == "yy") choices[i] = choices[i].replace("yy","");
+                choices[i] = choices[i].split("^");
+                let cbox = document.getElementById("choice"+i);
+                unhide(cbox);
+                cbox.innerHTML = choices[i][0];
+                cbox.title = choices[i][1];
+            }
+        }
+        // reset game
+        function reset() {
+            localStorage.clear();
+            location.href="./";
+        }
+
+        /*** GAMEPLAY FUNCTIONS ***/
+        // opening sequence
+        function livOpening() {
+            console.log("starting scene...");
+            sleep(2000);
+            toggleDialog();
+            auto(0);
+        }
+        // automatic dialog
+        function auto(n) {
+            console.log("auto dialog:", n);
+            if (n == 0) currentDialog[0] = "auto"; // dialog start
+            if (n == autoa.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dbrad);
+                toggleDialog();
+                currentDialog = ["", 0];
+                localStorage.setItem("livopening", 1);
+                return;
+            }
+            autoa[n] == "ELLIE:" ? unhide(dellie) : hide(dellie); // show ellie's sprite when she's talking
+            autoa[n] == "ANGELA:" ? unhide(dangela) : hide(dangela); // angela
+            autoa[n] == "BRAD:" ? unhide(dbrad) : hide(dbrad); // brad
+            autoa[n] == "JAKE:" ? unhide(djake) : hide(djake); // jake
+            autoa[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // suzy
+            if (suzy1b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(autob[n]);
+                currentDialog[1]++;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (autob[n].includes("^")) {
+                    let dgs = autob[n].split("^");
+                    charname.innerHTML = autoa[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = autoa[n];
+                    dialog.innerHTML = autob[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function jake1(n) {          
+            console.log("jake1 dialog:", n);
+            if (n == 0) { toggleDialog(); currentDialog[0] = "jake1"; } // dialog start
+            if (n == jake1a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                if (!isHidden(jake)) hide(djake);
+                if (!isHidden(suzy)) hide(dsuzy);
+                toggleDialog();
+                currentDialog = ["", 0];
+                location.href = "./old-living.html";
+            }
+            jake1a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // show suzy's sprite when she's talking
+            jake1a[n] == "JAKE:" ? unhide(djake) : hide(djake); // show jake's sprite when he's talking
+            if (jake1b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(jake1b[n]);
+                currentDialog[1]++;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (jake1b[n].includes("^")) {
+                    let dgs = jake1b[n].split("^");
+                    charname.innerHTML = jake1a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = jake1a[n];
+                    dialog.innerHTML = jake1b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        // character dialog
+        function suzy2(n) {
+            console.log("suzy2 dialog:", n);
+            if (n == 0) currentDialog[0] = "suzy2"; // dialog start
+            if (n == suzy2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dsuzy);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            suzy2a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // show suzy's sprite when she's talking
+            if (suzy2b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(suzy2b[n]);
+                currentDialog[1]++;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (suzy2b[n].includes("^")) {
+                    let dgs = suzy2b[n].split("^");
+                    charname.innerHTML = suzy2a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = suzy2a[n];
+                    dialog.innerHTML = suzy2b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        // interactive item dialog
+        function tesla(n) {
+            console.log("tesla dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "tesla";
+            if (n == tesla1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (tesla1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(tesla1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (tesla1a[n].includes("^")) {
+                    let dgs = tesla1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = tesla1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function toyota(n) {
+            console.log("toyota dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "toyota";
+            if (n == toyota1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (toyota1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(toyota1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (toyota1a[n].includes("^")) {
+                    let dgs = toyota1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = toyota1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function bush(n) {
+            console.log("bush dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "bush";
+            if (n == bush1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (bush1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(bush1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (bush1a[n].includes("^")) {
+                    let dgs = bush1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = bush1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function yearbook1(n) {
+            console.log("yearbook dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "yearbook1";
+            if (n == yearbook1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (yearbook1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(yearbook1a[n]);
+                currentDialog[1]++;
+            }
+            else if (yearbook1a[n] == "PICKUP") {
+                hide(document.getElementById("yearbook"));
+                unhide(document.getElementById("uyearbook"));
+                localStorage.setItem("y", 1);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (yearbook1a[n].includes("^")) {
+                    let dgs = yearbook1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = yearbook1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function frontdoor(n) {
+            console.log("frontdoor dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "frontdoor";
+            if (n == frontdoor1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (frontdoor1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(frontdoor1a[n]);
+                currentDialog[1]++;
+            }
+            else if (frontdoor1a[n] == "KNOCKKNOCK") {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+
+                // get jake, automatically start his dialog
+                unhide(document.getElementById("jake"));
+                localStorage.setItem("knock",1);
+                console.log(localStorage.getItem("knock"))
+                jake1(0);
+                return;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (frontdoor1a[n].includes("^")) {
+                    let dgs = frontdoor1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = frontdoor1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        // ui dialog
+        function map(n) {
+            console.log("map dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "map";
+            if (n == map1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (map1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(map1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (map1a[n].includes("^")) {
+                    let dgs = map1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = map1a[n];
+                    currentDialog[1]++;
+                }
+            } 
+        }
+        function phone(n) {
+            console.log("phone dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "phone";
+            if (n == phone1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (phone1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(phone1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (phone1a[n].includes("^")) {
+                    let dgs = phone1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = phone1a[n];
+                    currentDialog[1]++;
+                }
+            } 
+        }
+        function yearbook2(n) {
+            console.log("yearbook2 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "yearbook2";
+            if (n == yearbook2a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (phone1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(yearbook2a[n]);
+                currentDialog[1]++;
+            }
+            else if (yearbook2a[n] == "DROP") {
+                hide(document.getElementById("uyearbook"));
+                localStorage.setItem("y", 2);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (yearbook2a[n].includes("^")) {
+                    let dgs = yearbook2a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = yearbook2a[n];
+                    currentDialog[1]++;
+                }
+            } 
+        }
+   </script>
 </html>
