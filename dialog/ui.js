@@ -1,9 +1,4 @@
 // ui
-let map1a = [
-    "[ you've been to jake's house a couple times for the errant post-practice-turned-hangout. ]", 
-    "[ and for the even more sporadic house-party-you-feel-somewhat-obligated-to-attend. ]",
-    "[ you can't say you know its layout very well. ]"
-]
 let phone1a = [
     "[ your CELL PHONE. a favored object of study when things get awkward. ]",
     "CHOICE_CALL MOM^0_DROP ITEM^1_DO NOTHING^4",

@@ -158,3 +158,10 @@ let frontdoor1a = [
     "CHOICE_KNOCK ON FRONT DOOR^0_DO NOTHING^1",
     "KNOCKKNOCK"
 ]
+
+// ui
+let map1a = [
+    "[ you've been to jake's house a couple times for the errant post-practice-turned-hangout. ]", 
+    "[ and for the even more sporadic house-party-you-feel-somewhat-obligated-to-attend. ]",
+    "[ you can't say you know its layout very well. ]"
+]
