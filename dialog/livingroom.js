@@ -74,7 +74,7 @@ let ellie1a = [
     ""
 ]
 let ellie1b = [
-    "[ ELLIE MACLEAN, a front crawler on WBHS VARSITY WOMEN'S SWIM. going to OBERLIN in the fall. ]",
+    "[ ELLIE MACLEAN, a front crawler on WBHS VARSITY WOMEN'S SWIM. ]",
     "CHOICE_TALK TO ELLIE^0_yyASK TO SIGN YEARBOOK^18_DO NOTHING^20",
     "DREW. good to see you.",
     "...",
@@ -96,10 +96,6 @@ let ellie1b = [
     "she's probably in the DINING ROOM right now.^3",
     "...",
     "[ ELLIE signs your YEARBOOK. ]",
-]
-let ellie2a = [
-]
-let ellie2b = [
 ]
 let angela1a = [
     "",
@@ -128,8 +124,8 @@ let angela1a = [
     ""
 ]
 let angela1b = [
-    "[ ANGELA YAO, a backstroker for WBHS VARSITY WOMEN'S SWIM. going to NYU in the fall. ]",
-    "TALK TO ANGELA^0_yyASK TO SIGN YEARBOOK^20_DO NOTHING^22",
+    "[ ANGELA YAO, a backstroker for WBHS VARSITY WOMEN'S SWIM. ]",
+    "CHOICE_TALK TO ANGELA^0_yyASK TO SIGN YEARBOOK^20_DO NOTHING^22",
     "drew!! it's so nice to see you again.",
     "sooo, slight mishap...",
     "i thought you might not come, so i sorta invited RYAN. i hope that's ok?",
@@ -138,7 +134,7 @@ let angela1b = [
     "CHOICE_RYAN's here?^0_why would i care that he's here?^4",
     "it's totally possible to avoid him too!",
     "i mean he is friends with everyone so it might be hard but as long as you stay in one spot?",
-    "and i have a feeling he won't try to talk to you, either. ^^;",
+    "and i have a feeling he won't try to talk to you, either. :')",
     "(but i still think it'd be good for you guys to patch things up...)^3",
     ".............",
     "no reason.",
@@ -152,10 +148,6 @@ let angela1b = [
     "last i saw him, he was in the KITCHEN.^3",
     "omg of course i'll sign your yearbook!!!",
     "[ ANGELA signs your YEARBOOK. ]",
-]
-let angela2a = [
-]
-let angela2b = [
 ]
 let brad1a = [
     "",
@@ -187,7 +179,7 @@ let brad1a = [
     ""
 ]
 let brad1b = [
-    "[ BRAD SZYMANSKI, a breaststroker for WBHS VARSITY MEN'S SWIM. going to NJIT in the fall. ]",
+    "[ BRAD SZYMANSKI, a breaststroker for WBHS VARSITY MEN'S SWIM. ]",
     "CHOICE_TALK TO BRAD^0_yyASK TO SIGN YEARBOOK^23_DO NOTHING^25",
     "ANDY, my main man!",
     "can i hit you up with anything? vodka? beer? white talon?",
@@ -215,10 +207,6 @@ let brad1b = [
     "hell yeah, dude! i'll sign your yearbook.",
     "[ BRAD signs your YEARBOOK. ]"
 ]
-let brad2a = [
-]
-let brad2b = [
-]
 let jake1a = [
     "",
     "",
@@ -235,8 +223,8 @@ let jake1a = [
     ""
 ]
 let jake1b = [
-    "[ JAKE GIORDANO, a fellow butterflyer and the captain of WBHS MEN'S VARSITY SWIM. going to BERKELEY in the fall. ]",
-    "CHOICE_TALK TO JAKE^0_yyASK TO SIGN YEARBOOK^_DO NOTHING^",
+    "[ JAKE GIORDANO, a fellow butterflyer and the captain of WBHS MEN'S VARSITY SWIM. ]",
+    "CHOICE_TALK TO JAKE^0_yyASK TO SIGN YEARBOOK^8_DO NOTHING^11",
     "ANDY, ANDY, ANDY.",
     "i expect you to get wild tonight, okay? none of that vanilla shit.",
     "down a whole bottle of svedko and go apeshit. smash our pool table or something. you have my blessing.",
@@ -244,10 +232,22 @@ let jake1b = [
     "SUZY.",
     "BELLA, yeah. if she ever wants, like, a cocktail or anything, i'm your guy.",
     "CHOICE_***come up with something funny later^0",
-    "but for real. you guys need anyhting, come find me. i'll be around.^4",
+    "but for real. you guys need anything, come find me. i'll be around.^4",
     "awwww, ANDY, you're adorable.",
     "sure, why not? i'll sign it.",
     "[ JAKE signs your YEARBOOK. ]"
+]
+let ellie2a = [
+]
+let ellie2b = [
+]
+let angela2a = [
+]
+let angela2b = [
+]
+let brad2a = [
+]
+let brad2b = [
 ]
 let jake2a = [
 ]
@@ -255,40 +255,23 @@ let jake2b = [
 ]
 
 // interactive items
-let tesla1a = [
-    "[ JAKE's TESLO MODEL W. he always parks it outside his garage, like an asshole. ]",
-    "CHOICE_KEY JAKE'S CAR^0_BEGRUDGINGLY ADMIRE JAKE'S CAR^4_DO NOTHING^6",
-    "[ the glossy, black finish beckons. your hand twitches at your KEYS. ]",
-    "[ one little nick couldn't hurt... right...? ]",
-    "[ ... ]",
-    "[ nah. you shouldn't. ]^3",
-    "[ oh, if only TESLOs weren't exclusively owned by rich jerks. ]",
-    "[ although you guess it doesn't help that they were invented by a rich jerk. ]"
+let tv1a = [
+    "[  ]"
 ]
-let toyota1a = [
-    "[ your beat-up 2008 TOYOTO CAMRY. she's not the fastest, nor the most reliable, but she's all yours. ]",
-    "CHOICE_DRIVE BACK HOME^0_KEY YOUR CAR^2_DO NOTHING^3",
-    "[ honestly, not a bad idea. ]",
-    "[ but with gas prices the way they are... yeah. nevermind. ]^2",
-    "[ why would you do that. ]"
+let ps51a = [
+    "[  ]"
 ]
-let bush1a = [
-    "[ JAKE lives in the nicer part of town, which you can tell from this non-native, expensive-looking SHRUBBERY. ]",
-    "[ it probably sucks up enough water to fill a swimming pool. ]",
-    "CHOICE_PISS IN THEM^0_DO NOTHING^2",
-    "[ what? no. you're not a degenerate. ]",
-    "[ and NICK JEONG will probably do that later, anyway. ]"
+let recordplayer1a = [
+    "[  ]"
 ]
-let yearbook1a = [
-    "[ someone left their YEARBOOK on the front lawn. don't these things cost $200? ]",
-    "CHOICE_PICK UP^0_LEAVE IT^2",
-    "[ guess it's yours now. ]",
-    "PICKUP"
+let recordbox1a = [
+    "[  ]"
 ]
-let frontdoor1a = [
-    "[ the FRONT DOOR to JAKE's house. ]",
-    "CHOICE_KNOCK ON FRONT DOOR^0_DO NOTHING^1",
-    "KNOCKKNOCK"
+let couch1a = [
+    "[  ]"
+]
+let lamp1a = [
+    "[  ]"
 ]
 
 // ui
