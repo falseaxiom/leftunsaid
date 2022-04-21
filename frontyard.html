@@ -655,13 +655,6 @@
                 getChoices(yearbook2a[n]);
                 currentDialog[1]++;
             }
-            else if (yearbook2a[n] == "DROP") {
-                hide(document.getElementById("uyearbook"));
-                localStorage.setItem("y", 2);
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
             else {
                 if (!isHidden(dark2)) toggleChoices();
                 if (yearbook2a[n].includes("^")) {
