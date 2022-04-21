@@ -433,45 +433,11 @@
                 }
             }
         }
-        function jake1(n) {          
-            console.log("jake1 dialog:", n);
-            if (n == 0) { toggleDialog(); currentDialog[0] = "jake1"; } // dialog start
-            if (n == jake1a.length) { // dialog finish
-                if (!isHidden(dark2)) toggleChoices();
-                if (!isHidden(jake)) hide(djake);
-                if (!isHidden(suzy)) hide(dsuzy);
-                toggleDialog();
-                currentDialog = ["", 0];
-                location.href = "./old-living.html";
-            }
-            jake1a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // show suzy's sprite when she's talking
-            jake1a[n] == "JAKE:" ? unhide(djake) : hide(djake); // show jake's sprite when he's talking
-            if (jake1b[n].substring(0,6) == "CHOICE") { // choice
-                charname.innerHTML = "";
-                dialog.innerHTML = "";
-                getChoices(jake1b[n]);
-                currentDialog[1]++;
-            }
-            else { // mid-dialog
-                if (!isHidden(dark2)) toggleChoices();
-                if (jake1b[n].includes("^")) {
-                    let dgs = jake1b[n].split("^");
-                    charname.innerHTML = jake1a[n];
-                    dialog.innerHTML = dgs[0];
-                    currentDialog[1] += parseInt(dgs[1]);
-                }
-                else {
-                    charname.innerHTML = jake1a[n];
-                    dialog.innerHTML = jake1b[n];
-                    currentDialog[1]++;
-                }
-            }
-        }
         // character dialog
-        function suzy2(n) {
-            console.log("suzy2 dialog:", n);
-            if (n == 0) currentDialog[0] = "suzy2"; // dialog start
-            if (n == suzy2a.length) { // dialog finish
+        function suzy1(n) {
+            console.log("suzy1 dialog:", n);
+            if (n == 0) currentDialog[0] = "suzy1"; // dialog start
+            if (n == suzy1a.length) { // dialog finish
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dsuzy);
@@ -479,24 +445,24 @@
                 currentDialog = ["", 0];
                 return;
             }
-            suzy2a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // show suzy's sprite when she's talking
-            if (suzy2b[n].substring(0,6) == "CHOICE") { // choice
+            suzy1a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // show suzy's sprite when she's talking
+            if (suzy1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
-                getChoices(suzy2b[n]);
+                getChoices(suzy1b[n]);
                 currentDialog[1]++;
             }
             else { // mid-dialog
                 if (!isHidden(dark2)) toggleChoices();
-                if (suzy2b[n].includes("^")) {
-                    let dgs = suzy2b[n].split("^");
-                    charname.innerHTML = suzy2a[n];
+                if (suzy1b[n].includes("^")) {
+                    let dgs = suzy1b[n].split("^");
+                    charname.innerHTML = suzy1a[n];
                     dialog.innerHTML = dgs[0];
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    charname.innerHTML = suzy2a[n];
-                    dialog.innerHTML = suzy2b[n];
+                    charname.innerHTML = suzy1a[n];
+                    dialog.innerHTML = suzy1b[n];
                     currentDialog[1]++;
                 }
             }
