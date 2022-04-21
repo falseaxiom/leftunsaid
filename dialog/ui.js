@@ -15,7 +15,7 @@ let yearbook2a = [
     "DROP",
 ]
 let bracelet1a = [
-    "[ a BRACELET that you need to return to ANVI. ]",
+    "[ ANVI'S BRACELET. ]",
     "CHOICE_INSPECT ITEM^0_DROP ITEM^3_DO NOTHING^5",
     "[ something about this BRACELET feels very familiar... ]",
     "[ you can't quite put your finger on it, though. ]",
@@ -24,7 +24,7 @@ let bracelet1a = [
     "[ it just doesn't feel right. ]"
 ]
 let scrunchie1a = [
-    "[ a SCRUNCHIE that you need to return to RYAN. ]",
+    "[ RYAN'S SCRUNCHIE. ]",
     "CHOICE_INSPECT ITEM^0_DROP ITEM^2_DO NOTHING^4",
     "[ you didn't think RYAN's hair was long enough to put in a SCRUNCHIE. ]",
     "[ but then again, you haven't seen him in a while. ]^3",
@@ -32,7 +32,7 @@ let scrunchie1a = [
     "[ it just doesn't feel right. ]"
 ]
 let lighter1a = [
-    "[ a LIGHTER that you need to return to LISA. ]",
+    "[ LISA'S LIGHTER. ]",
     "CHOICE_INSPECT ITEM^0_DROP ITEM^2_DO NOTHING^4",
     "[ you flick the LIGHTER a couple times. nothing happens. ]",
     "[ BRAD must've burnt it out... what's the point of returning it, then? ]^3",

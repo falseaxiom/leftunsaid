@@ -48,128 +48,210 @@ autob = [
     "you, too, ANDY - you've gotta try it at least once before we go!"
 ]
 
-
-let suzy1a = [
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "SUZY:",
-    "",
-    "SUZY:"
-]
-let suzy1b = [
-    "finally, we're here!!!",
-    "you were driving like an old lady the whole way.",
-    "i bet i could've gotten us here faster.",
-    "CHOICE_you don't even have your license yet.^0_big talk for someone who can't reach the brake pedal.^0",
-    "i still know more road rules than you, though.",
-    "ate KITKAT told me if a stop sign has a white border, it's optional.<br/><br/><br/><br/><em style='color:var(--d)'>(A/N: \"ate\" is a filipino term for big sister, but is usually used to refer to any older girl.)</em>",
-    "but you stopped at every single one of them!",
-    "CHOICE_KITKAT failed her driver's test twice.^0_did she also tell you if all three traffic lights turn on at once, you get $10?^1",
-    "well, i still trust her more than you.^3",
-    "...",
-    "well, that's just not true.",
-    "but whatever.",
-    "i thought having an older brother would mean i got to go to more parties. and a varsity athlete, no less!",
-    "but nooo, all you do is stay at home and study. and crochet.",
-    "***like an old lady.***",
-    "and when you do go to parties, you don't bring me!",
-    "now my first ever house party is your stupid swim team grad party. i'm not gonna know a single person there.",
-    "CHOICE_like i said, you didn't have to come.^0",
-    "oh, so i was supposed to pass up an opportunity to blackmail you?",
-    "it's not every day we run into JAKE GIORDANO while buying craft yarn.",
-    "\"uhh, i'm holding this for my sister!!\"",
-    "\"my name is DREW REYES and i can't admit to having traditionally feminine hobbies in front of my guy friends!!\"",
-    "i could've *destroyed* your social life right then and there.",
-    "but i kept that secret for the rest of may, like the best baby sister ever, asking for nothing in return.",
-    "CHOICE_except for a ride to JAKE's party.^0",
-    "exactly. so let's get moving!!!"
-]
-let jake1a = [
-    "JAKE:",
-    "SUZY:",
-    "",
-    "JAKE:",
-    "JAKE:",
-    "JAKE:",
-    "JAKE:",
-    "JAKE:",
-    "JAKE:",
-    "",
-    "JAKE:",
-    "JAKE:",
-    "SUZY:",
-    "JAKE:",
-    "JAKE:",
-    "JAKE:",
-    "",
-    "JAKE:",
-    "",
-    "JAKE:",
-    "JAKE:",
-    "JAKE:",
-    "JAKE:"
-]
-let jake1b = [
-    "well well well, if it isn't ANDY REYES in the flesh!",
-    "(andy??)",
-    "[ DREW is not short for ANDREW. it's not short for anything. JAKE knows this. ]",
-    "so glad you could fit us into your busy schedule.",
-    "y'know, everyone said you weren't gonna show, but i was like, \"hey, we're graduating! you think he'd pass up one last rager?\"",
-    "and they were like, \"yeah, probably.\"",
-    "but here you are, proving everyone wrong.",
-    "AND you brought a girl! full of surprises, this guy.",
-    "don't think we've met before. i'm JAKE.",
-    "CHOICE_SUZY. my little sister.^0",
-    "right! the knitting girl, with the yarn.",
-    "sorry about that. ANDY doesn't talk about you much.",
-    "i prefer it that way, actually. less association between us.",
-    "haha, burn! i like you already.",
-    "well, come on in, make yourself at home. there's pizza and booze.",
-    "\"mi casa es tu casa\" and all that.",
-    "[ SUZY walks in first, and you follow suit - but JAKE stops you. ]",
-    "(your sister. is she single?)",
-    "CHOICE_did you really just ask me that?^0_she's a freshman, creep.^1_what about ANGELA?^2",
-    "(whaaat? it's just a joke!)^3",
-    "(kidding! jeez. lighten up, reyes.^2",
-    "(ah, we're on a break right now. you know how ANGIE is.)",
-    "anyway. let's go to the living room first - everyone's gotta know you're alive."
-]
-
 // characters
-let suzy2a = [
+let ellie1a = [
     "",
     "",
-    "SUZY:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
     "",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "",
+    "ELLIE:",
+    "ELLIE:",
     ""
 ]
-let suzy2b = [
-    "[ SUZY REYES, your little sister. ]",
-    "CHOICE_TALK TO SUZY^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
-    "what are we still doing standing outside? there's a party waiting for us!!^3",
-    "[ she literally lives in the same house as you. what would she even write? \"have a good summer\"? ]",
-    "[ she'd probably make your summer worse just for asking her. ]"
+let ellie1b = [
+    "[ ELLIE MACLEAN, a front crawler on WBHS VARSITY WOMEN'S SWIM. going to OBERLIN in the fall. ]",
+    "CHOICE_TALK TO ELLIE^0_yyASK TO SIGN YEARBOOK^18_DO NOTHING^20",
+    "DREW. good to see you.",
+    "...",
+    "so, uh. kinda thought you wouldn't be here, so i invited ANVI. sorry about that.",
+    "you probably won't run into her, though.",
+    "i mean, how many varsity seniors are there? 15? 20?",
+    "don't think you've talked to that many people in your life.",
+    "CHOICE_ANVI's here?^0_ha-ha. you're one to talk.^1",
+    "oh, right.^2",
+    "heh, kidding.",
+    "so i actually have a favor to ask you.",
+    "i mean it doesn't have to be you but you're already here, so.",
+    "can you give this BRACELET back to ANVI?",
+    "i borrowed it for prom and keep forgetting to return it.",
+    "i know you guys ended kinda messy, but the thing is...",
+    "i actually don't care.",
+    "anyway here you go.",
+    "[ ELLIE gives you ANVI'S BRACELET. ]",
+    "she's probably in the DINING ROOM right now.^3",
+    "...",
+    "[ ELLIE signs your YEARBOOK. ]",
+]
+let ellie2a = [
+]
+let ellie2b = [
+]
+let angela1a = [
+    "",
+    "",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "",
+    "ANGELA:",
+    "",
+    "ANGELA:",
+    "ANGELA:",
+    ""
+]
+let angela1b = [
+    "[ ANGELA YAO, a backstroker for WBHS VARSITY WOMEN'S SWIM. going to NYU in the fall. ]",
+    "TALK TO ANGELA^0_yyASK TO SIGN YEARBOOK^20_DO NOTHING^22",
+    "drew!! it's so nice to see you again.",
+    "sooo, slight mishap...",
+    "i thought you might not come, so i sorta invited RYAN. i hope that's ok?",
+    "actually, i think it could be really good for you two to talk!",
+    "we on't have so many days left together, after all... </3",
+    "CHOICE_RYAN's here?^0_why would i care that he's here?^4",
+    "it's totally possible to avoid him too!",
+    "i mean he is friends with everyone so it might be hard but as long as you stay in one spot?",
+    "and i have a feeling he won't try to talk to you, either. ^^;",
+    "(but i still think it'd be good for you guys to patch things up...)^3",
+    ".............",
+    "no reason.",
+    "y'know what, actually -",
+    "i do have a teeny tiny little favor to ask you.",
+    "i borrowed this SCRUNCHIE from RYAN a long time ago and keep forgetting to give it back - could you do it for me instead?",
+    "i'd go find him myself, but i don't really want to get up, is the thing.",
+    "FAKECHOICE_no._no way in hell._go fuck yourself.",
+    "yay amazing!!! thanks so much <3 <3 <3",
+    "[ ANGELA gives you RYAN'S SCRUNCHIE. ]",
+    "last i saw him, he was in the KITCHEN.^3",
+    "omg of course i'll sign your yearbook!!!",
+    "[ ANGELA signs your YEARBOOK. ]",
+]
+let angela2a = [
+]
+let angela2b = [
+]
+let brad1a = [
+    "",
+    "",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "",
+    "BRAD:",
+    "",
+    "BRAD:",
+    ""
+]
+let brad1b = [
+    "[ BRAD SZYMANSKI, a breaststroker for WBHS VARSITY MEN'S SWIM. going to NJIT in the fall. ]",
+    "CHOICE_TALK TO BRAD^0_yyASK TO SIGN YEARBOOK^23_DO NOTHING^25",
+    "ANDY, my main man!",
+    "can i hit you up with anything? vodka? beer? white talon?",
+    "just kidding - i know you don't drink, haha.",
+    "but like i said earlier, if you want a hit, BRADDY's got you covered.",
+    "just head out back and tell LISA i sent you, yeah? she's got blunts for days.",
+    "CHOICE_LISA's here?^0_i don't smoke, either.^5",
+    "oh shit, you know my girl?",
+    "i mean she's not my GIRL, my girl. obviously.",
+    "but you know what i mean.",
+    "i know she doesn't go to dub, but like! can't have a dope party without a dope dealer!! amirite!!!",
+    "(actually i have no idea if she deals dope. i think it's just weed.)^2",
+    "riiight. and MR. HINTZ didn't fail me in precalc twice. wink wink",
+    "actually, speaking of LISE -",
+    "i borrowed this lighter from her earlier tonight, so i could hit the FATTEST blunt -",
+    "I mean you shoulda SEEN this thing, REYES, it was like stuffed to the MAX, maybe as long as my ring finger -",
+    "like, i could eat ten whole bags of roditos right now. family-size. dead serious.",
+    "[ BRAD trails off. he seems entranced by the idea of eating a family-size bag of roditos. ]",
+    "oh, damn. i'm getting off track. anyway.",
+    "give her back this LIGHTER for me, yeah? you'd be my hero.",
+    "because if i'm being honest, i can't even stand up right now.",
+    "[ BRAD gives you LISA'S LIGHTER. ]",
+    "she's defo somewhere out in the BACKYARD.",
+    "[ before you can even protest, BRAD has already checked out of the conversation, demolishing a family-size pack of roditos he has somehow materialized. ]^3",
+    "hell yeah, dude! i'll sign your yearbook.",
+    "[ BRAD signs your YEARBOOK. ]"
+]
+let brad2a = [
+]
+let brad2b = [
+]
+let jake1a = [
+    "",
+    "",
+    "JAKE:",
+    "JAKE:",
+    "JAKE:",
+    "JAKE:",
+    "SUZY:",
+    "JAKE:",
+    "",
+    "JAKE:",
+    "JAKE:",
+    "JAKE:",
+    ""
+]
+let jake1b = [
+    "[ JAKE GIORDANO, a fellow butterflyer and the captain of WBHS MEN'S VARSITY SWIM. going to BERKELEY in the fall. ]",
+    "CHOICE_TALK TO JAKE^0_yyASK TO SIGN YEARBOOK^_DO NOTHING^",
+    "ANDY, ANDY, ANDY.",
+    "i expect you to get wild tonight, okay? none of that vanilla shit.",
+    "down a whole bottle of svedko and go apeshit. smash our pool table or something. you have my blessing.",
+    "and your sister, too. SALLY?",
+    "SUZY.",
+    "BELLA, yeah. if she ever wants, like, a cocktail or anything, i'm your guy.",
+    "CHOICE_***come up with something funny later^0",
+    "but for real. you guys need anyhting, come find me. i'll be around.^4",
+    "awwww, ANDY, you're adorable.",
+    "sure, why not? i'll sign it.",
+    "[ JAKE signs your YEARBOOK. ]"
+]
+let jake2a = [
+]
+let jake2b = [
 ]
 
 // interactive items
@@ -213,4 +295,18 @@ let frontdoor1a = [
 let map2a = [
     "[ now that you're actually in the house, you're starting to remember it a little better. ]", 
     "MAP"
+]
+let suzy1a = [
+    "SUZY:",
+    "SUZY:",
+    "SUZY:",
+    "SUZY:",
+    "SUZY:"
+]
+let suzy1b = [
+    "WOW!!! that was super embarrassing.",
+    "for you, not for me. just to be clear.",
+    "i honestly thought you'd be cooler around your friends.",
+    "and that, y'know, they'd talk to you like you're their equal.",
+    "guess that was asking for too much?"   
 ]

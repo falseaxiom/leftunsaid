@@ -103,7 +103,7 @@ let jake1b = [
     "(whaaat? it's just a joke!)^3",
     "(kidding! jeez. lighten up, reyes.^2",
     "(ah, we're on a break right now. you know how ANGIE is.)",
-    "anyway. let's go to the living room first - everyone's gotta know you're alive."
+    "anyway. let's go to the LIVING ROOM first - everyone's gotta know you're alive."
 ]
 
 // characters
