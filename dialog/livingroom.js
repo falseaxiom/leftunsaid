@@ -70,12 +70,14 @@ let ellie1a = [
     "ELLIE:",
     "",
     "ELLIE:",
+    "",
     "ELLIE:",
+    "",
     ""
 ]
 let ellie1b = [
     "[ ELLIE MACLEAN, a front crawler on WBHS VARSITY WOMEN'S SWIM. ]",
-    "CHOICE_TALK TO ELLIE^0_yyASK TO SIGN YEARBOOK^18_DO NOTHING^20",
+    "CHOICE_TALK TO ELLIE^0_yyASK TO SIGN YEARBOOK^19_DO NOTHING^22",
     "DREW. good to see you.",
     "...",
     "so, uh. kinda thought you wouldn't be here, so i invited ANVI. sorry about that.",
@@ -93,9 +95,11 @@ let ellie1b = [
     "i actually don't care.",
     "anyway here you go.",
     "[ ELLIE gives you ANVI'S BRACELET. ]",
-    "she's probably in the DINING ROOM right now.^3",
+    "she's probably in the DINING ROOM right now.",
+    "BRANCH^3",
     "...",
     "[ ELLIE signs your YEARBOOK. ]",
+    "SIGN"
 ]
 let angela1a = [
     "",
@@ -120,12 +124,14 @@ let angela1a = [
     "ANGELA:",
     "",
     "ANGELA:",
+    "",
     "ANGELA:",
+    "",
     ""
 ]
 let angela1b = [
     "[ ANGELA YAO, a backstroker for WBHS VARSITY WOMEN'S SWIM. ]",
-    "CHOICE_TALK TO ANGELA^0_yyASK TO SIGN YEARBOOK^20_DO NOTHING^22",
+    "CHOICE_TALK TO ANGELA^0_yyASK TO SIGN YEARBOOK^21_DO NOTHING^24",
     "drew!! it's so nice to see you again.",
     "sooo, slight mishap...",
     "i thought you might not come, so i sorta invited RYAN. i hope that's ok?",
@@ -145,9 +151,11 @@ let angela1b = [
     "FAKECHOICE_no._no way in hell._go fuck yourself.",
     "yay amazing!!! thanks so much <3 <3 <3",
     "[ ANGELA gives you RYAN'S SCRUNCHIE. ]",
-    "last i saw him, he was in the KITCHEN.^3",
+    "last i saw him, he was in the KITCHEN.",
+    "BRANCH^3",
     "omg of course i'll sign your yearbook!!!",
     "[ ANGELA signs your YEARBOOK. ]",
+    "SIGN"
 ]
 let brad1a = [
     "",
@@ -175,12 +183,14 @@ let brad1a = [
     "",
     "BRAD:",
     "",
+    "",
     "BRAD:",
+    "",
     ""
 ]
 let brad1b = [
     "[ BRAD SZYMANSKI, a breaststroker for WBHS VARSITY MEN'S SWIM. ]",
-    "CHOICE_TALK TO BRAD^0_yyASK TO SIGN YEARBOOK^23_DO NOTHING^25",
+    "CHOICE_TALK TO BRAD^0_yyASK TO SIGN YEARBOOK^24_DO NOTHING^27",
     "ANDY, my main man!",
     "can i hit you up with anything? vodka? beer? white talon?",
     "just kidding - i know you don't drink, haha.",
@@ -203,9 +213,11 @@ let brad1b = [
     "because if i'm being honest, i can't even stand up right now.",
     "[ BRAD gives you LISA'S LIGHTER. ]",
     "she's defo somewhere out in the BACKYARD.",
-    "[ before you can even protest, BRAD has already checked out of the conversation, demolishing a family-size pack of roditos he has somehow materialized. ]^3",
+    "[ before you can even protest, BRAD has already checked out of the conversation, demolishing a family-size pack of roditos he has somehow materialized. ]",
+    "BRANCH^3",
     "hell yeah, dude! i'll sign your yearbook.",
-    "[ BRAD signs your YEARBOOK. ]"
+    "[ BRAD signs your YEARBOOK. ]",
+    "SIGN"
 ]
 let jake1a = [
     "",
@@ -218,13 +230,15 @@ let jake1a = [
     "JAKE:",
     "",
     "JAKE:",
+    "",
     "JAKE:",
     "JAKE:",
+    "",
     ""
 ]
 let jake1b = [
     "[ JAKE GIORDANO, a fellow butterflyer and the captain of WBHS MEN'S VARSITY SWIM. ]",
-    "CHOICE_TALK TO JAKE^0_yyASK TO SIGN YEARBOOK^8_DO NOTHING^11",
+    "CHOICE_TALK TO JAKE^0_yyASK TO SIGN YEARBOOK^9_DO NOTHING^13",
     "ANDY, ANDY, ANDY.",
     "i expect you to get wild tonight, okay? none of that vanilla shit.",
     "down a whole bottle of svedko and go apeshit. smash our pool table or something. you have my blessing.",
@@ -232,10 +246,12 @@ let jake1b = [
     "SUZY.",
     "BELLA, yeah. if she ever wants, like, a cocktail or anything, i'm your guy.",
     "CHOICE_***come up with something funny later^0",
-    "but for real. you guys need anything, come find me. i'll be around.^4",
+    "but for real. you guys need anything, come find me. i'll be around.",
+    "BRANCH^4",
     "awwww, ANDY, you're adorable.",
     "sure, why not? i'll sign it.",
-    "[ JAKE signs your YEARBOOK. ]"
+    "[ JAKE signs your YEARBOOK. ]",
+    "SIGN"
 ]
 let ellie2a = [
 ]

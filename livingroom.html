@@ -95,6 +95,7 @@
         let text = document.getElementById("text");
         let charname = document.getElementById("charname");
         let dialog = document.getElementById("dialog");
+        let usuzy = document.getElementById("usuzy");
         // dialog character sprites
         let dsuzy = document.getElementById("dsuzy");
         let dellie = document.getElementById("dellie");
@@ -118,12 +119,26 @@
             localStorage.setItem("branch1", ""); // first branch - which old friend do u approach?
             localStorage.setItem("sigs", ""); // signatures in yearbook
         }
+        // change current room
+        localStorage.setItem("curr", "livingroom")
         // if yearbook picked up, display in inventory
         if (localStorage.getItem("y") == 1) {
             unhide(document.getElementById("uyearbook"));
         }
-        // change current room
-        localStorage.setItem("curr", "livingroom")
+        // display return item based on branch
+        switch (localStorage.getItem("branch1")) {
+            case "anvi":
+                unhide(document.getElementById("ubracelet"));
+                break;
+            case "ryan":
+                unhide(document.getElementById("uscrunchie"));
+                break;
+            case "lisa":
+                unhide(document.getElementById("ulighter"));
+                break;
+            default:
+                break;
+        }
         // do living room opening if not done yet
         if (localStorage.getItem("livopening") == 0) livOpening();
 
@@ -232,7 +247,7 @@
                         break;
                     case("usuzy"):
                         toggleDialog();
-                        suzy(0);
+                        suzy1(0);
                         break;
                     default:
                         break;
@@ -262,12 +277,14 @@
                 unhide(dark);
                 unhide(textbox);
                 unhide(text);
+                hide(usuzy);
             }
             else {
                 console.log("dialog is not hidden")
                 hide(dark);
                 hide(textbox);
                 hide(text);
+                unhide(usuzy);
             }
         }
         // dialog switch
@@ -340,7 +357,7 @@
                         trash(currentDialog[1]);
                         break;
                     case ("suzy"):
-                        suzy(currentDialog[1]);
+                        suzy1(currentDialog[1]);
                         break;
                     default:
                         break;
@@ -358,7 +375,7 @@
             }
         }
         // extract choices
-        function getChoices(str) {
+        function getChoices(str, name="") {
             toggleChoices();
             console.log("making a choice...");
             let choices = str.split("_");
@@ -369,6 +386,17 @@
                     if (choices[i].substring(0,2) != "yy") continue;
                     choices.splice(i,1);
                     break;
+                }
+            }
+            else { // if yearbook picked up and speaker already signed
+                let sigs = localStorage.getItem("sigs").split("_");
+                sigs.shift();
+                if (sigs.includes(name)) {
+                    for (let i = 0; i < choices.length; i++) {
+                    if (choices[i].substring(0,2) != "yy") continue;
+                    choices.splice(i,1);
+                    break;
+                }
                 }
             }
             for (let i = 0; i < choices.length; i++) {
@@ -441,7 +469,6 @@
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dellie);
-                unhide(document.getElementById("ubracelet")); // unhide bracelet
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
@@ -450,8 +477,27 @@
             if (ellie1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
-                getChoices(ellie1b[n]);
+                getChoices(ellie1b[n], "ellie");
                 currentDialog[1]++;
+            }
+            else if (ellie1b[n] == "BRANCH") { // branch
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dellie);
+                unhide(document.getElementById("ubracelet")); // unhide bracelet
+                localStorage.setItem("branch1", "anvi") // ANVI ROUTE
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (ellie1b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dellie);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_ellie") // add ellie's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
             }
             else { // mid-dialog
                 if (!isHidden(dark2)) toggleChoices();
@@ -475,7 +521,6 @@
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dangela);
-                unhide(document.getElementById("uscrunchie")); // unhide scrunchie
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
@@ -484,8 +529,27 @@
             if (angela1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
-                getChoices(angela1b[n]);
+                getChoices(angela1b[n], "angela");
                 currentDialog[1]++;
+            }
+            else if (angela1b[n] == "BRANCH") { // branch
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dangela);
+                unhide(document.getElementById("uscrunchie")); // unhide scrunchie
+                localStorage.setItem("branch1", "ryan") // RYAN ROUTE
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (angela1b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dangela);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_angela") // add angela's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
             }
             else { // mid-dialog
                 if (!isHidden(dark2)) toggleChoices();
@@ -509,7 +573,6 @@
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dbrad);
-                unhide(document.getElementById("ulighter")); // unhide lighter
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
@@ -518,8 +581,27 @@
             if (brad1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
-                getChoices(brad1b[n]);
+                getChoices(brad1b[n], "brad");
                 currentDialog[1]++;
+            }
+            else if (brad1b[n] == "BRANCH") { // branch
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dbrad);
+                unhide(document.getElementById("ulighter")); // unhide lighter
+                localStorage.setItem("branch1", "lisa") // LISA ROUTE
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (brad1b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dbrad);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_brad") // add brad's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
             }
             else { // mid-dialog
                 if (!isHidden(dark2)) toggleChoices();
@@ -552,8 +634,26 @@
             if (jake1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
-                getChoices(jake1b[n]);
+                getChoices(jake1b[n], "jake");
                 currentDialog[1]++;
+            }
+            else if (jake1b[n] == "BRANCH") { // branch
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(djake);
+                localStorage.setItem("branch1", "suzy") // SUZY ROUTE
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (jake1b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(djake);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_jake") // add jake's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
             }
             else { // mid-dialog
                 if (!isHidden(dark2)) toggleChoices();
@@ -805,7 +905,7 @@
         }
         function suzy1(n) {
             console.log("suzy1 dialog:", n);
-            if (n == 0) currentDialog[0] = "suzy1"; // dialog start
+            if (n == 0) currentDialog[0] = "suzy"; // dialog start
             if (n == suzy1a.length) { // dialog finish
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);

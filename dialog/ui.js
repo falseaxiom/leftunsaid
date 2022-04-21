@@ -10,9 +10,8 @@ let phone1a = [
 let yearbook2a = [
     "[ west brunswick high school's 2021-2022 YEARBOOK. ]",
     "CHOICE_SEE SIGNATURES^0_DROP ITEM^1_DO NOTHING^2",
-    "SIGS^3",
-    "[ it IS kinda heavy... but you feel like MAMA would appreciate if you brought it back for her. ]^2",
-    "DROP",
+    "SIGS^2",
+    "[ it IS kinda heavy... but you feel like MAMA would appreciate if you brought it back for her. ]",
 ]
 let bracelet1a = [
     "[ ANVI'S BRACELET. ]",
