@@ -480,7 +480,7 @@
                 getChoices(ellie1b[n], "ellie");
                 currentDialog[1]++;
             }
-            else if (ellie1b[n] == "BRANCH") { // branch
+            else if (ellie1b[n].substring(0,6) == "BRANCH") { // branch
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dellie);
@@ -532,7 +532,7 @@
                 getChoices(angela1b[n], "angela");
                 currentDialog[1]++;
             }
-            else if (angela1b[n] == "BRANCH") { // branch
+            else if (angela1b[n].substring(0,6) == "BRANCH") { // branch
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dangela);
@@ -584,7 +584,7 @@
                 getChoices(brad1b[n], "brad");
                 currentDialog[1]++;
             }
-            else if (brad1b[n] == "BRANCH") { // branch
+            else if (brad1b[n].substring(0,6) == "BRANCH") { // branch
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dbrad);
@@ -637,7 +637,7 @@
                 getChoices(jake1b[n], "jake");
                 currentDialog[1]++;
             }
-            else if (jake1b[n] == "BRANCH") { // branch
+            else if (jake1b[n].substring(0,6) == "BRANCH") { // branch
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(djake);
@@ -666,6 +666,185 @@
                 else {
                     charname.innerHTML = jake1a[n];
                     dialog.innerHTML = jake1b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function ellie2(n) {
+            console.log("ellie2 dialog:", n);
+            if (n == 0) currentDialog[0] = "ellie2"; // dialog start
+            if (n == ellie2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dellie);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            ellie2a[n] == "ELLIE:" ? unhide(dellie) : hide(dellie); // show ellie's sprite when she's talking
+            if (ellie2b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(ellie2b[n], "ellie");
+                currentDialog[1]++;
+            }
+            else if (ellie2b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dellie);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_ellie") // add ellie's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (ellie2b[n].includes("^")) {
+                    let dgs = ellie2b[n].split("^");
+                    charname.innerHTML = ellie2a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = ellie2a[n];
+                    dialog.innerHTML = ellie2b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function angela2(n) {
+            console.log("angela2 dialog:", n);
+            if (n == 0) currentDialog[0] = "angela2"; // dialog start
+            if (n == angela2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dangela);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            angela2a[n] == "ANGELA:" ? unhide(dangela) : hide(dangela); // show angela's sprite when she's talking
+            if (angela2b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(angela2b[n], "angela");
+                currentDialog[1]++;
+            }
+            else if (angela2b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dangela);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_angela") // add angela's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (angela2b[n].includes("^")) {
+                    let dgs = angela2b[n].split("^");
+                    charname.innerHTML = angela2a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = angela2a[n];
+                    dialog.innerHTML = angela2b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function brad2(n) {
+            console.log("brad2 dialog:", n);
+            if (n == 0) currentDialog[0] = "brad2"; // dialog start
+            if (n == brad2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dbrad);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            brad2a[n] == "BRAD:" ? unhide(dbrad) : hide(dbrad); // show brad's sprite when he's talking
+            brad2a[n] == "ELLIE:" ? unhide(dellie) : hide(dellie); // ellie
+            if (brad2b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(brad2b[n], "brad");
+                currentDialog[1]++;
+            }
+            else if (brad2b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(dbrad);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_brad") // add brad's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (brad2b[n].includes("^")) {
+                    let dgs = brad2b[n].split("^");
+                    charname.innerHTML = brad2a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = brad2a[n];
+                    dialog.innerHTML = brad2b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function jake2(n) {
+            console.log("jake2 dialog:", n);
+            if (n == 0) currentDialog[0] = "jake2"; // dialog start
+            if (n == jake2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(djake);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            jake2a[n] == "JAKE:" ? unhide(djake) : hide(djake); // show jake's sprite when he's talking
+            jake2a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // suzy
+            if (jake2b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(jake2b[n], "jake");
+                currentDialog[1]++;
+            }
+            else if (jake2b[n].substring(0,6) == "BRANCH") { // branch
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(djake);
+                localStorage.setItem("branch1", "suzy") // SUZY ROUTE
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (jake2b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(choicehelper);
+                hide(djake);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_jake") // add jake's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (jake2b[n].includes("^")) {
+                    let dgs = jake2b[n].split("^");
+                    charname.innerHTML = jake2a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = jake2a[n];
+                    dialog.innerHTML = jake2b[n];
                     currentDialog[1]++;
                 }
             }

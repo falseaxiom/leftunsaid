@@ -96,7 +96,7 @@ let ellie1b = [
     "anyway here you go.",
     "[ ELLIE gives you ANVI'S BRACELET. ]",
     "she's probably in the DINING ROOM right now.",
-    "BRANCH^3",
+    "BRANCH^4",
     "...",
     "[ ELLIE signs your YEARBOOK. ]",
     "SIGN"
@@ -152,7 +152,7 @@ let angela1b = [
     "yay amazing!!! thanks so much <3 <3 <3",
     "[ ANGELA gives you RYAN'S SCRUNCHIE. ]",
     "last i saw him, he was in the KITCHEN.",
-    "BRANCH^3",
+    "BRANCH^4",
     "omg of course i'll sign your yearbook!!!",
     "[ ANGELA signs your YEARBOOK. ]",
     "SIGN"
@@ -191,7 +191,7 @@ let brad1a = [
 let brad1b = [
     "[ BRAD SZYMANSKI, a breaststroker for WBHS VARSITY MEN'S SWIM. ]",
     "CHOICE_TALK TO BRAD^0_yyASK TO SIGN YEARBOOK^24_DO NOTHING^27",
-    "ANDY, my main man!",
+    "ANDYYYY, my main man!",
     "can i hit you up with anything? vodka? beer? white talon?",
     "just kidding - i know you don't drink, haha.",
     "but like i said earlier, if you want a hit, BRADDY's got you covered.",
@@ -204,7 +204,7 @@ let brad1b = [
     "(actually i have no idea if she deals dope. i think it's just weed.)^2",
     "riiight. and MR. HINTZ didn't fail me in precalc twice. wink wink",
     "actually, speaking of LISE -",
-    "i borrowed this lighter from her earlier tonight, so i could hit the FATTEST blunt -",
+    "i borrowed this LIGHTER from her earlier tonight, so i could hit the FATTEST blunt -",
     "I mean you shoulda SEEN this thing, REYES, it was like stuffed to the MAX, maybe as long as my ring finger -",
     "like, i could eat ten whole bags of roditos right now. family-size. dead serious.",
     "[ BRAD trails off. he seems entranced by the idea of eating a family-size bag of roditos. ]",
@@ -214,7 +214,7 @@ let brad1b = [
     "[ BRAD gives you LISA'S LIGHTER. ]",
     "she's defo somewhere out in the BACKYARD.",
     "[ before you can even protest, BRAD has already checked out of the conversation, demolishing a family-size pack of roditos he has somehow materialized. ]",
-    "BRANCH^3",
+    "BRANCH^4",
     "hell yeah, dude! i'll sign your yearbook.",
     "[ BRAD signs your YEARBOOK. ]",
     "SIGN"
@@ -247,27 +247,147 @@ let jake1b = [
     "BELLA, yeah. if she ever wants, like, a cocktail or anything, i'm your guy.",
     "CHOICE_***come up with something funny later^0",
     "but for real. you guys need anything, come find me. i'll be around.",
-    "BRANCH^4",
+    "BRANCH^5",
     "awwww, ANDY, you're adorable.",
     "sure, why not? i'll sign it.",
     "[ JAKE signs your YEARBOOK. ]",
     "SIGN"
 ]
 let ellie2a = [
+    "",
+    "",
+    "ELLIE:",
+    "",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "ELLIE:",
+    "",
+    ""
 ]
 let ellie2b = [
+    "[ ELLIE MACLEAN, a front crawler on WBHS VARSITY WOMEN'S SWIM. ]",
+    "CHOICE_TALK TO ELLIE^0_yyASK TO SIGN YEARBOOK^7_DO NOTHING^10",
+    "nice to see you one last time. where are you going in the fall again?",
+    "CHOICE_georgia tech.^0_out of state.^1_you first.^2",
+    "sweet. good luck out there, man.^8",
+    "i mean, obviously. who'd want to stay in this dump?^7",
+    "oberlin.",
+    "to be honest... i'm kind of excited for college.",
+    "gonna miss the shit out of ANGIE, though.^4",
+    "...",
+    "[ ELLIE signs your YEARBOOK. ]",
+    "SIGN"
 ]
 let angela2a = [
+    "",
+    "",
+    "ANGELA:",
+    "ANGELA:",
+    "",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
+    "",
+    ""
 ]
 let angela2b = [
+    "[ ANGELA YAO, a backstroker for WBHS VARSITY WOMEN'S SWIM. ]",
+    "CHOICE_TALK TO ANGELA^0_yyASK TO SIGN YEARBOOK^9_DO NOTHING^12",
+    "i'm gonna miss you a whole lot, REYES.",
+    "(and i know JAKE will, too - don't mind his ribbing.)",
+    "CHOICE_i'll miss you too, ANGIE.^0_i'm sure he'll miss calling me ANDY.^1_ah, stern'll keep you plenty busy.^3",
+    "awwww!! <3^9",
+    "aw, you know he doesn't mean any harm. it's like a cute little inside joke!",
+    "BRAD, though... i don't think he knows that's not your name...^7",
+    "oh, don't even say it! stern's gonna be real killer.",
+    "i'm excited to live in the city, though. and flying out to see JAKE in cali will be fun.",
+    "i'm just gonna miss ELLIE...^4",
+    "omg of course i'll sign your yearbook!!!",
+    "[ ANGELA signs your YEARBOOK. ]",
+    "SIGN"
 ]
 let brad2a = [
+    "",
+    "",
+    "BRAD:",
+    "BRAD:",
+    "",
+    "",
+    "BRAD:",
+    "BRAD:",
+    "ELLIE:",
+    "BRAD:",
+    "BRAD:",
+    "BRAD:",
+    "",
+    "BRAD:",
+    "",
+    ""
 ]
 let brad2b = [
+    "[ BRAD SZYMANSKI, a breaststroker for WBHS VARSITY MEN'S SWIM. ]",
+    "CHOICE_TALK TO BRAD^0_yyASK TO SIGN YEARBOOK^11_DO NOTHING^14",
+    "aw, dude. not to get all sappy on you, but i'm gonna miss dub swim so much.",
+    "honestly think i might drive down from NJIT just to check on the newbies.",
+    "[ BRAD actually does look a little weepy. you think he might start crying. ]",
+    "CHOICE_how much did you drink?^0_how much did you smoke?^4_[ offer a friendly FIST BUMP. ]^6",
+    "ummmmm... i haven't really been keeping track.",
+    "yo, ELLE! you been counting?",
+    "at least six shots of flameball.",
+    "at least six shots of flameball.^7",
+    "a whole blunt. all by myself.",
+    "are you proud of me?^5",
+    "[ BRAD takes you up on that FIST BUMP, grinning wide. ]^4",
+    "hell yeah, dude! i'll sign your yearbook.",
+    "[ BRAD signs your YEARBOOK. ]",
+    "SIGN"
 ]
 let jake2a = [
+    "",
+    "",
+    "JAKE:",
+    "JAKE:",
+    "",
+    "JAKE:",
+    "SUZY:",
+    "JAKE:",
+    "JAKE:",
+    "JAKE:",
+    "",
+    "JAKE:",
+    "JAKE:",
+    "",
+    "JAKE:",
+    "JAKE:",
+    "",
+    ""
 ]
 let jake2b = [
+    "[ JAKE GIORDANO, a fellow butterflyer and the captain of WBHS MEN'S VARSITY SWIM. ]",
+    "CHOICE_TALK TO JAKE^0_yyASK TO SIGN YEARBOOK^12_DO NOTHING^16",
+    "y'know, ANDY, i'm kinda gonna miss you next year.",
+    "i mean, who am i supposed to pal around with at berkeley?",
+    "CHOICE_would you call what we do 'paling around'?^0_i'm sure you'll find someone else to laugh at. with.^4_[ polite SHRUG. ]^8",
+    "course i do! you're my AMIGO, dude. my COMPADRE. dare i say, my HER-MAN-O.",
+    "(does he know we're not latino...?)",
+    "i have nothing but love for you in my heart.",
+    "though i'll always wish your fly time wasn't better than mine. god damn.^10",
+    "ohoho, sharp tongue, this guy.",
+    "[ JAKE puts an arm around you and jostles you rather aggressively. ]",
+    "he's just bitter 'cause i used to tease him for his form.",
+    "if you want to be the best flyer in georgia, you gotta get those arms UP!^6",
+    "[ JAKE just laughs. ]^5",
+    "awwww, ANDY, you're adorable.",
+    "sure, why not? i'll sign it.",
+    "[ JAKE signs your YEARBOOK. ]",
+    "SIGN"
 ]
 
 // interactive items
@@ -309,10 +429,10 @@ let couch1a = [
 
 ]
 let lamp1a = [
-    "[ a modern-looking LAMP. ]",
+    "[ a modern-looking LAMP. it is currently turned off. ]",
     "CHOICE_TURN IT ON^0_DO NOTHING^2",
     "[ you try to turn it on, but it doesn't work. ]",
-    "[ when you follow the cord, it seems to not be plugged in... because someone is charging their vape at the outlet. ]"
+    "[ when you follow the cord, it seems to not be plugged in... because someone is charging their VAPE at the outlet. ]"
 ]
 
 // ui
