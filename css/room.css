@@ -90,10 +90,20 @@ body {
     background: var(--e);
 }
 
+/* map stuff */
+.area {
+    position: absolute;
+    background: none;
+}
+.area:hover {
+    background: var(--f);
+}
+
 /* navbar */
 .nav {
     width: 450px;
     height: 2em;
+    margin-top: 10px;
     position: absolute;
     display: flex;
     flex-direction: row;

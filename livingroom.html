@@ -53,6 +53,7 @@
 
             <!-- dialog stuff -->
             <img class="d big hidden" id="dark" src="./imgs/1 living room/dialog/dark.png" style="opacity: 50%">
+            <img class="d big hidden" id="dmap" src="./imgs/1 living room/dialog/dmap.png">
             <img class="d big hidden" id="dsuzy" src="./imgs/1 living room/dialog/suzy.png">
             <img class="d big hidden" id="dellie" src="./imgs/1 living room/dialog/ellie.png">
             <img class="d big hidden" id="dangela" src="./imgs/1 living room/dialog/angela.png">
@@ -62,6 +63,12 @@
             <div class="d hidden" id="text">
                 <b class="d" id="charname" style="color: var(--c)">name: </b>
                 <span class="d" id="dialog">placeholder text</span>
+            </div>
+
+            <!-- map -->
+            <div class="d big hidden" id="rooms">
+                <div class="area" title="livingroom" style="width: 300px; height: 370px; top: 65px; left: 575px;" onclick="location.href = './livingroom.html'"></div>
+                <div class="area" title="diningroom" style="width: 275px; height: 370px; top: 65px; left: 875px;" onclick="location.href = './diningroom.html'"></div>
             </div>
 
             <!-- choices -->
@@ -97,6 +104,8 @@
         let dialog = document.getElementById("dialog");
         let usuzy = document.getElementById("usuzy");
         // dialog character sprites
+        let dmap = document.getElementById("dmap");
+        let rooms = document.getElementById("rooms");
         let dsuzy = document.getElementById("dsuzy");
         let dellie = document.getElementById("dellie");
         let dangela = document.getElementById("dangela");
@@ -151,6 +160,13 @@
             // if currently on a dialog spiel
             if (cl.includes("d")) {
                 if (!isHidden(dark2)) return; // if making a choice, must click one to move on
+                if (!isHidden(dmap)) {
+                    toggleDialog();
+                    hide(dmap);
+                    hide(rooms);
+                    currentDialog = ["", 0];
+                    return;
+                }
                 dialogSwitch();
                 return;
             }
@@ -1029,10 +1045,10 @@
                 currentDialog = ["", 0];
                 return;
             }
-            if (map2a[n].substring(0,6) == "CHOICE") {
-                dialog.innerHTML = "";
-                getChoices(map2a[n]);
-                currentDialog[1]++;
+            if (map2a[n] == "MAP") {
+                unhide(dmap);
+                unhide(rooms);
+                dialog.innerHTML = "(click a room to go there. click anywhere else to exit.)";
             }
             else {
                 if (!isHidden(dark2)) toggleChoices();
