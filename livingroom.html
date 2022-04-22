@@ -671,30 +671,170 @@
             }
         }
         // interactive item dialog
-        function tesla(n) {
-            console.log("tesla dialog:", n);
+        function tv(n) {
+            console.log("tv dialog:", n);
             charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "tesla";
-            if (n == tesla1a.length) {
+            if (n == 0) currentDialog[0] = "tv";
+            if (n == tv1a.length) {
                 if (!isHidden(dark2)) toggleChoices();
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
-            if (tesla1a[n].substring(0,6) == "CHOICE") {
+            if (tv1a[n].substring(0,6) == "CHOICE") {
                 dialog.innerHTML = "";
-                getChoices(tesla1a[n]);
+                getChoices(tv1a[n]);
                 currentDialog[1]++;
             }
             else {
                 if (!isHidden(dark2)) toggleChoices();
-                if (tesla1a[n].includes("^")) {
-                    let dgs = tesla1a[n].split("^");
+                if (tv1a[n].includes("^")) {
+                    let dgs = tv1a[n].split("^");
                     dialog.innerHTML = dgs[0];
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    dialog.innerHTML = tesla1a[n];
+                    dialog.innerHTML = tv1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function ps5(n) {
+            console.log("ps5 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "ps5";
+            if (n == ps51a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (ps51a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(ps51a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (ps51a[n].includes("^")) {
+                    let dgs = ps51a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = ps51a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function recordplayer(n) {
+            console.log("recordplayer dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "recordplayer";
+            if (n == recordplayer1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (recordplayer1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(recordplayer1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (recordplayer1a[n].includes("^")) {
+                    let dgs = recordplayer1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = recordplayer1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function recordbox(n) {
+            console.log("recordbox dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "recordbox";
+            if (n == recordbox1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (recordbox1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(recordbox1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (recordbox1a[n].includes("^")) {
+                    let dgs = recordbox1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = recordbox1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function couch(n) {
+            console.log("couch dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "couch";
+            if (n == couch1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (couch1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(couch1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (couch1a[n].includes("^")) {
+                    let dgs = couch1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = couch1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function lamp(n) {
+            console.log("lamp dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "lamp";
+            if (n == lamp1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (lamp1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(lamp1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (lamp1a[n].includes("^")) {
+                    let dgs = lamp1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = lamp1a[n];
                     currentDialog[1]++;
                 }
             }

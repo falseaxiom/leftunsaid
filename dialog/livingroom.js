@@ -272,22 +272,47 @@ let jake2b = [
 
 // interactive items
 let tv1a = [
-    "[  ]"
+    "[ the TV is playing monday night football. ]",
+    "[ who's even watching this? everyone here is on the swim team. ]",
+    "CHOICE_CHANGE THE CHANNEL^0_DO NOTHING^1",
+    "[ you would... if you could only find the remote. ]"
 ]
 let ps51a = [
-    "[  ]"
+    "[ of course, JAKE has a GAMESTATION 5. ]",
+    "CHOICE_PLAY A GAME^0_STEAL IT^4_DO NOTHING^5",
+    "[ you sort through his collection of GS5 games. ]",
+    "[ CALL OF ACTION: GREY OPS, CLOUDRIM, GRAND LARCENY AUTO, TRUE BLUE REDEMPTION... ]",
+    "[ ...ANIMAL JUNCTION: NEW VISTAS... ]",
+    "[ you wonder what his island looks like. ]^2",
+    "[ you don't think you could fit this in your pockets. ]"
 ]
 let recordplayer1a = [
-    "[  ]"
+    "[ a fancy RECORD PLAYER. ]",
+    "[ right now, it's playing the latest album from that rapper JAKE is always raving about during practice. ]",
+    "[ it's fine, you guess. but ever since he entered his weird religious phase, it's been hard to listen to him. ]",
+    "CHOICE_CHANGE RECORDS^0_DO NOTHING^1",
+    "[ you have a feeling you'll be met with widespread disappointment if you turn this off, so you leave it be. ]"
 ]
 let recordbox1a = [
-    "[  ]"
+    "[ a BOX chock-full of VINYL RECORDS. ]",
+    "CHOICE_LOOK THROUGH RECORDS^0_DO NOTHING^4",
+    "[ it's about what you'd expect from a white suburban household: ]",
+    "[ old movie soundtracks (probably his mom's), classic rock (his dad's)... ]",
+    "[ and a whooooole lot of shitty rap. ]",
+    "[ seriously, who still listens to LIL BOATY and HAY-Z? ]"
 ]
 let couch1a = [
-    "[  ]"
+    "[ a nice green COUCH. nothing wrong with that. ]",
+    "CHOICE_SIT DOWN^0_DO NOTHING^2",
+    "[ to be honest, the idea of squeezing in-between so many people... is not appealing. ]",
+    "[ and there's probably not enough room for you, anyway. ]"
+
 ]
 let lamp1a = [
-    "[  ]"
+    "[ a modern-looking LAMP. ]",
+    "CHOICE_TURN IT ON^0_DO NOTHING^2",
+    "[ you try to turn it on, but it doesn't work. ]",
+    "[ when you follow the cord, it seems to not be plugged in... because someone is charging their vape at the outlet. ]"
 ]
 
 // ui
