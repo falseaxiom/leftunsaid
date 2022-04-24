@@ -1,4 +1,7 @@
 // ui
+let map1a = [
+    "MAP"
+]
 let phone1a = [
     "[ your CELL PHONE. a favored object of study when things get awkward. ]",
     "CHOICE_CALL MAMA^0_DROP ITEM^1_DO NOTHING^4",

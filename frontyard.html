@@ -588,26 +588,26 @@
             console.log("map dialog:", n);
             charname.innerHTML = "";
             if (n == 0) currentDialog[0] = "map";
-            if (n == map1a.length) {
+            if (n == map0a.length) {
                 if (!isHidden(dark2)) toggleChoices();
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
-            if (map1a[n].substring(0,6) == "CHOICE") {
+            if (map0a[n].substring(0,6) == "CHOICE") {
                 dialog.innerHTML = "";
-                getChoices(map1a[n]);
+                getChoices(map0a[n]);
                 currentDialog[1]++;
             }
             else {
                 if (!isHidden(dark2)) toggleChoices();
-                if (map1a[n].includes("^")) {
+                if (map0a[n].includes("^")) {
                     let dgs = map1a[n].split("^");
                     dialog.innerHTML = dgs[0];
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    dialog.innerHTML = map1a[n];
+                    dialog.innerHTML = map0a[n];
                     currentDialog[1]++;
                 }
             } 
@@ -654,6 +654,11 @@
                 dialog.innerHTML = "";
                 getChoices(yearbook2a[n]);
                 currentDialog[1]++;
+            }
+            else if (yearbook2a[n].substring(0,4) == "SIGS") {
+                toggleChoices();
+                dialog.innerHTML = "[ completely empty. it's like whoever bought this didn't even open it. ]";
+                currentDialog[1] += 2;
             }
             else {
                 if (!isHidden(dark2)) toggleChoices();

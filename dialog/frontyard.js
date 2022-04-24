@@ -56,6 +56,7 @@ let suzy1b = [
     "exactly. so let's get moving!!!"
 ]
 let jake1a = [
+    "",
     "JAKE:",
     "SUZY:",
     "",
@@ -81,6 +82,7 @@ let jake1a = [
     "JAKE:"
 ]
 let jake1b = [
+    "[ the front door opens, and JAKE appears in the doorway. ]",
     "well well well, if it isn't ANDY REYES in the flesh!",
     "(andy??)",
     "[ DREW is not short for ANDREW. it's not short for anything. JAKE knows this. ]",
@@ -160,7 +162,7 @@ let frontdoor1a = [
 ]
 
 // ui
-let map1a = [
+let map0a = [
     "[ you've been to jake's house a couple times for the errant post-practice-turned-hangout. ]", 
     "[ and for the even more sporadic house-party-you-feel-somewhat-obligated-to-attend. ]",
     "[ you can't say you know its layout very well. ]"
