@@ -81,6 +81,25 @@
                 <button class="choice hidden" id="choice2">choice2</button>
             </div>
 
+            <!-- yearbook -->
+            <img class="d big hidden" id="dark3" src="./imgs/1 living room/dialog/dark.png" style="opacity: 50%">
+            <img class="y big hidden" id="page" src="./imgs/1 living room/yearbook/page.png">
+            <img class="y big hidden" id="yellie" src="./imgs/1 living room/yearbook/ellie.png">
+            <img class="y big hidden" id="yangela" src="./imgs/1 living room/yearbook/angela.png">
+            <img class="y big hidden" id="ybrad" src="./imgs/1 living room/yearbook/brad.png">
+            <img class="y big hidden" id="yjake" src="./imgs/1 living room/yearbook/jake.png">
+            <img class="y big hidden" id="ylaurenp" src="./imgs/1 living room/yearbook/laurenp.png">
+            <img class="y big hidden" id="yanvi" src="./imgs/1 living room/yearbook/anvi.png">
+            <img class="y big hidden" id="yemily" src="./imgs/1 living room/yearbook/emily.png">
+            <img class="y big hidden" id="yryan" src="./imgs/1 living room/yearbook/ryan.png">
+            <img class="y big hidden" id="ylisa" src="./imgs/1 living room/yearbook/lisa.png">
+            <img class="y big hidden" id="ynick" src="./imgs/1 living room/yearbook/nick.png">
+            <img class="y big hidden" id="ycorey" src="./imgs/1 living room/yearbook/corey.png">
+            <img class="y big hidden" id="yrohan" src="./imgs/1 living room/yearbook/rohan.png">
+            <img class="y big hidden" id="yyasmeen" src="./imgs/1 living room/yearbook/yasmeen.png">
+            <img class="y big hidden" id="ylaurenf" src="./imgs/1 living room/yearbook/laurenf.png">
+            <img class="y big hidden" id="ykatrina" src="./imgs/1 living room/yearbook/katrina.png">
+
             <!-- navbar -->
             <div class="nav">
                 <a href="./">main menu</a>
@@ -119,6 +138,9 @@
         let choice0 = document.getElementById("choice0");
         let choice1 = document.getElementById("choice1");
         let choice2 = document.getElementById("choice2");
+        // yearbook
+        let dark3 = document.getElementById("dark3");
+        let page = document.getElementById("page");
         // keep track of what dialog ur on
         let currentDialog = ["", 0];
 
@@ -151,8 +173,8 @@
         }
         // do living room opening if not done yet
         if (localStorage.getItem("livopening") == 0) livOpening();
-        // if done, display real map
-        else { hide(document.getElementById("umap2")); unhide(document.getElementById("umap")); }
+        // if branched, display real map
+        if (localStorage.getItem("branch1") != "") { hide(document.getElementById("umap2")); unhide(document.getElementById("umap")); }
 
         /*** CLICKING ***/
         $(document).click(function(event) {
@@ -276,6 +298,12 @@
                         break;
                 }
             }
+            // if yearbook
+            if (cl.includes("y")) {
+                toggleYearbook();
+                currentDialog = ["", 0];
+                return;
+            }
         });
 
         /*** GENERAL FUNCTIONS ***/
@@ -389,7 +417,7 @@
                         break;
                 }
         }
-        // show/hide choicebox
+        // hide/unhide choicebox
         function toggleChoices() {
             if (isHidden(dark2)) { unhide(dark2); unhide(choicebox); }
             else {
@@ -432,6 +460,32 @@
                 unhide(cbox);
                 cbox.innerHTML = choices[i][0];
                 cbox.title = choices[i][1];
+            }
+        }
+        // hide/unhide yearbook
+        function toggleYearbook() {
+            isHidden(dark3) ? unhide(dark3) : hide(dark3);
+
+            // if no signatures, simply hide/unhide blank page
+            if (!localStorage.getItem("sigs")) {
+                isHidden(page) ? unhide(page) : hide(page);
+                return;
+            }
+
+            // hide/unhide sigs according to who's already signed
+            let sigs = localStorage.getItem("sigs").split("_");
+            sigs.shift();
+            if (isHidden(page)) {
+                unhide(page);
+                for (let i = 0; i < sigs.length; i++) {
+                    unhide(document.getElementById("y"+sigs[i]));
+                }
+            }
+            else {
+                hide(page);
+                for (let i = 0; i < sigs.length; i++) {
+                    hide(document.getElementById("y"+sigs[i]));
+                }
             }
         }
         // reset game
@@ -1141,10 +1195,10 @@
                 getChoices(yearbook2a[n]);
                 currentDialog[1]++;
             }
-            else if (yearbook2a[n] == "DROP") {
-                hide(document.getElementById("uyearbook"));
-                localStorage.setItem("y", 2);
+            else if (yearbook2a[n].substring(0,4) == "SIGS") {
+                if (!isHidden(dark2)) toggleChoices();
                 toggleDialog();
+                toggleYearbook();
                 currentDialog = ["", 0];
                 return;
             }

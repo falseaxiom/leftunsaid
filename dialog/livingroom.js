@@ -437,8 +437,7 @@ let lamp1a = [
 
 // ui
 let map2a = [
-    "[ now that you're actually in the house, you're starting to remember it a little better. ]", 
-    "MAP"
+    "[ even though you're now in the house, you still don't really remember how to get anywhere. ]"
 ]
 let suzy1a = [
     "SUZY:",
