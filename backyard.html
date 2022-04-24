@@ -12,52 +12,48 @@
         <link rel="stylesheet" href="./css/room.css">
         <style>
             :root {
-                --a: #0c0700;
-                --b: #362300;
-                --c: #aa7500;
-                --d: #fdc316;
-                --e: #ffe77f;
-                --f: #ffe77f55;
+                --a: #1f0021;
+                --b: #460058;
+                --c: #7f00b6;
+                --d: #cb74ff;
+                --e: #eeddfe;
+                --f: #eeddfe55;
             }
         </style>
     </head>
     <body>
         <div class="box">
             <!-- background -->
-            <img class="big" id="bg" src="./imgs/2 dining room/bg.png">
-            <!-- <img class="big" src="./imgs/2 dining room/ref.png" style="opacity: 30%;"> -->
+            <img class="big" id="bg" src="./imgs/4 backyard/bg.png">
+            <img class="big" id="nolisa" src="./imgs/4 backyard/nolisa.png">
+            <!-- <img class="big" src="./imgs/4 backyard/ref.png" style="opacity: 30%;"> -->
+            
 
             <!-- interactive items -->
-            <img class="i small" id="cup1" style="top: 370px; left: 134px;" src="./imgs/2 dining room/interactive/cup1.png">
-            <img class="i small" id="cup2" style="top: 327px; left: 434px;" src="./imgs/2 dining room/interactive/cup2.png">
-            <img class="i small" id="cup3" style="top: 394px; left: 784px;" src="./imgs/2 dining room/interactive/cup3.png">
-            <img class="i small" id="plate" style="top: 379px; left: 878px;" src="./imgs/2 dining room/interactive/plate.png">
-            <img class="i small" id="pizzabox" style="top: 195px; left: 1028px;" src="./imgs/2 dining room/interactive/pizzabox.png">
-            <img class="i small" id="barcart" style="top: 281px; left: 1543px;" src="./imgs/2 dining room/interactive/barcart.png">
+            <img class="i small" id="pool" style="top: 405px; left: 27px;" src="./imgs/4 backyard/interactive/pool.png">
+            <img class="i small" id="chair1" style="top: 219px; left: 1290px;" src="./imgs/4 backyard/interactive/chair1.png">
+            <img class="i small" id="chair2" style="top: 418px; left: 1404px;" src="./imgs/4 backyard/interactive/chair2.png">
 
             <!-- characters -->
-            <img class="c small" id="anvi" style="top: 193px; left: 473px;" src="./imgs/2 dining room/characters/anvi.png">
-            <img class="c small" id="laurenp" style="top: 132px; left: 738px;" src="./imgs/2 dining room/characters/laurenp.png">
-            <img class="c small hidden" id="katrina" style="top: 240px; left: 553px;" src="./imgs/2 dining room/characters/katrina.png">
+            <img class="c small hidden" id="lisa" style="top: 216px; left: 983px;" src="./imgs/4 backyard/characters/lisa.png">
+            <img class="c small" id="katrina" style="top: 216px; left: 983px;" src="./imgs/4 backyard/characters/katrina.png">
 
             <!-- ui -->
-            <img class="u small" id="umap" style="top: 787px; left: 30px;" src="./imgs/2 dining room/ui/0 map.png">
-            <img class="u small" id="uphone" style="top: 832px; left: 391px;" src="./imgs/2 dining room/ui/1 phone.png">
-            <img class="u small hidden" id="uyearbook" style="top: 830px; left: 571px;" src="./imgs/2 dining room/ui/2 yearbook.png">
-            <img class="u small hidden" id="ubracelet" style="top: 820px; left: 844px;" src="./imgs/2 dining room/ui/3 bracelet.png">
-            <img class="u small hidden" id="uscrunchie" style="top: 834px; left: 1061px;" src="./imgs/2 dining room/ui/4 scrunchie.png">
-            <img class="u small hidden" id="ulighter" style="top: 824px; left: 1297px;" src="./imgs/2 dining room/ui/5 lighter.png">
-            <img class="u small hidden" id="utrash" style="top: 814px; left: 1439px;" src="./imgs/2 dining room/ui/6 trash.png">
-            <img class="u small" id="usuzy" style="top: 766px; left: 1678px; padding-bottom: 0;" src="./imgs/2 dining room/ui/7 suzy.png">
+            <img class="u small" id="umap" style="top: 787px; left: 30px;" src="./imgs/4 backyard/ui/0 map.png">
+            <img class="u small" id="uphone" style="top: 832px; left: 391px;" src="./imgs/4 backyard/ui/1 phone.png">
+            <img class="u small hidden" id="uyearbook" style="top: 830px; left: 571px;" src="./imgs/4 backyard/ui/2 yearbook.png">
+            <img class="u small hidden" id="ubracelet" style="top: 820px; left: 844px;" src="./imgs/4 backyard/ui/3 bracelet.png">
+            <img class="u small hidden" id="uscrunchie" style="top: 834px; left: 1061px;" src="./imgs/4 backyard/ui/4 scrunchie.png">
+            <img class="u small hidden" id="ulighter" style="top: 824px; left: 1297px;" src="./imgs/4 backyard/ui/5 lighter.png">
+            <img class="u small hidden" id="utrash" style="top: 814px; left: 1439px;" src="./imgs/4 backyard/ui/6 trash.png">
+            <img class="u small" id="usuzy" style="top: 766px; left: 1678px; padding-bottom: 0;" src="./imgs/4 backyard/ui/7 suzy.png">
 
             <!-- dialog stuff -->
-            <img class="d big hidden" id="dark" src="./imgs/2 dining room/dialog/dark.png" style="opacity: 50%">
-            <img class="d big hidden" id="dmap" src="./imgs/2 dining room/dialog/dmap.png">
-            <img class="d big hidden" id="dsuzy" src="./imgs/2 dining room/dialog/suzy.png">
-            <img class="d big hidden" id="danvi" src="./imgs/2 dining room/dialog/anvi.png">
-            <img class="d big hidden" id="dlaurenp" src="./imgs/2 dining room/dialog/laurenp.png">
-            <img class="d big hidden" id="dkatrina" src="./imgs/2 dining room/dialog/katrina.png">
-            <img class="d big hidden" id="textbox" src="./imgs/2 dining room/dialog/textbox.png">
+            <img class="d big hidden" id="dark" src="./imgs/4 backyard/dialog/dark.png" style="opacity: 50%">
+            <img class="d big hidden" id="dmap" src="./imgs/4 backyard/dialog/dmap.png">
+            <img class="d big hidden" id="dsuzy" src="./imgs/4 backyard/dialog/suzy.png">
+            <img class="d big hidden" id="dlisa" src="./imgs/4 backyard/dialog/lisa.png">
+            <img class="d big hidden" id="dkatrina" src="./imgs/4 backyard/dialog/katrina.png">
             <div class="d hidden" id="text">
                 <b class="d" id="charname" style="color: var(--c)">name: </b>
                 <span class="d" id="dialog">placeholder text</span>
@@ -75,7 +71,7 @@
             </div>
 
             <!-- choices -->
-            <img class="d big hidden" id="dark2" src="./imgs/2 dining room/dialog/dark.png" style="opacity: 50%">
+            <img class="d big hidden" id="dark2" src="./imgs/3 kitchen/dialog/dark.png" style="opacity: 50%">
             <div class="d choicebox hidden" id="choicebox">
                 <em class="d choicehelper hidden" id="choicehelper">(click one of the dialog options to continue.)</em>
                 <button class="choice hidden" id="choice0">choice0</button>
@@ -84,23 +80,23 @@
             </div>
 
             <!-- yearbook -->
-            <img class="d big hidden" id="dark3" src="./imgs/2 dining room/dialog/dark.png" style="opacity: 50%">
-            <img class="y big hidden" id="page" src="./imgs/2 dining room/yearbook/page.png">
-            <img class="y big hidden" id="yellie" src="./imgs/2 dining room/yearbook/ellie.png">
-            <img class="y big hidden" id="yangela" src="./imgs/2 dining room/yearbook/angela.png">
-            <img class="y big hidden" id="ybrad" src="./imgs/2 dining room/yearbook/brad.png">
-            <img class="y big hidden" id="yjake" src="./imgs/2 dining room/yearbook/jake.png">
-            <img class="y big hidden" id="ylaurenp" src="./imgs/2 dining room/yearbook/laurenp.png">
-            <img class="y big hidden" id="yanvi" src="./imgs/2 dining room/yearbook/anvi.png">
-            <img class="y big hidden" id="yemily" src="./imgs/2 dining room/yearbook/emily.png">
-            <img class="y big hidden" id="yryan" src="./imgs/2 dining room/yearbook/ryan.png">
-            <img class="y big hidden" id="ylisa" src="./imgs/2 dining room/yearbook/lisa.png">
-            <img class="y big hidden" id="ynick" src="./imgs/2 dining room/yearbook/nick.png">
-            <img class="y big hidden" id="ycorey" src="./imgs/2 dining room/yearbook/corey.png">
-            <img class="y big hidden" id="yrohan" src="./imgs/2 dining room/yearbook/rohan.png">
-            <img class="y big hidden" id="yyasmeen" src="./imgs/2 dining room/yearbook/yasmeen.png">
-            <img class="y big hidden" id="ylaurenf" src="./imgs/2 dining room/yearbook/laurenf.png">
-            <img class="y big hidden" id="ykatrina" src="./imgs/2 dining room/yearbook/katrina.png">
+            <img class="d big hidden" id="dark3" src="./imgs/4 backyard/dialog/dark.png" style="opacity: 50%">
+            <img class="y big hidden" id="page" src="./imgs/4 backyard/yearbook/page.png">
+            <img class="y big hidden" id="yellie" src="./imgs/4 backyard/yearbook/ellie.png">
+            <img class="y big hidden" id="yangela" src="./imgs/4 backyard/yearbook/angela.png">
+            <img class="y big hidden" id="ybrad" src="./imgs/4 backyard/yearbook/brad.png">
+            <img class="y big hidden" id="yjake" src="./imgs/4 backyard/yearbook/jake.png">
+            <img class="y big hidden" id="ylaurenp" src="./imgs/4 backyard/yearbook/laurenp.png">
+            <img class="y big hidden" id="yanvi" src="./imgs/4 backyard/yearbook/anvi.png">
+            <img class="y big hidden" id="yemily" src="./imgs/4 backyard/yearbook/emily.png">
+            <img class="y big hidden" id="yryan" src="./imgs/4 backyard/yearbook/ryan.png">
+            <img class="y big hidden" id="ylisa" src="./imgs/4 backyard/yearbook/lisa.png">
+            <img class="y big hidden" id="ynick" src="./imgs/4 backyard/yearbook/nick.png">
+            <img class="y big hidden" id="ycorey" src="./imgs/4 backyard/yearbook/corey.png">
+            <img class="y big hidden" id="yrohan" src="./imgs/4 backyard/yearbook/rohan.png">
+            <img class="y big hidden" id="yyasmeen" src="./imgs/4 backyard/yearbook/yasmeen.png">
+            <img class="y big hidden" id="ylaurenf" src="./imgs/4 backyard/yearbook/laurenf.png">
+            <img class="y big hidden" id="ykatrina" src="./imgs/4 backyard/yearbook/katrina.png">
 
             <!-- navbar -->
             <div class="nav">
@@ -544,26 +540,26 @@
             console.log("map dialog:", n);
             charname.innerHTML = "";
             if (n == 0) currentDialog[0] = "map";
-            if (n == map1a.length) {
+            if (n == map2a.length) {
                 if (!isHidden(dark2)) toggleChoices();
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
-            if (map1a[n] == "MAP") {
+            if (map2a[n] == "MAP") {
                 unhide(dmap);
                 unhide(rooms);
                 dialog.innerHTML = "(click a room to go there. click anywhere else to exit.)";
             }
             else {
                 if (!isHidden(dark2)) toggleChoices();
-                if (map1a[n].includes("^")) {
-                    let dgs = map1a[n].split("^");
+                if (map2a[n].includes("^")) {
+                    let dgs = map2a[n].split("^");
                     dialog.innerHTML = dgs[0];
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    dialog.innerHTML = map1a[n];
+                    dialog.innerHTML = map2a[n];
                     currentDialog[1]++;
                 }
             } 

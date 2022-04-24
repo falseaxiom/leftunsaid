@@ -15,7 +15,7 @@ body {
     -webkit-transform: translate(-50%, -50%); /* for Safari */
     width: 1920px;
     height: 1080px;
-
+    margin-top: -25px;
     background: var(--a);
 }
 
@@ -102,7 +102,7 @@ body {
 /* navbar */
 .nav {
     width: 450px;
-    height: 2em;
+    height: auto;
     margin-top: 10px;
     position: absolute;
     display: flex;
@@ -110,16 +110,16 @@ body {
     justify-content: space-between;
     top: 1080px;
     left: 735px;
-    color: grey;
+    color: var(--b);
 }
 .nav > a {
     text-decoration: none;
 }
 .nav > a:visited {
-    color: grey;
+    color: var(--b);
 }
 .nav > a:hover {
     cursor: pointer;
-    color: white;
-    font-weight: 700;
+    color: var(--c);
+    /* font-weight: 700; */
 }

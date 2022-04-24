@@ -4,7 +4,7 @@ let map1a = [
 ]
 let phone1a = [
     "[ your CELL PHONE. a favored object of study when things get awkward. ]",
-    "CHOICE_CALL MAMA^0_DROP ITEM^1_DO NOTHING^4",
+    "CHOICE_CALL SOMEONE^0_DROP ITEM^1_DO NOTHING^4",
     "[ it's 2022. when's the last time anyone called anyone? ]^4",
     "[ like hell you will!!!!!!!! ]",
     "[ this is the first time you've gotten a PHONE brand-new, instead of one of your MAMA's old MOTOROLLO BLADRs. ]",
