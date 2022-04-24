@@ -103,7 +103,7 @@ let jake1b = [
     "(your sister. is she single?)",
     "CHOICE_did you really just ask me that?^0_she's a freshman, creep.^1_what about ANGELA?^2",
     "(whaaat? it's just a joke!)^3",
-    "(kidding! jeez. lighten up, reyes.^2",
+    "(kidding! jeez. lighten up, reyes.)^2",
     "(ah, we're on a break right now. you know how ANGIE is.)",
     "anyway. let's go to the LIVING ROOM first - everyone's gotta know you're alive."
 ]
