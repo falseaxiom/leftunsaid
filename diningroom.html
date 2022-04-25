@@ -672,6 +672,20 @@
             }
         }
         // ui dialog (see default.js for others)
+        function map2(n) {
+            console.log("map2 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) {
+                currentDialog[0] = "map2";
+                dialog.innerHTML = "[ something doesn't feel right... ]"
+                currentDialog[1]++;
+            }
+            if (n == 1) {
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+        }
         function nosuzy1(n) {
             console.log("nosuzy1 dialog:", n);
             charname.innerHTML = "";

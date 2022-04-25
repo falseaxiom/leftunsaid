@@ -44,7 +44,7 @@ let lighter1a = [
 let trash1a = [
     "[ a bunch of assorted TRASH you've been picking up. ]",
     "CHOICE_COUNT TRASH^0_DROP ITEM^2_DO NOTHING^4",
-    "[ you have collected ### pieces of TRASH so far. ]",
+    "[ you have collected ### piece(s) of TRASH so far. ]",
     "[ ...hopefully no one saw you counting garbage in your pockets. ]^3",
     "[ you try to find a nearby TRASH CAN to dump it in, but there seem to be none around. ]",
     "[ (looks like the artist forgot to include them...) ]"

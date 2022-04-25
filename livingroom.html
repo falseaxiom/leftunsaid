@@ -445,11 +445,14 @@
                 currentDialog[1]++;
             }
             else if (ellie1b[n].substring(0,6) == "BRANCH") { // branch
+                unhide(document.getElementById("ubracelet")); // unhide bracelet
+                localStorage.setItem("branch1", "anvi") // ANVI ROUTE
+                hide(document.getElementById("umap2"));
+                unhide(document.getElementById("umap"));
+
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dellie);
-                unhide(document.getElementById("ubracelet")); // unhide bracelet
-                localStorage.setItem("branch1", "anvi") // ANVI ROUTE
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
@@ -497,11 +500,14 @@
                 currentDialog[1]++;
             }
             else if (angela1b[n].substring(0,6) == "BRANCH") { // branch
+                unhide(document.getElementById("uscrunchie")); // unhide scrunchie
+                localStorage.setItem("branch1", "ryan") // RYAN ROUTE
+                hide(document.getElementById("umap2"));
+                unhide(document.getElementById("umap"));
+                
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dangela);
-                unhide(document.getElementById("uscrunchie")); // unhide scrunchie
-                localStorage.setItem("branch1", "ryan") // RYAN ROUTE
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
@@ -549,11 +555,14 @@
                 currentDialog[1]++;
             }
             else if (brad1b[n].substring(0,6) == "BRANCH") { // branch
+                unhide(document.getElementById("ulighter")); // unhide lighter
+                localStorage.setItem("branch1", "lisa") // LISA ROUTE
+                hide(document.getElementById("umap2"));
+                unhide(document.getElementById("umap"));
+
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(dbrad);
-                unhide(document.getElementById("ulighter")); // unhide lighter
-                localStorage.setItem("branch1", "lisa") // LISA ROUTE
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
@@ -602,10 +611,13 @@
                 currentDialog[1]++;
             }
             else if (jake1b[n].substring(0,6) == "BRANCH") { // branch
+                localStorage.setItem("branch1", "suzy") // SUZY ROUTE
+                hide(document.getElementById("umap2"));
+                unhide(document.getElementById("umap"));
+
                 if (!isHidden(dark2)) toggleChoices();
                 hide(choicehelper);
                 hide(djake);
-                localStorage.setItem("branch1", "suzy") // SUZY ROUTE
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
@@ -983,5 +995,28 @@
             }
         }
         // ui (see default.js)
+        function map2(n) {
+            console.log("map2 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "map2";
+            if (n == map2a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (map2a[n].includes("^")) {
+                    let dgs = map2a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = map2a[n];
+                    currentDialog[1]++;
+                }
+            } 
+        }
    </script>
 </html>

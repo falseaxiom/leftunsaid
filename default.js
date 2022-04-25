@@ -316,29 +316,6 @@ function map(n) {
         }
     } 
 }
-function map2(n) {
-    console.log("map2 dialog:", n);
-    charname.innerHTML = "";
-    if (n == 0) currentDialog[0] = "map2";
-    if (n == map2a.length) {
-        if (!isHidden(dark2)) toggleChoices();
-        toggleDialog();
-        currentDialog = ["", 0];
-        return;
-    }
-    else {
-        if (!isHidden(dark2)) toggleChoices();
-        if (map2a[n].includes("^")) {
-            let dgs = map2a[n].split("^");
-            dialog.innerHTML = dgs[0];
-            currentDialog[1] += parseInt(dgs[1]);
-        }
-        else {
-            dialog.innerHTML = map2a[n];
-            currentDialog[1]++;
-        }
-    } 
-}
 function phone(n) {
     console.log("phone dialog:", n);
     charname.innerHTML = "";
@@ -509,7 +486,13 @@ function trash(n) {
             currentDialog[1] += parseInt(dgs[1]);
         }
         else {
-            dialog.innerHTML = trash1a[n];
+            let dg = trash1a[n];
+            if (dg.includes("###")) {
+                let trash = localStorage.getItem("trash").split("_");
+                let amt = trash.length-1;
+                dg = dg.replace("###", amt);
+            }
+            dialog.innerHTML = dg;
             currentDialog[1]++;
         }
     } 
