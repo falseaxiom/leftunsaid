@@ -388,8 +388,9 @@ let jake2b = [
 
 // interactive items
 let tv1a = [
-    "[ the TV is playing monday night football. ]",
+    "[ the TV is playing MONDAY NIGHT FOOTBALL. ]",
     "[ who's even watching this? everyone here is on the swim team. ]",
+    "[ and it's a friday. ]",
     "CHOICE_CHANGE THE CHANNEL^0_DO NOTHING^1",
     "[ you would... if you could only find the remote. ]"
 ]

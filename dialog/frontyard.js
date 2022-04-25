@@ -45,14 +45,14 @@ let suzy1b = [
     "***like an old lady.***",
     "and when you do go to parties, you don't bring me!",
     "now my first ever house party is your stupid swim team grad party. i'm not gonna know a single person there.",
-    "CHOICE_like i said, you didn't have to come.^0",
-    "oh, so i was supposed to pass up an opportunity to blackmail you?",
+    "CHOICE_like i said, you didn't have to come.^0_if you were gonna complain about it, you could've just stayed home.^0",
+    "oh, so i was SUPPOSED to pass up an opportunity to blackmail you?",
     "it's not every day we run into JAKE GIORDANO while buying craft yarn.",
     "\"uhh, i'm holding this for my sister!!\"",
     "\"my name is DREW REYES and i can't admit to having traditionally feminine hobbies in front of my guy friends!!\"",
     "i could've *destroyed* your social life right then and there.",
     "but i kept that secret for the rest of may, like the best baby sister ever, asking for nothing in return.",
-    "CHOICE_except for a ride to JAKE's party.^0",
+    "CHOICE_except for a ride to JAKE's party.^0_except for a chance to humiliate me even more tonight.^0",
     "exactly. so let's get moving!!!"
 ]
 let jake1a = [
@@ -84,7 +84,7 @@ let jake1a = [
 let jake1b = [
     "[ the front door opens, and JAKE appears in the doorway. ]",
     "well well well, if it isn't ANDY REYES in the flesh!",
-    "(andy??)",
+    "(ANDY??)",
     "[ DREW is not short for ANDREW. it's not short for anything. JAKE knows this. ]",
     "so glad you could fit us into your busy schedule.",
     "y'know, everyone said you weren't gonna show, but i was like, \"hey, we're graduating! you think he'd pass up one last rager?\"",

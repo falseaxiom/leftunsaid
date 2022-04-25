@@ -51,6 +51,7 @@
             <img class="u small hidden" id="ulighter" style="top: 824px; left: 1297px;" src="./imgs/1 living room/ui/5 lighter.png">
             <img class="u small hidden" id="utrash" style="top: 814px; left: 1439px;" src="./imgs/1 living room/ui/6 trash.png">
             <img class="u small" id="usuzy" style="top: 766px; left: 1678px; padding-bottom: 0;" src="./imgs/1 living room/ui/7 suzy.png">
+            <div class="u small hidden" id="unosuzy" style="top: 766px; left: 1678px; padding-bottom: 0; width: 191px; height: 304px;"></div>
 
             <!-- dialog stuff -->
             <img class="d big hidden" id="dark" src="./imgs/1 living room/dialog/dark.png" style="opacity: 50%">
@@ -155,6 +156,7 @@
             localStorage.setItem("livopening", 0) // gone thru living room opening?
             localStorage.setItem("branch1", ""); // first branch - which old friend do u approach?
             localStorage.setItem("sigs", ""); // signatures in yearbook
+            localStorage.setItem("suzy", 0);
         }
         // change current room
         localStorage.setItem("curr", "livingroom")
@@ -180,6 +182,12 @@
         if (localStorage.getItem("livopening") == 0) livOpening();
         // if branched, display real map
         if (localStorage.getItem("branch1") != "") { hide(document.getElementById("umap2")); unhide(document.getElementById("umap")); }
+        // hide suzy if she's missing; anvi goes to look for her
+        if (localStorage.getItem("suzy") != 0) {
+            hide(document.getElementById("usuzy"));
+            unhide(document.getElementById("unosuzy"));
+        }
+
 
         /*** CLICKING ***/
         $(document).click(function(event) {
@@ -299,6 +307,10 @@
                         toggleDialog();
                         suzy1(0);
                         break;
+                    case("unosuzy"):
+                        toggleDialog();
+                        nosuzy2(0);
+                        break;
                     default:
                         break;
                 }
@@ -340,7 +352,7 @@
                 hide(dark);
                 hide(textbox);
                 hide(text);
-                unhide(usuzy);
+                if (localStorage.getItem("suzy") == 0) unhide(usuzy);
             }
         }
         // dialog switch
@@ -1363,6 +1375,21 @@
                     dialog.innerHTML = suzy1b[n];
                     currentDialog[1]++;
                 }
+            }
+        }
+        function nosuzy2(n) {
+            console.log("nosuzy2 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "nosuzy2"; // dialog start
+            if (n == nosuzy2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                dialog.innerHTML = nosuzy2a[n];
+                currentDialog[1]++;
             }
         }
    </script>

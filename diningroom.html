@@ -48,7 +48,8 @@
             <img class="u small hidden" id="uscrunchie" style="top: 834px; left: 1061px;" src="./imgs/2 dining room/ui/4 scrunchie.png">
             <img class="u small hidden" id="ulighter" style="top: 824px; left: 1297px;" src="./imgs/2 dining room/ui/5 lighter.png">
             <img class="u small hidden" id="utrash" style="top: 814px; left: 1439px;" src="./imgs/2 dining room/ui/6 trash.png">
-            <img class="u small" id="usuzy" style="top: 766px; left: 1678px; padding-bottom: 0;" src="./imgs/2 dining room/ui/7 suzy.png">
+            <img class="u small" id="usuzy" style="top: 766px; left: 1678px; padding-bottom: 0;" src="./imgs/2 dining room/ui/7 suzy.png"> 
+            <div class="u small hidden" id="unosuzy" style="top: 766px; left: 1678px; padding-bottom: 0; width: 191px; height: 304px;"></div>
 
             <!-- dialog stuff -->
             <img class="d big hidden" id="dark" src="./imgs/2 dining room/dialog/dark.png" style="opacity: 50%">
@@ -114,7 +115,7 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
-    <script src="./dialog/livingroom.js"></script>
+    <script src="./dialog/diningroom.js"></script>
     <script src="./dialog/ui.js"></script>
     <script>
         /*** VARIABLES ***/
@@ -146,7 +147,8 @@
         // if first time opening this page, put vars in localStorage
         if (!localStorage.getItem("talk1")) {
             localStorage.setItem("talk1", 0); // talked to anvi
-            localStorage.setItem("trash", 0);
+            localStorage.setItem("katrina", 0) // talked to katrina
+            localStorage.setItem("trash", ""); // trash list
         }
         // change current room
         localStorage.setItem("curr", "diningroom")
@@ -157,18 +159,39 @@
         // display return item based on branch
         switch (localStorage.getItem("branch1")) {
             case "anvi":
-                unhide(document.getElementById("ubracelet"));
+                if (localStorage.getItem("talk1") == 0) unhide(document.getElementById("ubracelet"));
                 break;
             case "ryan":
                 unhide(document.getElementById("uscrunchie"));
+                unhide(document.getElementById("katrina"));
                 hide(document.getElementById("anvi"));
                 break;
             case "lisa":
                 unhide(document.getElementById("ulighter"));
+                unhide(document.getElementById("katrina"));
                 hide(document.getElementById("anvi"));
                 break;
             default:
                 break;
+        }
+        // hide trash already picked up
+        if (localStorage.getItem("trash") != "") {
+            unhide(document.getElementById("utrash"));
+
+            let trash = localStorage.getItem("trash").split("_");
+            trash.shift();
+            for (let i = 0; i < trash.length; i++) {
+                let t = document.getElementById(trash[i]);
+                if (t) hide(t);
+            }
+        }
+        // hide suzy if she's missing; anvi goes to look for her
+        if (localStorage.getItem("suzy") != 0) {
+            hide(document.getElementById("usuzy"));
+            unhide(document.getElementById("unosuzy"));
+
+            unhide(document.getElementById("katrina"));
+            hide(document.getElementById("anvi"));
         }
 
         /*** CLICKING ***/
@@ -206,6 +229,11 @@
                     case("laurenp"):
                         toggleDialog();
                         laurenp1(0);
+                        break;
+                    case("katrina"):
+                        toggleDialog();
+                        let kat = localStorage.getItem("katrina");
+                        kat == 0 ? katrina1(0) : (kat == 1 ? katrina2(0) : katrina3(0));
                         break;
                     default:
                         break;
@@ -247,7 +275,7 @@
                 switch(id) {
                     case("umap"):
                         toggleDialog();
-                        map(0);
+                        localStorage.getItem("suzy") == 1 ? map2(0) : map(0);
                         break;
                     case("uphone"):
                         toggleDialog();
@@ -276,6 +304,10 @@
                     case("usuzy"):
                         toggleDialog();
                         suzy1(0);
+                        break;
+                    case("unosuzy"):
+                        toggleDialog();
+                        localStorage.getItem("suzy") == 1 ? nosuzy1(0) : nosuzy2(0);
                         break;
                     default:
                         break;
@@ -318,7 +350,7 @@
                 hide(dark);
                 hide(textbox);
                 hide(text);
-                unhide(usuzy);
+                if (localStorage.getItem("suzy") == 0) unhide(usuzy);
             }
         }
         // dialog switch
@@ -332,6 +364,15 @@
                         break;
                     case ("laurenp1"):
                         laurenp1(currentDialog[1]);
+                        break;
+                    case("katrina1"):
+                        katrina1(currentDialog[1]);
+                        break;
+                    case("katrina2"):
+                        katrina2(currentDialog[1]);
+                        break;
+                    case("katrina3"):
+                        katrina2(currentDialog[1]);
                         break;
                     case ("cup1"): // interactive
                         cup1(currentDialog[1]);
@@ -354,6 +395,9 @@
                     case ("map"): // ui
                         map(currentDialog[1]);
                         break;
+                        case ("map2"):
+                        map2(currentDialog[1]);
+                        break;
                     case ("phone"):
                         phone(currentDialog[1]);
                         break;
@@ -374,6 +418,12 @@
                         break;
                     case ("suzy"):
                         suzy1(currentDialog[1]);
+                        break;
+                    case ("nosuzy1"):
+                        nosuzy1(currentDialog[1]);
+                        break;
+                    case ("nosuzy2"):
+                        nosuzy2(currentDialog[1]);
                         break;
                     default:
                         break;
@@ -458,83 +508,424 @@
 
         /*** GAMEPLAY FUNCTIONS ***/
         // character dialog
-        function ellie1(n) {
-            console.log("ellie1 dialog:", n);
-            if (n == 0) currentDialog[0] = "ellie1"; // dialog start
-            if (n == ellie1a.length) { // dialog finish
+        function anvi1(n) {
+            console.log("anvi1 dialog:", n);
+            if (n == 0) currentDialog[0] = "anvi1"; // dialog start
+            if (n == anvi1a.length) { // dialog finish
                 if (!isHidden(dark2)) toggleChoices();
-                hide(choicehelper);
-                hide(dellie);
+                hide(danvi);
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
-            ellie1a[n] == "ELLIE:" ? unhide(dellie) : hide(dellie); // show ellie's sprite when she's talking
-            if (ellie1b[n].substring(0,6) == "CHOICE") { // choice
+            anvi1a[n] == "ANVI:" ? unhide(danvi) : hide(danvi); // show anvi's sprite when she's talking
+            if (anvi1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
-                getChoices(ellie1b[n], "ellie");
+                getChoices(anvi1b[n], "ellie");
                 currentDialog[1]++;
             }
-            else if (ellie1b[n].substring(0,6) == "BRANCH") { // branch
+            else if (anvi1b[n].substring(0,6) == "RETURN") { // return item
+                hide(document.getElementById("ubracelet"));
+                localStorage.setItem("talk1", 1);
+                localStorage.setItem("suzy", 1);
+                hide(document.getElementById("usuzy"));
+                unhide(document.getElementById("unosuzy"));
+                
                 if (!isHidden(dark2)) toggleChoices();
-                hide(choicehelper);
-                hide(dellie);
-                unhide(document.getElementById("ubracelet")); // unhide bracelet
-                localStorage.setItem("branch1", "anvi") // ANVI ROUTE
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
-            else if (ellie1b[n].substring(0,4) == "SIGN") { // sign
-                if (!isHidden(dark2)) toggleChoices();
-                hide(choicehelper);
-                hide(dellie);
-                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_ellie") // add ellie's signature
+                hide(danvi);
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
             else { // mid-dialog
                 if (!isHidden(dark2)) toggleChoices();
-                if (ellie1b[n].includes("^")) {
-                    let dgs = ellie1b[n].split("^");
-                    charname.innerHTML = ellie1a[n];
+                if (anvi1b[n].includes("^")) {
+                    let dgs = anvi1b[n].split("^");
+                    charname.innerHTML = anvi1a[n];
                     dialog.innerHTML = dgs[0];
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    charname.innerHTML = ellie1a[n];
-                    dialog.innerHTML = ellie1b[n];
+                    charname.innerHTML = anvi1a[n];
+                    dialog.innerHTML = anvi1b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function anvi2(n) {
+            console.log("anvi2 dialog:", n);
+            if (n == 0) currentDialog[0] = "anvi2"; // dialog start
+            if (n == anvi2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(danvi);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            anvi2a[n] == "ANVI:" ? unhide(danvi) : hide(danvi); // show anvi's sprite when she's talking
+            if (anvi2b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(anvi2b[n], "anvi");
+                currentDialog[1]++;
+            }
+            else if (anvi2b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(danvi);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_anvi") // add anvi's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (anvi2b[n].includes("^")) {
+                    let dgs = anvi2b[n].split("^");
+                    charname.innerHTML = anvi2a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = anvi2a[n];
+                    dialog.innerHTML = anvi2b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function laurenp1(n) {
+            console.log("laurenp1 dialog:", n);
+            if (n == 0) currentDialog[0] = "laurenp1"; // dialog start
+            if (n == laurenp1a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dlaurenp);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            laurenp1a[n] == "LAUREN P.:" ? unhide(dlaurenp) : hide(dlaurenp); // show lauren p's sprite when she's talking
+            if (laurenp1b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(laurenp1b[n], "laurenp");
+                currentDialog[1]++;
+            }
+            else if (laurenp1b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dlaurenp);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_laurenp") // add lauren p's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (laurenp1b[n].includes("^")) {
+                    let dgs = laurenp1b[n].split("^");
+                    charname.innerHTML = laurenp1a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = laurenp1a[n];
+                    dialog.innerHTML = laurenp1b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function katrina1(n) {
+            console.log("katrina1 dialog:", n);
+            if (n == 0) currentDialog[0] = "katrina1"; // dialog start
+            if (n == katrina1a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dkatrina);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            katrina1a[n] == "KAT:" ? unhide(dkatrina) : hide(dkatrina); // show kat's sprite when she's talking
+            if (katrina1b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(katrina1b[n], "katrina");
+                currentDialog[1]++;
+            }
+            else if (katrina1b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dkatrina);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_katrina") // add kat's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (katrina1b[n].includes("^")) {
+                    let dgs = katrina1b[n].split("^");
+                    charname.innerHTML = katrina1a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = katrina1a[n];
+                    dialog.innerHTML = katrina1b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function katrina2(n) {
+            console.log("katrina2 dialog:", n);
+            if (n == 0) currentDialog[0] = "katrina2"; // dialog start
+            if (n == katrina2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dkatrina);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            katrina2a[n] == "KAT:" ? unhide(dkatrina) : hide(dkatrina); // show kat's sprite when she's talking
+            if (katrina2b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(katrina2b[n], "katrina");
+                currentDialog[1]++;
+            }
+            else if (katrina2b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dkatrina);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_katrina") // add kat's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (katrina2b[n].includes("^")) {
+                    let dgs = katrina2b[n].split("^");
+                    charname.innerHTML = katrina2a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = katrina2a[n];
+                    dialog.innerHTML = katrina2b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function katrina3(n) {
+            console.log("katrina3 dialog:", n);
+            if (n == 0) currentDialog[0] = "katrina3"; // dialog start
+            if (n == katrina3a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dkatrina);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            katrina3a[n] == "KAT:" ? unhide(dkatrina) : hide(dkatrina); // show kat's sprite when she's talking
+            if (katrina3b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(katrina3b[n], "katrina");
+                currentDialog[1]++;
+            }
+            else if (katrina3b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dkatrina);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_katrina") // add kat's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (katrina3b[n].includes("^")) {
+                    let dgs = katrina3b[n].split("^");
+                    charname.innerHTML = katrina3a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = katrina3a[n];
+                    dialog.innerHTML = katrina3b[n];
                     currentDialog[1]++;
                 }
             }
         }
         // interactive item dialog
-        function tv(n) {
-            console.log("tv dialog:", n);
+        function cup1(n) {
+            console.log("cup1 dialog:", n);
             charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "tv";
-            if (n == tv1a.length) {
+            if (n == 0) currentDialog[0] = "cup1";
+            if (n == cup1a.length) {
                 if (!isHidden(dark2)) toggleChoices();
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
-            if (tv1a[n].substring(0,6) == "CHOICE") {
+            else if (cup1a[n].substring(0,6) == "CHOICE") {
                 dialog.innerHTML = "";
-                getChoices(tv1a[n]);
+                getChoices(cup1a[n]);
                 currentDialog[1]++;
+            }
+            else if (cup1a[n].substring(0,6) == "PICKUP") {
+                hide(document.getElementById("cup1"));
+                localStorage.setItem("trash", localStorage.getItem("trash") + "_cup1");
+                if (isHidden(document.getElementById("utrash"))) unhide(document.getElementById("utrash"));
+
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
             }
             else {
                 if (!isHidden(dark2)) toggleChoices();
-                if (tv1a[n].includes("^")) {
-                    let dgs = tv1a[n].split("^");
+                if (cup1a[n].includes("^")) {
+                    let dgs = cup1a[n].split("^");
                     dialog.innerHTML = dgs[0];
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    dialog.innerHTML = tv1a[n];
+                    dialog.innerHTML = cup1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function cup2(n) {
+            console.log("cup2 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "cup2";
+            if (n == cup2a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (cup2a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(cup2a[n]);
+                currentDialog[1]++;
+            }
+            else if (cup2a[n].substring(0,6) == "PICKUP") {
+                hide(document.getElementById("cup2"));
+                localStorage.setItem("trash", localStorage.getItem("trash") + "_cup2");
+                if (isHidden(document.getElementById("utrash"))) unhide(document.getElementById("utrash"));
+
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (cup2a[n].includes("^")) {
+                    let dgs = cup2a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = cup2a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function cup3(n) {
+            console.log("cup3 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "cup3";
+            if (n == cup3a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (cup3a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(cup3a[n]);
+                currentDialog[1]++;
+            }
+            else if (cup3a[n].substring(0,6) == "PICKUP") {
+                hide(document.getElementById("cup3"));
+                localStorage.setItem("trash", localStorage.getItem("trash") + "_cup3");
+                if (isHidden(document.getElementById("utrash"))) unhide(document.getElementById("utrash"));
+
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (cup3a[n].includes("^")) {
+                    let dgs = cup3a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = cup3a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function plate(n) {
+            console.log("plate dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "plate";
+            if (n == plate1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (plate1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(plate1a[n]);
+                currentDialog[1]++;
+            }
+            else if (plate1a[n].substring(0,9) == "[ you eat") {
+                if (!isHidden(dark2)) toggleChoices();
+                hide(document.getElementById("plate"));
+                dialog.innerHTML = plate1a[n];
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (plate1a[n].includes("^")) {
+                    let dgs = plate1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = plate1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function pizzabox(n) {
+            console.log("pizzabox dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "pizzabox";
+            if (n == pizzabox1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (pizzabox1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(pizzabox1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (pizzabox1a[n].includes("^")) {
+                    let dgs = pizzabox1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = pizzabox1a[n];
                     currentDialog[1]++;
                 }
             }
@@ -567,6 +958,22 @@
                     currentDialog[1]++;
                 }
             } 
+        }
+        function map2(n) {
+            console.log("map2 dialog:", n);
+            charname.innerHTML = "";
+            
+            if (n == 0) {
+                currentDialog[0] = "map2";
+                dialog.innerHTML = "[ something doesn't feel right... ]";
+                currentDialog[1]++;
+            }
+            if (n == 1) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
         }
         function phone(n) {
             console.log("phone dialog:", n);
@@ -738,7 +1145,13 @@
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    dialog.innerHTML = trash1a[n];
+                    let dg = trash1a[n];
+                    if (dg.includes("###")) {
+                        let trash = localStorage.getItem("trash").split("_");
+                        let amt = trash.length-1;
+                        dg = dg.replace("###", amt);
+                    }
+                    dialog.innerHTML = dg;
                     currentDialog[1]++;
                 }
             } 
@@ -774,6 +1187,38 @@
                     dialog.innerHTML = suzy1b[n];
                     currentDialog[1]++;
                 }
+            }
+        }
+        function nosuzy1(n) {
+            console.log("nosuzy1 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "nosuzy1"; // dialog start
+            if (n == nosuzy1a.length) { // dialog finish
+                localStorage.setItem("suzy", 2);
+
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                dialog.innerHTML = nosuzy1a[n];
+                currentDialog[1]++;
+            }
+        }
+        function nosuzy2(n) {
+            console.log("nosuzy2 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "nosuzy2"; // dialog start
+            if (n == nosuzy2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else { // mid-dialog
+                dialog.innerHTML = nosuzy2a[n];
+                currentDialog[1]++;
             }
         }
    </script>

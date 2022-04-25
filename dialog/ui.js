@@ -43,8 +43,68 @@ let lighter1a = [
 ]
 let trash1a = [
     "[ a bunch of assorted TRASH you've been picking up. ]",
-    "CHOICE_COUNT TRASH^0_DROP ITEM^1_DO NOTHING^2",
-    "[ you have collected ### pieces of TRASH so far. ]^2",
+    "CHOICE_COUNT TRASH^0_DROP ITEM^2_DO NOTHING^4",
+    "[ you have collected ### pieces of TRASH so far. ]",
+    "[ ...hopefully no one saw you counting garbage in your pockets. ]^3",
     "[ you try to find a nearby TRASH CAN to dump it in, but there seem to be none around. ]",
     "[ (looks like the artist forgot to include them...) ]"
+]
+
+// losing suzy
+let nosuzy1a = [
+    "[ okay, you came and said hi, you gave back the thing. that's enough humiliation for tonight. maybe it's time to go home. ]",
+    "[ you turn around and... oh god. where the hell is SUZY. ]",
+    "[ did you just lose your baby sister???!!! ]",
+    "[ oh lord jesus. oh fuck. okay. ]",
+    "[ you obviously can't go home without her, so you have to go find her. like right now. ]"
+]
+let nosuzy2a = [
+    "[ still haven't found her. don't freak out. keep looking. ]"
+]
+
+// katrina
+let katrina1a = [
+    "",
+    "",
+    "KAT:",
+    "",
+    ""
+
+]
+let katrina1b = [
+    "[ KATRINA \"KAT\" GONZALEZ, your family friend. ]",
+    "CHOICE_TALK TO KAT^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
+    "DREW. you mother fucker, come here. mano po.^3",
+    "[ KATRINA signs your YEARBOOK. ]",
+    "SIGN"
+]
+let katrina2a = [
+    "",
+    "",
+    "KAT:",
+    "",
+    ""
+
+]
+let katrina2b = [
+    "[ KATRINA \"KAT\" GONZALEZ, your family friend. ]",
+    "CHOICE_WEREN'T YOU IN THE OTHER ROOM?^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
+    "weren't YOU in the other room?^3",
+    "[ KATRINA signs your YEARBOOK. ]",
+    "SIGN"
+]
+let katrina3a = [
+    "",
+    "",
+    "KAT:",
+    "",
+    ""
+
+]
+let katrina3b = [
+    "[ KATRINA \"KAT\" GONZALEZ, your family friend. ]",
+    "CHOICE_YOU AGAIN.^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
+    "i'm everywhere bitch. you can't get rid of me.^3",
+    "[ KATRINA signs your YEARBOOK. ]",
+    "SIGN"
 ]
