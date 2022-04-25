@@ -1,5 +1,6 @@
 // automatic dialog
 autoa = [
+    "",
     "ANGELA:",
     "ELLIE:",
     "BRAD:",
@@ -24,6 +25,7 @@ autoa = [
     "BRAD:"
 ]
 autob = [
+    "[ upon entering the LIVING ROOM, you're bombarded with greetings from JAKE's posse. ]",
     "oh my gosh, hi DREW!!",
     "DREW REYES, as i live and breathe.",
     "yooo andy, what up! feels like ages since you last partied with us.",

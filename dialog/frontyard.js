@@ -1,5 +1,6 @@
 // automatic dialog
 let suzy1a = [
+    "",
     "SUZY:",
     "SUZY:",
     "SUZY:",
@@ -28,6 +29,7 @@ let suzy1a = [
     "SUZY:"
 ]
 let suzy1b = [
+    "[ your name is DREW REYES, and you've just arrived at a HIGH SCHOOL PARTY. eugh. ]",
     "finally, we're here!!!",
     "you were driving like an old lady the whole way.",
     "i bet i could've gotten us here faster.",
@@ -49,7 +51,7 @@ let suzy1b = [
     "oh, so i was SUPPOSED to pass up an opportunity to blackmail you?",
     "it's not every day we run into JAKE GIORDANO while buying craft yarn.",
     "\"uhh, i'm holding this for my sister!!\"",
-    "\"my name is DREW REYES and i can't admit to having traditionally feminine hobbies in front of my guy friends!!\"",
+    "\"my name is DREW and i can't admit to having TRADITIONALLY FEMININE HOBBIES in front of my GUY FRIENDS!!!\"",
     "i could've *destroyed* your social life right then and there.",
     "but i kept that secret for the rest of may, like the best baby sister ever, asking for nothing in return.",
     "CHOICE_except for a ride to JAKE's party.^0_except for a chance to humiliate me even more tonight.^0",
