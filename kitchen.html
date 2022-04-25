@@ -48,6 +48,7 @@
             <img class="u small hidden" id="ulighter" style="top: 824px; left: 1297px;" src="./imgs/3 kitchen/ui/5 lighter.png">
             <img class="u small hidden" id="utrash" style="top: 814px; left: 1439px;" src="./imgs/3 kitchen/ui/6 trash.png">
             <img class="u small" id="usuzy" style="top: 766px; left: 1678px; padding-bottom: 0;" src="./imgs/3 kitchen/ui/7 suzy.png">
+            <div class="u small hidden" id="unosuzy" style="top: 766px; left: 1678px; padding-bottom: 0; width: 191px; height: 304px;"></div>
 
             <!-- dialog stuff -->
             <img class="d big hidden" id="dark" src="./imgs/3 kitchen/dialog/dark.png" style="opacity: 50%">
@@ -102,7 +103,7 @@
 
             <!-- navbar -->
             <div class="nav">
-                <a href="./">main menu</a>
+                <a onclick="home()">main menu</a>
                 <a onclick="reset()">reset game</a>
             </div>
         </div>
@@ -112,7 +113,7 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
-    <script src="./dialog/livingroom.js"></script>
+    <script src="./dialog/kitchen.js"></script>
     <script src="./dialog/ui.js"></script>
     <script>
         /*** VARIABLES ***/
@@ -127,8 +128,8 @@
         let dmap = document.getElementById("dmap");
         let rooms = document.getElementById("rooms");
         let dsuzy = document.getElementById("dsuzy");
-        let danvi = document.getElementById("danvi");
-        let dlaurenp = document.getElementById("dlaurenp");
+        let dryan = document.getElementById("dryan");
+        let demily = document.getElementById("demily");
         let dkatrina = document.getElementById("dkatrina");
         // choices
         let dark2 = document.getElementById("dark2");
@@ -141,11 +142,6 @@
         let currentDialog = ["", 0];
 
         /*** SETUP ***/
-        // if first time opening this page, put vars in localStorage
-        if (!localStorage.getItem("talk1")) {
-            localStorage.setItem("talk1", 0); // talked to anvi
-            localStorage.setItem("trash", 0);
-        }
         // change current room
         localStorage.setItem("curr", "diningroom")
         // if yearbook picked up, display in inventory

@@ -11,56 +11,71 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/room.css">
         <style>
-            .box {
-                /* background: blue; */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
+            :root {
+                --a: #021311;
+                --b: #0a3a2e;
+                --c: #155c38;
+                --d: #82c40d;
+                --e: #e7ff7b;
+                --f: #e7ff7b55;
             }
-            img {
-                width: 286px;
-                height: 246px;
+
+            .small:hover {
+                background: none;
             }
             .title {
+                position: absolute;
+                top: 640px;
+                left: 55px;
                 font-size: 5rem;
                 padding: 0px 5px;
-                color: white;
+                background: var(--a);
+                color: var(--e);
             }
             .buttonContainer {
+                position: absolute;
+                top: 785px;
+                right: 30px;
                 display: flex;
                 flex-direction: column;
                 height: auto;
                 width: 500px;
-                align-items: center;
             }
             button {
+                margin-left: auto; 
+                margin-right: 0;
                 position: relative;
                 font-family: inherit;
                 font-size: 3rem;
                 background: none;
                 border: none;
-                margin: 5px;
-                color: white;
+                color: var(--d);
                 width:fit-content;
             }
             button:hover {
-                color: white!important;
+                color: var(--e);
             }
             button:disabled {
-                color: dimgray;
-            }
-            button:disabled:hover {
-                color: dimgray!important;
+                color: var(--b);
             }
         </style>
     </head>
     <body>
         <div class="box">
+            <!-- set dressing lol -->
+            <img class="big" id="bg" src="./imgs/1 living room/bg.png">
+            <img class="i small" id="tv" style="top: 73px; left: 29px;" src="./imgs/1 living room/interactive/tv.png">
+            <img class="i small" id="ps5" style="top: 295px; left: 165px;" src="./imgs/1 living room/interactive/ps5.png">
+            <img class="i small" id="recordplayer" style="top: 258px; left: 306px;" src="./imgs/1 living room/interactive/recordplayer.png">
+            <!-- <img class="i small" id="recordbox" style="top: 542px; left: 476px;" src="./imgs/1 living room/interactive/recordbox.png"> -->
+            <img class="i small" id="couch" style="top: 252px; left: 899px;" src="./imgs/1 living room/interactive/couch.png">
+            <img class="i small" id="lamp" style="top: 112px; left: 1701px;" src="./imgs/1 living room/interactive/lamp.png">
+            <img class="u small" id="umap" style="top: 787px; left: 30px;" src="./imgs/1 living room/ui/0 map.png">
+
+            <!-- actual menu stuff -->
             <div class="title">
                 left unsaid
             </div>
-            <img id="map">
             <div class="buttonContainer">
                 <button id="new" onclick="location.href='./frontyard.html'">new game</button>
                 <button id="load" onclick="load()">load game</button>
@@ -74,20 +89,9 @@
         crossorigin="anonymous">
     </script>
     <script>
-        // save data
         let start = localStorage.getItem("start");
         let savedata = localStorage.getItem("curr");
         if (!start) document.getElementById("load").disabled = true;
-
-        // random map
-        let map = document.getElementById("map")
-        let rooms = ["0 front yard", "1 living room", "2 dining room", "3 kitchen", "4 backyard", "5 bathroom", "6 rec room", "7 office"];
-        let colors = ["#b9b9b9", "#82c40d", "#fdc316", "#ff3542", "#cb74ff", "#94ffd2", "#9070ff", "#c4905d"]
-        let r = Math.floor(Math.random() * rooms.length);
-        map.src="./imgs/" + rooms[r] + "/ui/0 map.png";
-        document.getElementById("new").style.color = colors[r];
-        if (start) document.getElementById("load").style.color = colors[r];
-        document.getElementById("credits").style.color = colors[r];
 
         function load() {
             location.href = './' + savedata + ".html";
