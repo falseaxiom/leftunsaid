@@ -28,7 +28,7 @@ let lisaEnda = [
     "LISA:"
 ]
 let lisaEndb = [
-    "[ RYAN helps you walk SUZY outside. he gently places SUZY in the backseat of your car. ]",
+    "[ LISA helps you walk SUZY outside. She gently places SUZY in the backseat of your car. ]",
     "bye lol"
 ]
 let suzyEnda = [

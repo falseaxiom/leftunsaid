@@ -80,7 +80,7 @@ let lisa1b = [
     "DREW. glad you could make it.^2",
     "no problem at all.",
     "i went inside to get some RODITOS from BRAD...",
-    "but then i just saw her slumped against a wall, holding a PAL LIGHT.",
+    "but then i just saw her slumped against a wall, holding a PAL LITE.",
     "and i was gonna come find you, but then she looked like she was gonna hurl, so we had to take care of that first.",
     "[ SUZY groans weakly. ]",
     "you took your car here, right? i'll help you walk her there."
@@ -120,7 +120,7 @@ let cup6a = [
     "PICKUP"
 ]
 let can3a = [
-    "[ an empty can of PALWEISER LIGHT. ]",
+    "[ an empty can of PALWEISER LITE. ]",
     "CHOICE_PICK UP^0_DO NOTHING^1",
     "PICKUP"
 ]
