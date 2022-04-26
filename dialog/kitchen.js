@@ -84,7 +84,7 @@ let oven1a = [
     "[ a state-of-the-art OVEN. you bet your MAMA would kill someone for this thing. ]",
     "CHOICE_STEAL OVEN FOR MAMA^0_DO NOTHING^2",
     "[ you easily pocket the OVEN. no one will ever know. ]",
-    "[ just kidding. you're not an animal junction character. ]"
+    "[ just kidding. you're not an ANIMAL JUNCTION character. ]"
 ]
 
 // ui
