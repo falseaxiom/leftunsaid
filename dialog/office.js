@@ -63,7 +63,7 @@ let can1a = [
     "PICKUP"
 ]
 let cup5a = [
-    "[ a CUP with trace amounts DANGER JUICE in it. it smells pretty TOXIC. ]",
+    "[ a CUP with trace amounts of DANGER JUICE in it. it smells pretty TOXIC. ]",
     "CHOICE_PICK UP^0_DO NOTHING^1",
     "PICKUP"
 ]

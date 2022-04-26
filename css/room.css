@@ -43,6 +43,9 @@ body {
 .small:hover {
     background: var(--f);
 }
+#unosuzy {
+    opacity: 10%;
+}
 
 /* dialog text */
 #text {
