@@ -264,110 +264,59 @@
         // dialog switch
         function dialogSwitch() {
             switch (currentDialog[0]) {
-                    case ("nick1"): // character
-                        nick1(currentDialog[1]);
-                        break;
-                    case ("corey1"):
-                        corey1(currentDialog[1]);
-                        break;
-                    case ("rohan1"):
-                        rohan1(currentDialog[1]);
-                        break;
-                    case ("pictures"): // interactive
-                        pictures(currentDialog[1]);
-                        break;
-                    case ("charging"):
-                        charging(currentDialog[1]);
-                        break;
-                    case ("pooltable"):
-                        pooltable(currentDialog[1]);
-                        break;
-                    case ("cup4"):
-                        cup4(currentDialog[1]);
-                        break;
-                    case ("map"): // ui
-                        map(currentDialog[1]);
-                        break;
-                    case ("phone"):
-                        phone(currentDialog[1]);
-                        break;
-                    case ("yearbook"):
-                        yearbook(currentDialog[1]);
-                        break;
-                    case ("bracelet"):
-                        bracelet(currentDialog[1]);
-                        break;
-                    case ("scrunchie"):
-                        scrunchie(currentDialog[1]);
-                        break;
-                    case ("lighter"):
-                        lighter(currentDialog[1]);
-                        break;
-                    case ("trash"):
-                        trash(currentDialog[1]);
-                        break;
-                    case ("suzy"):
-                        suzy1(currentDialog[1]);
-                        break;
-                    case ("nosuzy2"):
-                        nosuzy2(currentDialog[1]);
-                        break;
-                    default:
-                        break;
-                }
-        }
-        // extract choices
-        function getChoices(str, name="") {
-            toggleChoices();
-            console.log("making a choice...");
-            let choices = str.split("_");
-            console.log(choices);
-            choices.shift();
-
-            if (localStorage.getItem("y") == 0) { // if yearbook not picked up
-                for (let i = 0; i < choices.length; i++) {
-                    if (choices[i].substring(0,2) != "yy") continue;
-                    choices.splice(i,1);
+                case ("nick1"): // character
+                    nick1(currentDialog[1]);
                     break;
-                }
-            }
-            else { // if yearbook picked up and speaker already signed
-                let sigs = localStorage.getItem("sigs").split("_");
-                sigs.shift();
-                if (sigs.includes(name)) {
-                    for (let i = 0; i < choices.length; i++) {
-                    if (choices[i].substring(0,2) != "yy") continue;
-                    choices.splice(i,1);
+                case ("corey1"):
+                    corey1(currentDialog[1]);
                     break;
-                }
-                }
-            }
-            if (localStorage.getItem("suzy") == 2) { // if suzy's missing
-                for (let i = 0; i < choices.length; i++) {
-                    if (choices[i].substring(0,2) != "gg") continue;
-                    choices.splice(i,1);
+                case ("rohan1"):
+                    rohan1(currentDialog[1]);
                     break;
-                }
-            }
-            else { // if suzy's not missing yet
-                for (let i = 0; i < choices.length; i++) {
-                    if (choices[i].substring(0,2) != "ss") continue;
-                    choices.splice(i,1);
+                case ("pictures"): // interactive
+                    pictures(currentDialog[1]);
                     break;
-                }
-            }
-            for (let i = 0; i < choices.length; i++) {
-                if (choices[i].substring(0,2) == "yy") choices[i] = choices[i].replace("yy","");
-                if (choices[i].substring(0,2) == "gg") choices[i] = choices[i].replace("gg","");
-                if (choices[i].substring(0,2) == "ss") choices[i] = choices[i].replace("ss","");
-                choices[i] = choices[i].split("^");
-                let cbox = document.getElementById("choice"+i);
-                unhide(cbox);
-                cbox.innerHTML = choices[i][0];
-                cbox.title = choices[i][1];
+                case ("charging"):
+                    charging(currentDialog[1]);
+                    break;
+                case ("pooltable"):
+                    pooltable(currentDialog[1]);
+                    break;
+                case ("cup4"):
+                    cup4(currentDialog[1]);
+                    break;
+                case ("map"): // ui
+                    map(currentDialog[1]);
+                    break;
+                case ("phone"):
+                    phone(currentDialog[1]);
+                    break;
+                case ("yearbook"):
+                    yearbook(currentDialog[1]);
+                    break;
+                case ("bracelet"):
+                    bracelet(currentDialog[1]);
+                    break;
+                case ("scrunchie"):
+                    scrunchie(currentDialog[1]);
+                    break;
+                case ("lighter"):
+                    lighter(currentDialog[1]);
+                    break;
+                case ("trash"):
+                    trash(currentDialog[1]);
+                    break;
+                case ("suzy"):
+                    suzy1(currentDialog[1]);
+                    break;
+                case ("nosuzy2"):
+                    nosuzy2(currentDialog[1]);
+                    break;
+                default:
+                    break;
             }
         }
-
+        
         /*** GAMEPLAY FUNCTIONS ***/
         // character dialog
         function nick1(n) {
@@ -467,7 +416,7 @@
                         dialog.innerHTML = "RYAN makes a mean DANGER JUICE. you tried it yet?";
                         break;
                     case "lisa":
-                        dialog.innerHTML = "did you see the weed girl's got on the same outfit as me? and what's worse is she wears it wayyy better...";
+                        dialog.innerHTML = "did you see the weed girl's wearing the same fit as me? and what's worse is she styled it wayyy better...";
                         break;
                     case "suzy":
                         dialog.innerHTML = "honestly i kinda want to go home... but i think if i leave NICK with ROHAN he'll just end up in the hospital or something. haha.";

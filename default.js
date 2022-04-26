@@ -102,6 +102,7 @@ function getChoices(str, name="") {
     let choices = str.split("_");
     console.log(choices);
     choices.shift();
+
     if (localStorage.getItem("y") == 0) { // if yearbook not picked up
         for (let i = 0; i < choices.length; i++) {
             if (choices[i].substring(0,2) != "yy") continue;
@@ -120,8 +121,24 @@ function getChoices(str, name="") {
         }
         }
     }
+    if (localStorage.getItem("suzy") == 2) { // if suzy's missing
+        for (let i = 0; i < choices.length; i++) {
+            if (choices[i].substring(0,2) != "gg") continue;
+            choices.splice(i,1);
+            break;
+        }
+    }
+    else { // if suzy's not missing yet
+        for (let i = 0; i < choices.length; i++) {
+            if (choices[i].substring(0,2) != "ss") continue;
+            choices.splice(i,1);
+            break;
+        }
+    }
     for (let i = 0; i < choices.length; i++) {
         if (choices[i].substring(0,2) == "yy") choices[i] = choices[i].replace("yy","");
+        if (choices[i].substring(0,2) == "gg") choices[i] = choices[i].replace("gg","");
+        if (choices[i].substring(0,2) == "ss") choices[i] = choices[i].replace("ss","");
         choices[i] = choices[i].split("^");
         let cbox = document.getElementById("choice"+i);
         unhide(cbox);
