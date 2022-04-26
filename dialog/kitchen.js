@@ -52,8 +52,8 @@ let food1a = [
 let fridge1a = [
     "[ JAKE has one of those SMART FRIDGES with a touch-screen on the door. ]",
     "[ what is the point of that? who's browsing the internet from their fridge? ]",
-    "CHOICE_TWEET FROM JAKE'S FRIDGE^0_OPEN FRIDGE^3_DO NOTHING^14",
-    "[ you wake up the screen and try to see if he's logged into twitter. ]",
+    "CHOICE_TWIT FROM JAKE'S FRIDGE^0_OPEN FRIDGE^3_DO NOTHING^14",
+    "[ you wake up the screen and try to see if he's logged into TWEETER. ]",
     "[ in the process, you accidentally order 5 cartons of eggs to his house. oops. ]",
     "[ guess you know what his breakfast is for the next few weeks. ]^11",
     "[ you open the FRIDGE and take a look inside. ]",

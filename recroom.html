@@ -27,12 +27,11 @@
             <img class="big" id="bg" src="./imgs/6 rec room/bg.png">
             <!-- <img class="big" src="./imgs/6 rec room/ref.png" style="opacity: 30%;"> -->
             
-
             <!-- interactive items -->
             <img class="i small" id="pictures" style="top: 79px; left: 65px;" src="./imgs/6 rec room/interactive/pictures.png">
             <img class="i small" id="charging" style="top: 536px; left: 188px;" src="./imgs/6 rec room/interactive/charging.png">
             <img class="i small" id="pooltable" style="top: 274px; left: 551px;" src="./imgs/6 rec room/interactive/pooltable.png">
-            <img class="i small" id="cup" style="top: 649px; left: 1716px;" src="./imgs/6 rec room/interactive/cup.png">
+            <img class="i small" id="cup4" style="top: 649px; left: 1716px;" src="./imgs/6 rec room/interactive/cup.png">
 
             <!-- characters -->
             <img class="c small" id="nick" style="top: 74px; left: 539px;" src="./imgs/6 rec room/characters/nick.png">
@@ -48,6 +47,7 @@
             <img class="u small hidden" id="ulighter" style="top: 824px; left: 1297px;" src="./imgs/6 rec room/ui/5 lighter.png">
             <img class="u small hidden" id="utrash" style="top: 814px; left: 1439px;" src="./imgs/6 rec room/ui/6 trash.png">
             <img class="u small" id="usuzy" style="top: 766px; left: 1678px; padding-bottom: 0;" src="./imgs/6 rec room/ui/7 suzy.png">
+            <div class="u small hidden" id="unosuzy" style="top: 766px; left: 1678px; padding-bottom: 0; width: 191px; height: 304px;"></div>
 
             <!-- dialog stuff -->
             <img class="d big hidden" id="dark" src="./imgs/6 rec room/dialog/dark.png" style="opacity: 50%">
@@ -55,6 +55,8 @@
             <img class="d big hidden" id="dnick" src="./imgs/6 rec room/dialog/nick.png">
             <img class="d big hidden" id="dcorey" src="./imgs/6 rec room/dialog/corey.png">
             <img class="d big hidden" id="drohan" src="./imgs/6 rec room/dialog/rohan.png">
+            <img class="d big hidden" id="dsuzy" src="./imgs/6 rec room/dialog/suzy.png">
+            <img class="d big hidden" id="textbox" src="./imgs/6 rec room/dialog/textbox.png">
             <div class="d hidden" id="text">
                 <b class="d" id="charname" style="color: var(--c)">name: </b>
                 <span class="d" id="dialog">placeholder text</span>
@@ -101,7 +103,7 @@
 
             <!-- navbar -->
             <div class="nav">
-                <a href="./">main menu</a>
+                <a onclick="home()">main menu</a>
                 <a onclick="reset()">reset game</a>
             </div>
         </div>
@@ -111,61 +113,32 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
-    <script src="./dialog/livingroom.js"></script>
+    <script src="./dialog/recroom.js"></script>
     <script src="./dialog/ui.js"></script>
+    <script src="./default.js"></script>
     <script>
         /*** VARIABLES ***/
-        // dialog generic
-        let dark = document.getElementById("dark");
-        let textbox = document.getElementById("textbox");
-        let text = document.getElementById("text");
-        let charname = document.getElementById("charname");
-        let dialog = document.getElementById("dialog");
-        let usuzy = document.getElementById("usuzy");
+        // (see default.js for others)
         // dialog character sprites
         let dmap = document.getElementById("dmap");
         let rooms = document.getElementById("rooms");
+        let dnick = document.getElementById("dnick");
+        let dcorey = document.getElementById("dcorey");
+        let drohan = document.getElementById("drohan");
         let dsuzy = document.getElementById("dsuzy");
-        let danvi = document.getElementById("danvi");
-        let dlaurenp = document.getElementById("dlaurenp");
-        let dkatrina = document.getElementById("dkatrina");
-        // choices
-        let dark2 = document.getElementById("dark2");
-        let choicebox = document.getElementById("choicebox");
-        let choicehelper = document.getElementById("choicehelper");
-        let choice0 = document.getElementById("choice0");
-        let choice1 = document.getElementById("choice1");
-        let choice2 = document.getElementById("choice2");
-        // keep track of what dialog ur on
-        let currentDialog = ["", 0];
 
         /*** SETUP ***/
-        // if first time opening this page, put vars in localStorage
-        if (!localStorage.getItem("talk1")) {
-            localStorage.setItem("talk1", 0); // talked to anvi
-            localStorage.setItem("trash", 0);
-        }
+        // (see default.js for others)
         // change current room
-        localStorage.setItem("curr", "diningroom")
-        // if yearbook picked up, display in inventory
-        if (localStorage.getItem("y") == 1) {
-            unhide(document.getElementById("uyearbook"));
-        }
-        // display return item based on branch
-        switch (localStorage.getItem("branch1")) {
-            case "anvi":
-                unhide(document.getElementById("ubracelet"));
-                break;
-            case "ryan":
-                unhide(document.getElementById("uscrunchie"));
-                hide(document.getElementById("anvi"));
-                break;
-            case "lisa":
-                unhide(document.getElementById("ulighter"));
-                hide(document.getElementById("anvi"));
-                break;
-            default:
-                break;
+        localStorage.setItem("curr", "recroom")
+        // hide trash already picked up (ROOM SENSITIVE)
+        if (localStorage.getItem("trash") != "") {
+            let trash = localStorage.getItem("trash").split("_");
+            trash.shift();
+            for (let i = 0; i < trash.length; i++) {
+                let t = document.getElementById(trash[i]);
+                if (t) hide(t);
+            }
         }
 
         /*** CLICKING ***/
@@ -196,13 +169,17 @@
             // if a character
             if (cl.includes("c")) {
                 switch(id) {
-                    case("anvi"):
+                    case("nick"):
                         toggleDialog();
-                        localStorage.getItem("talk1") == 0 ? anvi1(0) : anvi2(0);
+                        nick1(0);
                         break;
-                    case("laurenp"):
+                    case("corey"):
                         toggleDialog();
-                        laurenp1(0);
+                        corey1(0);
+                        break;
+                    case("rohan"):
+                        toggleDialog();
+                        rohan1(0);
                         break;
                     default:
                         break;
@@ -211,29 +188,21 @@
             // if an interactive item
             if (cl.includes("i")) {
                 switch(id) {
-                    case("cup1"):
+                    case("pictures"):
                         toggleDialog();
-                        cup1(0);
+                        pictures(0);
                         break;
-                    case("cup2"):
+                    case("charging"):
                         toggleDialog();
-                        cup2(0);
+                        charging(0);
                         break;
-                    case("cup3"):
+                    case("pooltable"):
                         toggleDialog();
-                        cup3(0);
+                        pooltable(0);
                         break;
-                    case("plate"):
+                    case("cup4"):
                         toggleDialog();
-                        plate(0);
-                        break;
-                    case("pizzabox"):
-                        toggleDialog();
-                        pizzabox(0);
-                        break;
-                    case("barcart"):
-                        toggleDialog();
-                        barcart(0);
+                        cup4(0);
                         break;
                     default:
                         break;
@@ -274,6 +243,10 @@
                         toggleDialog();
                         suzy1(0);
                         break;
+                    case("unosuzy"):
+                        toggleDialog();
+                        nosuzy2(0);
+                        break;
                     default:
                         break;
                 }
@@ -287,66 +260,30 @@
         });
 
         /*** GENERAL FUNCTIONS ***/
-        // borrowed from https://www.sitepoint.com/delay-sleep-pause-wait/
-        function sleep(milliseconds) {
-            const date = Date.now();
-            let currentDate = null;
-            do {
-                currentDate = Date.now();
-            } while (currentDate - date < milliseconds);
-        }
-        // hide/unhide items
-        function hide(div) { div.classList.add("hidden"); }
-        function unhide(div) { div.classList.remove("hidden"); }
-        // check if div is hidden
-        function isHidden(div) { return div.classList.contains("hidden"); }
-        // hide/unhide dialog
-        function toggleDialog() {
-            console.log("toggling dialog...")
-            if (isHidden(dark)) {
-                console.log("dialog is hidden")
-                unhide(dark);
-                unhide(textbox);
-                unhide(text);
-                hide(usuzy);
-            }
-            else {
-                console.log("dialog is not hidden")
-                hide(dark);
-                hide(textbox);
-                hide(text);
-                unhide(usuzy);
-            }
-        }
+        // (see default.js for others)
         // dialog switch
         function dialogSwitch() {
             switch (currentDialog[0]) {
-                    case ("anvi1"): // character
-                        anvi1(currentDialog[1]);
+                    case ("nick1"): // character
+                        nick1(currentDialog[1]);
                         break;
-                    case ("anvi2"):
-                        anvi2(currentDialog[1]);
+                    case ("corey1"):
+                        corey1(currentDialog[1]);
                         break;
-                    case ("laurenp1"):
-                        laurenp1(currentDialog[1]);
+                    case ("rohan1"):
+                        rohan1(currentDialog[1]);
                         break;
-                    case ("cup1"): // interactive
-                        cup1(currentDialog[1]);
+                    case ("pictures"): // interactive
+                        pictures(currentDialog[1]);
                         break;
-                    case ("cup2"):
-                        cup2(currentDialog[1]);
+                    case ("charging"):
+                        charging(currentDialog[1]);
                         break;
-                    case ("cup3"):
-                        cup3(currentDialog[1]);
+                    case ("pooltable"):
+                        pooltable(currentDialog[1]);
                         break;
-                    case ("plate"):
-                        plate(currentDialog[1]);
-                        break;
-                    case ("pizzabox"):
-                        pizzabox(currentDialog[1]);
-                        break;
-                    case ("barcart"):
-                        barcart(currentDialog[1]);
+                    case ("cup4"):
+                        cup4(currentDialog[1]);
                         break;
                     case ("map"): // ui
                         map(currentDialog[1]);
@@ -372,20 +309,12 @@
                     case ("suzy"):
                         suzy1(currentDialog[1]);
                         break;
+                    case ("nosuzy2"):
+                        nosuzy2(currentDialog[1]);
+                        break;
                     default:
                         break;
                 }
-        }
-        // show/hide choicebox
-        function toggleChoices() {
-            if (isHidden(dark2)) { unhide(dark2); unhide(choicebox); }
-            else {
-                hide(dark2);
-                hide(choicebox);
-                if (!isHidden(choice0)) hide(choice0);
-                if (!isHidden(choice1)) hide(choice1);
-                if (!isHidden(choice2)) hide(choice2);
-            }
         }
         // extract choices
         function getChoices(str, name="") {
@@ -394,6 +323,7 @@
             let choices = str.split("_");
             console.log(choices);
             choices.shift();
+
             if (localStorage.getItem("y") == 0) { // if yearbook not picked up
                 for (let i = 0; i < choices.length; i++) {
                     if (choices[i].substring(0,2) != "yy") continue;
@@ -412,8 +342,24 @@
                 }
                 }
             }
+            if (localStorage.getItem("suzy") == 2) { // if suzy's missing
+                for (let i = 0; i < choices.length; i++) {
+                    if (choices[i].substring(0,2) != "gg") continue;
+                    choices.splice(i,1);
+                    break;
+                }
+            }
+            else { // if suzy's not missing yet
+                for (let i = 0; i < choices.length; i++) {
+                    if (choices[i].substring(0,2) != "ss") continue;
+                    choices.splice(i,1);
+                    break;
+                }
+            }
             for (let i = 0; i < choices.length; i++) {
                 if (choices[i].substring(0,2) == "yy") choices[i] = choices[i].replace("yy","");
+                if (choices[i].substring(0,2) == "gg") choices[i] = choices[i].replace("gg","");
+                if (choices[i].substring(0,2) == "ss") choices[i] = choices[i].replace("ss","");
                 choices[i] = choices[i].split("^");
                 let cbox = document.getElementById("choice"+i);
                 unhide(cbox);
@@ -421,325 +367,313 @@
                 cbox.title = choices[i][1];
             }
         }
-        // hide/unhide yearbook
-        function toggleYearbook() {
-            isHidden(dark3) ? unhide(dark3) : hide(dark3);
-
-            // if no signatures, simply hide/unhide blank page
-            if (!localStorage.getItem("sigs")) {
-                isHidden(page) ? unhide(page) : hide(page);
-                return;
-            }
-
-            // hide/unhide sigs according to who's already signed
-            let sigs = localStorage.getItem("sigs").split("_");
-            sigs.shift();
-            if (isHidden(page)) {
-                unhide(page);
-                for (let i = 0; i < sigs.length; i++) {
-                    unhide(document.getElementById("y"+sigs[i]));
-                }
-            }
-            else {
-                hide(page);
-                for (let i = 0; i < sigs.length; i++) {
-                    hide(document.getElementById("y"+sigs[i]));
-                }
-            }
-        }
-        // reset game
-        function reset() {
-            localStorage.clear();
-            location.href="./";
-        }
 
         /*** GAMEPLAY FUNCTIONS ***/
         // character dialog
-        function ellie1(n) {
-            console.log("ellie1 dialog:", n);
-            if (n == 0) currentDialog[0] = "ellie1"; // dialog start
-            if (n == ellie1a.length) { // dialog finish
+        function nick1(n) {
+            console.log("nick dialog:", n);
+            if (n == 0) currentDialog[0] = "nick1"; // dialog start
+            if (n == nick1a.length) { // dialog finish
                 if (!isHidden(dark2)) toggleChoices();
-                hide(choicehelper);
-                hide(dellie);
+                hide(dnick);
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
-            ellie1a[n] == "ELLIE:" ? unhide(dellie) : hide(dellie); // show ellie's sprite when she's talking
-            if (ellie1b[n].substring(0,6) == "CHOICE") { // choice
+            nick1a[n] == "NICK:" ? unhide(dnick) : hide(dnick); // show nick's sprite when he's talking
+            if (nick1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
-                getChoices(ellie1b[n], "ellie");
+                getChoices(nick1b[n], "nick");
                 currentDialog[1]++;
             }
-            else if (ellie1b[n].substring(0,6) == "BRANCH") { // branch
+            else if (nick1b[n].substring(0,4) == "SIGN") { // sign
                 if (!isHidden(dark2)) toggleChoices();
-                hide(choicehelper);
-                hide(dellie);
-                unhide(document.getElementById("ubracelet")); // unhide bracelet
-                localStorage.setItem("branch1", "anvi") // ANVI ROUTE
+                hide(dnick);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_nick") // add nick's signature
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
-            else if (ellie1b[n].substring(0,4) == "SIGN") { // sign
+            else if (nick1b[n].substring(0,4) == "VARY") { // changes based on branch
                 if (!isHidden(dark2)) toggleChoices();
-                hide(choicehelper);
-                hide(dellie);
-                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_ellie") // add ellie's signature
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
+                charname.innerHTML = nick1a[n];
+                let branch = localStorage.getItem("branch1");
+                switch (branch) {
+                    case "anvi":
+                        dialog.innerHTML = "ANVI's looking pretty cute tonight. you guys are broken up, right?";
+                        break;
+                    case "ryan":
+                        dialog.innerHTML = "have you seen RYAN? love that guy. looooove him. his hair's so awesome.";
+                        break;
+                    case "lisa":
+                        dialog.innerHTML = "dude, i tried speaking korean to the weed girl to get a discount, but she pretended not to understand me. that's so fucked up.";
+                        break;
+                    case "suzy":
+                        dialog.innerHTML = "i just won like eleven games of 3BALL in a row. BOW DOWN to your 3BALL KING!!!!!!";
+                        break;
+                }
+                currentDialog[1] += 8;
             }
             else { // mid-dialog
                 if (!isHidden(dark2)) toggleChoices();
-                if (ellie1b[n].includes("^")) {
-                    let dgs = ellie1b[n].split("^");
-                    charname.innerHTML = ellie1a[n];
+                if (nick1b[n].includes("^")) {
+                    let dgs = nick1b[n].split("^");
+                    charname.innerHTML = nick1a[n];
                     dialog.innerHTML = dgs[0];
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    charname.innerHTML = ellie1a[n];
-                    dialog.innerHTML = ellie1b[n];
+                    charname.innerHTML = nick1a[n];
+                    dialog.innerHTML = nick1b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function corey1(n) {
+            console.log("corey dialog:", n);
+            if (n == 0) currentDialog[0] = "corey1"; // dialog start
+            if (n == corey1a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dcorey);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            corey1a[n] == "COREY:" ? unhide(dcorey) : hide(dcorey); // show corey's sprite when he's talking
+            if (corey1b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(corey1b[n], "corey");
+                currentDialog[1]++;
+            }
+            else if (corey1b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dcorey);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_corey") // add corey's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (corey1b[n].substring(0,4) == "VARY") { // changes based on branch
+                if (!isHidden(dark2)) toggleChoices();
+                charname.innerHTML = corey1a[n];
+                let branch = localStorage.getItem("branch1");
+                switch (branch) {
+                    case "anvi":
+                        dialog.innerHTML = "saw ANVI in the DINING ROOM earlier. rough stuff. sorry man.";
+                        break;
+                    case "ryan":
+                        dialog.innerHTML = "RYAN makes a mean DANGER JUICE. you tried it yet?";
+                        break;
+                    case "lisa":
+                        dialog.innerHTML = "did you see the weed girl's got on the same outfit as me? and what's worse is she wears it wayyy better...";
+                        break;
+                    case "suzy":
+                        dialog.innerHTML = "honestly i kinda want to go home... but i think if i leave NICK with ROHAN he'll just end up in the hospital or something. haha.";
+                        break;
+                }
+                currentDialog[1] += 6;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (corey1b[n].includes("^")) {
+                    let dgs = corey1b[n].split("^");
+                    charname.innerHTML = corey1a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = corey1a[n];
+                    dialog.innerHTML = corey1b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function rohan1(n) {
+            console.log("rohan dialog:", n);
+            if (n == 0) currentDialog[0] = "rohan1"; // dialog start
+            if (n == rohan1a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(drohan);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            rohan1a[n] == "ROHAN:" ? unhide(drohan) : hide(drohan); // show rohan's sprite when he's talking
+            if (rohan1b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(rohan1b[n], "rohan");
+                currentDialog[1]++;
+            }
+            else if (rohan1b[n].substring(0,4) == "SIGN") { // sign
+                if (!isHidden(dark2)) toggleChoices();
+                hide(drohan);
+                localStorage.setItem("sigs", localStorage.getItem("sigs") + "_rohan") // add rohan's signature
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (rohan1b[n].substring(0,4) == "VARY") { // changes based on branch
+                if (!isHidden(dark2)) toggleChoices();
+                charname.innerHTML = rohan1a[n];
+                let branch = localStorage.getItem("branch1");
+                switch (branch) {
+                    case "anvi":
+                        dialog.innerHTML = "get this dude. ANVI smoked me at ping pong in the basement. i'll never recover.";
+                        break;
+                    case "ryan":
+                        dialog.innerHTML = "you hear RYAN's taking a gap year? that's weak sauce bro. didn't he used to be AP?";
+                        break;
+                    case "lisa":
+                        dialog.innerHTML = "that chick at the pool's pretty hot. overcharged me on weed though.";
+                        break;
+                    case "suzy":
+                        dialog.innerHTML = "you're going to georgia, right? sick. hit me up if you ever wanna visit cali tho.";
+                        break;
+                }
+                currentDialog[1] += 6;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (rohan1b[n].includes("^")) {
+                    let dgs = rohan1b[n].split("^");
+                    charname.innerHTML = rohan1a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = rohan1a[n];
+                    dialog.innerHTML = rohan1b[n];
                     currentDialog[1]++;
                 }
             }
         }
         // interactive item dialog
-        function tv(n) {
-            console.log("tv dialog:", n);
+        function pictures(n) {
+            console.log("pictures dialog:", n);
             charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "tv";
-            if (n == tv1a.length) {
+            if (n == 0) currentDialog[0] = "pictures";
+            if (n == pictures1a.length) {
                 if (!isHidden(dark2)) toggleChoices();
                 toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
-            if (tv1a[n].substring(0,6) == "CHOICE") {
+            if (pictures1a[n].substring(0,6) == "CHOICE") {
                 dialog.innerHTML = "";
-                getChoices(tv1a[n]);
+                getChoices(pictures1a[n]);
                 currentDialog[1]++;
             }
             else {
                 if (!isHidden(dark2)) toggleChoices();
-                if (tv1a[n].includes("^")) {
-                    let dgs = tv1a[n].split("^");
+                if (pictures1a[n].includes("^")) {
+                    let dgs = pictures1a[n].split("^");
                     dialog.innerHTML = dgs[0];
                     currentDialog[1] += parseInt(dgs[1]);
                 }
                 else {
-                    dialog.innerHTML = tv1a[n];
+                    dialog.innerHTML = pictures1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function charging(n) {
+            console.log("charging dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "charging";
+            if (n == charging1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (charging1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(charging1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (charging1a[n].includes("^")) {
+                    let dgs = charging1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = charging1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function pooltable(n) {
+            console.log("pooltable dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "pooltable";
+            if (n == pooltable1a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            if (pooltable1a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(pooltable1a[n]);
+                currentDialog[1]++;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (pooltable1a[n].includes("^")) {
+                    let dgs = pooltable1a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = pooltable1a[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function cup4(n) {
+            console.log("cup4 dialog:", n);
+            charname.innerHTML = "";
+            if (n == 0) currentDialog[0] = "cup4";
+            if (n == cup4a.length) {
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else if (cup4a[n].substring(0,6) == "CHOICE") {
+                dialog.innerHTML = "";
+                getChoices(cup4a[n]);
+                currentDialog[1]++;
+            }
+            else if (cup4a[n].substring(0,6) == "PICKUP") {
+                hide(document.getElementById("cup4"));
+                localStorage.setItem("trash", localStorage.getItem("trash") + "_cup4");
+                if (isHidden(document.getElementById("utrash"))) unhide(document.getElementById("utrash"));
+
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            else {
+                if (!isHidden(dark2)) toggleChoices();
+                if (cup4a[n].includes("^")) {
+                    let dgs = cup4a[n].split("^");
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    dialog.innerHTML = cup4a[n];
                     currentDialog[1]++;
                 }
             }
         }
         // ui dialog
-        function map(n) {
-            console.log("map dialog:", n);
-            charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "map";
-            if (n == map2a.length) {
-                if (!isHidden(dark2)) toggleChoices();
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
-            if (map2a[n] == "MAP") {
-                unhide(dmap);
-                unhide(rooms);
-                dialog.innerHTML = "(click a room to go there. click anywhere else to exit.)";
-            }
-            else {
-                if (!isHidden(dark2)) toggleChoices();
-                if (map2a[n].includes("^")) {
-                    let dgs = map2a[n].split("^");
-                    dialog.innerHTML = dgs[0];
-                    currentDialog[1] += parseInt(dgs[1]);
-                }
-                else {
-                    dialog.innerHTML = map2a[n];
-                    currentDialog[1]++;
-                }
-            } 
-        }
-        function phone(n) {
-            console.log("phone dialog:", n);
-            charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "phone";
-            if (n == phone1a.length) {
-                if (!isHidden(dark2)) toggleChoices();
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
-            if (phone1a[n].substring(0,6) == "CHOICE") {
-                dialog.innerHTML = "";
-                getChoices(phone1a[n]);
-                currentDialog[1]++;
-            }
-            else {
-                if (!isHidden(dark2)) toggleChoices();
-                if (phone1a[n].includes("^")) {
-                    let dgs = phone1a[n].split("^");
-                    dialog.innerHTML = dgs[0];
-                    currentDialog[1] += parseInt(dgs[1]);
-                }
-                else {
-                    dialog.innerHTML = phone1a[n];
-                    currentDialog[1]++;
-                }
-            } 
-        }
-        function yearbook(n) {
-            console.log("yearbook dialog:", n);
-            charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "yearbook";
-            if (n == yearbook2a.length) {
-                if (!isHidden(dark2)) toggleChoices();
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
-            if (yearbook2a[n].substring(0,6) == "CHOICE") {
-                dialog.innerHTML = "";
-                getChoices(yearbook2a[n]);
-                currentDialog[1]++;
-            }
-            else if (yearbook2a[n].substring(0,4) == "SIGS") {
-                if (!isHidden(dark2)) toggleChoices();
-                toggleDialog();
-                toggleYearbook();
-                currentDialog = ["", 0];
-                return;
-            }
-            else {
-                if (!isHidden(dark2)) toggleChoices();
-                if (yearbook2a[n].includes("^")) {
-                    let dgs = yearbook2a[n].split("^");
-                    dialog.innerHTML = dgs[0];
-                    currentDialog[1] += parseInt(dgs[1]);
-                }
-                else {
-                    dialog.innerHTML = yearbook2a[n];
-                    currentDialog[1]++;
-                }
-            } 
-        }
-        function bracelet(n) {
-            console.log("bracelet dialog:", n);
-            charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "bracelet";
-            if (n == bracelet1a.length) {
-                if (!isHidden(dark2)) toggleChoices();
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
-            if (bracelet1a[n].substring(0,6) == "CHOICE") {
-                dialog.innerHTML = "";
-                getChoices(bracelet1a[n]);
-                currentDialog[1]++;
-            }
-            else {
-                if (!isHidden(dark2)) toggleChoices();
-                if (bracelet1a[n].includes("^")) {
-                    let dgs = bracelet1a[n].split("^");
-                    dialog.innerHTML = dgs[0];
-                    currentDialog[1] += parseInt(dgs[1]);
-                }
-                else {
-                    dialog.innerHTML = bracelet1a[n];
-                    currentDialog[1]++;
-                }
-            } 
-        }
-        function scrunchie(n) {
-            console.log("scrunchie dialog:", n);
-            charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "scrunchie";
-            if (n == scrunchie1a.length) {
-                if (!isHidden(dark2)) toggleChoices();
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
-            if (scrunchie1a[n].substring(0,6) == "CHOICE") {
-                dialog.innerHTML = "";
-                getChoices(scrunchie1a[n]);
-                currentDialog[1]++;
-            }
-            else {
-                if (!isHidden(dark2)) toggleChoices();
-                if (scrunchie1a[n].includes("^")) {
-                    let dgs = scrunchie1a[n].split("^");
-                    dialog.innerHTML = dgs[0];
-                    currentDialog[1] += parseInt(dgs[1]);
-                }
-                else {
-                    dialog.innerHTML = scrunchie1a[n];
-                    currentDialog[1]++;
-                }
-            } 
-        }
-        function lighter(n) {
-            console.log("lighter dialog:", n);
-            charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "lighter";
-            if (n == lighter1a.length) {
-                if (!isHidden(dark2)) toggleChoices();
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
-            if (lighter1a[n].substring(0,6) == "CHOICE") {
-                dialog.innerHTML = "";
-                getChoices(lighter1a[n]);
-                currentDialog[1]++;
-            }
-            else {
-                if (!isHidden(dark2)) toggleChoices();
-                if (lighter1a[n].includes("^")) {
-                    let dgs = lighter1a[n].split("^");
-                    dialog.innerHTML = dgs[0];
-                    currentDialog[1] += parseInt(dgs[1]);
-                }
-                else {
-                    dialog.innerHTML = lighter1a[n];
-                    currentDialog[1]++;
-                }
-            } 
-        }
-        function trash(n) {
-            console.log("trash dialog:", n);
-            charname.innerHTML = "";
-            if (n == 0) currentDialog[0] = "trash";
-            if (n == trash1a.length) {
-                if (!isHidden(dark2)) toggleChoices();
-                toggleDialog();
-                currentDialog = ["", 0];
-                return;
-            }
-            if (trash1a[n].substring(0,6) == "CHOICE") {
-                dialog.innerHTML = "";
-                getChoices(trash1a[n]);
-                currentDialog[1]++;
-            }
-            else {
-                if (!isHidden(dark2)) toggleChoices();
-                if (trash1a[n].includes("^")) {
-                    let dgs = trash1a[n].split("^");
-                    dialog.innerHTML = dgs[0];
-                    currentDialog[1] += parseInt(dgs[1]);
-                }
-                else {
-                    dialog.innerHTML = trash1a[n];
-                    currentDialog[1]++;
-                }
-            } 
-        }
         function suzy1(n) {
             console.log("suzy1 dialog:", n);
             if (n == 0) currentDialog[0] = "suzy"; // dialog start
@@ -752,6 +686,9 @@
                 return;
             }
             suzy1a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // show suzy's sprite when she's talking
+            suzy1a[n] == "NICK:" ? unhide(dnick) : hide(dnick);
+            suzy1a[n] == "COREY:" ? unhide(dcorey) : hide(dcorey);
+            suzy1a[n] == "ROHAN:" ? unhide(drohan) : hide(drohan);
             if (suzy1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
@@ -773,5 +710,5 @@
                 }
             }
         }
-   </script>
+        </script>
 </html>

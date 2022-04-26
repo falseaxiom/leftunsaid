@@ -52,11 +52,13 @@ let trash1a = [
 
 // losing suzy
 let nosuzy1a = [
-    "[ okay, you came and said hi, you gave back the thing. that's enough humiliation for tonight. maybe it's time to go home. ]",
+    "[ okay, you dropped by, you said hi, you did whatever people needed you to do. ]",
+    "[ that's enough humiliation for tonight. maybe it's time to go home. ]",
     "[ you turn around and... oh god. where the hell is SUZY. ]",
     "[ did you just lose your baby sister???!!! ]",
-    "[ oh lord jesus. oh fuck. okay. ]",
-    "[ you obviously can't go home without her, so you have to go find her. like right now. ]"
+    "[ oh lord jesus. please not this. ]",
+    "[ okay. you obviously can't go home without her, so you have to go find her. ]",
+    "[ LIKE RIGHT NOW. ]"
 ]
 let nosuzy2a = [
     "[ still haven't found her. don't freak out. keep looking. ]"
