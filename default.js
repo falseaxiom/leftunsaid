@@ -75,6 +75,7 @@ function toggleDialog() {
         unhide(textbox);
         unhide(text);
         hide(usuzy);
+        hide(unosuzy);
     }
     else {
         console.log("dialog is not hidden")
@@ -82,6 +83,7 @@ function toggleDialog() {
         hide(textbox);
         hide(text);
         if (localStorage.getItem("suzy") == 0) unhide(usuzy);
+        else unhide(unosuzy);
     }
 }
 // show/hide choicebox
