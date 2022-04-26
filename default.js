@@ -335,6 +335,20 @@ function map(n) {
         }
     } 
 }
+function map2(n) {
+    console.log("map2 dialog:", n);
+    charname.innerHTML = "";
+    if (n == 0) {
+        currentDialog[0] = "map2";
+        dialog.innerHTML = "[ something doesn't feel right... ]"
+        currentDialog[1]++;
+    }
+    if (n == 1) {
+        toggleDialog();
+        currentDialog = ["", 0];
+        return;
+    }
+}
 function phone(n) {
     console.log("phone dialog:", n);
     charname.innerHTML = "";
@@ -547,6 +561,23 @@ function suzy1(n) {
             dialog.innerHTML = suzy1b[n];
             currentDialog[1]++;
         }
+    }
+}
+function nosuzy1(n) {
+    console.log("nosuzy1 dialog:", n);
+    charname.innerHTML = "";
+    if (n == 0) currentDialog[0] = "nosuzy1"; // dialog start
+    if (n == nosuzy1a.length) { // dialog finish
+        localStorage.setItem("suzy", 2);
+
+        if (!isHidden(dark2)) toggleChoices();
+        toggleDialog();
+        currentDialog = ["", 0];
+        return;
+    }
+    else { // mid-dialog
+        dialog.innerHTML = nosuzy1a[n];
+        currentDialog[1]++;
     }
 }
 function nosuzy2(n) {

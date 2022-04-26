@@ -105,7 +105,7 @@ let jake1b = [
     "(your sister. is she single?)",
     "CHOICE_did you really just ask me that?^0_she's a freshman, creep.^1_what about ANGELA?^2",
     "(whaaat? it's just a joke!)^3",
-    "(kidding! jeez. lighten up, reyes.)^2",
+    "(kidding! jeez. lighten up, REYES.)^2",
     "(ah, we're on a break right now. you know how ANGIE is.)",
     "anyway. let's go to the LIVING ROOM first - everyone's gotta know you're alive."
 ]
@@ -138,7 +138,7 @@ let tesla1a = [
     "[ although you guess it doesn't help that they were invented by a rich jerk. ]"
 ]
 let toyota1a = [
-    "[ your beat-up 2008 TOYOTO CAMRY. she's not the fastest, nor the most reliable, but she's all yours. ]",
+    "[ your beat-up 2008 TOYOTO BAMRY. she's not the fastest, nor the most reliable, but she's all yours. ]",
     "CHOICE_DRIVE BACK HOME^0_KEY YOUR CAR^2_DO NOTHING^3",
     "[ honestly, not a bad idea. ]",
     "[ but with gas prices the way they are... yeah. nevermind. ]^2",
@@ -153,13 +153,13 @@ let bush1a = [
 ]
 let yearbook1a = [
     "[ someone left their YEARBOOK on the front lawn. don't these things cost $200? ]",
-    "CHOICE_PICK UP^0_LEAVE IT^2",
+    "CHOICE_PICK UP^0_DO NOTHING^2",
     "[ guess it's yours now. ]",
     "PICKUP"
 ]
 let frontdoor1a = [
     "[ the FRONT DOOR to JAKE's house. ]",
-    "CHOICE_KNOCK ON FRONT DOOR^0_DO NOTHING^1",
+    "CHOICE_KNOCK^0_DO NOTHING^1",
     "KNOCKKNOCK"
 ]
 
