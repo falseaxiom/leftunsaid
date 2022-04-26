@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>left unsaid</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/room.css">
+        <style>
+            .box {
+                /* background: blue; */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                overflow: hidden;
+                color: white;
+            }
+            img {
+                width: 286px;
+                height: 246px;
+            }
+            .title {
+                font-size: 5rem;
+                padding: 0px 5px;
+                margin-bottom: 50px;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+                height: 100%;
+                overflow: scroll;
+                align-items: center;
+            }
+            .credit {
+                display: flex;
+                flex-direction: row;
+                width: 60ch;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .names {
+                display: flex;
+                flex-direction: column;
+                width: auto;
+                text-align: right;
+            }
+            .achievement {
+                color: grey;
+            }
+
+            .buttonContainer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                height: auto;
+                width: 300px;
+                align-items: center;
+            }
+            button {
+                position: relative;
+                font-family: inherit;
+                font-size: inherit;
+                background: none;
+                border: none;
+                margin: 0px;
+                padding: 0px;
+                color: grey;
+                width:fit-content;
+                text-decoration: underline;
+            }
+            button:hover {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="title">
+                left unsaid
+            </div>
+            <div class="container">
+                <div class="credit">
+                    <div>written, illustrated, & coded by</div>
+                    <div>monique legaspi</div>
+                </div>
+                <div class="credit">
+                    <div>special thanks to</div>
+                    <div class="names">
+                        <span>timothy szetela</span>
+                        <span>titi sodimu</span>
+                        <span>alyse delaney</span>
+                        <span>nick sharpe</span>
+                        <span>moon molson</span>
+                        <span>marjorie carhart</span>
+                        <span>kristy seymour</span>
+                        <span>princeton visual arts program</span>
+                        <span>my family!</span>
+                        <span>my friends!</span>
+                        <span>YOU! &lt;3</span>
+                    </div>
+                </div>
+                <br/>
+                <div class="achievement">PLAYER STATISTICS:</div>
+                <br/>
+                <div id="yearbook" class="achievement">you have gathered ### SIGNATURES.</div>
+                <div id="trash" class="achievement">you have collected ### pieces of TRASH.</div>
+                <div id="route" class="achievement">you have completed ###'s route. (there are 3 others!)</div>
+                <br/>
+                <div class="achievement">thank you for playing! have a safe trip <button onclick="home()">home</button>.</div>
+            </div>
+        </div>
+    </body>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        let y = document.getElementById("yearbook");
+        let t = document.getElementById("trash");
+        let r = document.getElementById("route");
+        let end = localStorage.getItem("end");
+        if (end) {
+            console.log("done")
+
+            let sigs = localStorage.getItem("sigs").split("_");
+            sigs.shift();
+            sigs = sigs.length;
+
+            let trash = localStorage.getItem("trash").split("_");
+            trash.shift();
+            trash = trash.length;
+            
+            let route = localStorage.getItem("branch1");
+
+            y.innerHTML = y.innerHTML.replace("###", sigs);
+            t.innerHTML = t.innerHTML.replace("###", trash);
+            r.innerHTML = r.innerHTML.replace("###", route.toUpperCase());
+        }
+        else {
+            console.log("not done")
+            let sigs = localStorage.getItem("sigs");
+            if (sigs) {
+                sigs = sigs.split("_");
+                sigs.shift();
+                sigs = sigs.length;
+            }
+            else sigs = 0;
+            let trash = localStorage.getItem("trash");
+            if (trash) {
+                trash = trash.split("_");
+                trash.shift();
+                trash = trash.length;
+            }
+            else trash = 0;
+            let route = localStorage.getItem("branch1");
+            if (!route) route = "";
+
+            y.innerHTML = y.innerHTML.replace("###", sigs);
+            t.innerHTML = t.innerHTML.replace("###", trash);
+            if (route == "") r.innerHTML = "you are not yet on a route. keep playing!";
+            else r.innerHTML = "you are currently on " + route.toUpperCase() + "'s route."
+        }
+
+        /*** FUNCTIONS ***/
+        function home() {
+            if (end) localStorage.clear();
+            location.href = "./index2.html";
+        }
+    </script>
+</html>

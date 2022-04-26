@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>left unsaid</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/room.css">
+        <style>
+            :root {
+                --a: #000000;
+                --b: #2c2c2c;
+                --c: #6d6d6d;
+                --d: #b9b9b9;
+                --e: #ffffff;
+                --f: #ffffff33;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <!-- dialog stuff -->
+            <img class="d big hidden" id="dark" src="./imgs/0 front yard/dialog/dark.png" style="opacity: 50%">
+            <img class="d big hidden" id="dsuzy" src="./imgs/0 front yard/dialog/suzy.png">
+            <img class="d big hidden" id="djake" src="./imgs/0 front yard/dialog/jake.png">
+            <img class="d big hidden" id="textbox" src="./imgs/0 front yard/dialog/textbox.png">
+            <div class="d hidden" id="text">
+                <b class="d" id="charname" style="color: var(--c)">name: </b>
+                <span class="d" id="dialog">placeholder text</span>
+            </div>
+
+            <!-- choices -->
+            <img class="d big hidden" id="dark2" src="./imgs/0 front yard/dialog/dark.png" style="opacity: 50%">
+            <div class="d choicebox hidden" id="choicebox">
+                <em class="d choicehelper hidden" id="choicehelper">(click one of the dialog options to continue.)</em>
+                <button class="choice hidden" id="choice0">choice0</button>
+                <button class="choice hidden" id="choice1">choice1</button>
+                <button class="choice hidden" id="choice2">choice2</button>
+            </div>
+
+            <!-- navbar -->
+            <div class="nav">
+                <a onclick="home()">main menu</a>
+                <a onclick="reset()">reset game</a>
+            </div>
+        </div>
+    </body>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script src="./dialog/goinghome.js"></script>
+    <script src="./dialog/ui.js"></script>
+    <script>
+        /*** VARIABLES ***/
+        // dialog generic
+        let dark = document.getElementById("dark");
+        let textbox = document.getElementById("textbox");
+        let text = document.getElementById("text");
+        let charname = document.getElementById("charname");
+        let dialog = document.getElementById("dialog");
+        // choices
+        let dark2 = document.getElementById("dark2");
+        let choicebox = document.getElementById("choicebox");
+        let choicehelper = document.getElementById("choicehelper");
+        let choice0 = document.getElementById("choice0");
+        let choice1 = document.getElementById("choice1");
+        let choice2 = document.getElementById("choice2");
+        // keep track of what dialog ur on
+        let currentDialog = ["", 0];
+
+        /*** SETUP ***/
+        // home stretch...
+        localStorage.setItem("curr", "goinghome");
+        // automatic
+        endingSequence();
+
+        /*** CLICKING ***/
+        $(document).click(function(event) {
+            let id = $(event.target).attr('id');                 // id of clicked thing
+            let cl = $(event.target).attr('class').split(/\s+/); // classlist (array)
+            let val = $(event.target).attr('title');             // title/value
+
+            // if currently on a dialog spiel
+            if (cl.includes("d")) {
+                if (!isHidden(dark2)) return; // if making a choice, must click one to move on
+                dialogSwitch();
+                return;
+            }
+            // if currently making a choice
+            if (cl.includes("choice")) {
+                currentDialog[1] += parseInt(val);
+                dialogSwitch();
+                return;
+            }
+        });
+
+        /*** GENERAL FUNCTIONS ***/
+        // borrowed from https://www.sitepoint.com/delay-sleep-pause-wait/
+        function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+                currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+        }
+        // hide/unhide items
+        function hide(div) { div.classList.add("hidden"); }
+        function unhide(div) { div.classList.remove("hidden"); }
+        // check if div is hidden
+        function isHidden(div) { return div.classList.contains("hidden"); }
+        // hide/unhide dialog
+        function toggleDialog() {
+            console.log("toggling dialog...")
+            if (isHidden(dark)) {
+                console.log("dialog is hidden")
+                unhide(dark);
+                unhide(textbox);
+                unhide(text);
+            }
+            else {
+                console.log("dialog is not hidden")
+                hide(dark);
+                hide(textbox);
+                hide(text);
+            }
+        }
+        // dialog switch
+        function dialogSwitch() {
+            switch (currentDialog[0]) {
+                    case ("anviEnd"): // automatic dialog
+                        anviEnd(currentDialog[1]);
+                        break;
+                    case ("ryanEnd"):
+                        ryanEnd(currentDialog[1]);
+                        break;
+                    case ("lisaEnd"):
+                        lisaEnd(currentDialog[1]);
+                        break;
+                    case ("suzyEnd"):
+                        suzyEnd(currentDialog[1]);
+                        break;
+                    default:
+                        break;
+                }
+        }
+        // show/hide choicebox
+        function toggleChoices() {
+            if (isHidden(dark2)) { unhide(dark2); unhide(choicebox); }
+            else {
+                hide(dark2);
+                hide(choicebox);
+                if (!isHidden(choice0)) hide(choice0);
+                if (!isHidden(choice1)) hide(choice1);
+                if (!isHidden(choice2)) hide(choice2);
+            }
+        }
+        // extract choices
+        function getChoices(str) {
+            toggleChoices();
+            console.log("making a choice...");
+            let choices = str.split("_");
+            console.log(choices);
+            choices.shift();
+            if (localStorage.getItem("y") == 0) { // if yearbook not picked up
+                for (let i = 0; i < choices.length; i++) {
+                    if (choices[i].substring(0,2) != "yy") continue;
+                    choices.splice(i,1);
+                    break;
+                }
+            }
+            for (let i = 0; i < choices.length; i++) {
+                if (choices[i].substring(0,2) == "yy") choices[i] = choices[i].replace("yy","");
+                choices[i] = choices[i].split("^");
+                let cbox = document.getElementById("choice"+i);
+                unhide(cbox);
+                cbox.innerHTML = choices[i][0];
+                cbox.title = choices[i][1];
+            }
+        }
+        // go home
+        function home() {
+            location.href = "./index2.html";
+        }
+        // reset game
+        function reset() {
+            localStorage.clear();
+            location.href="./index2.html";
+        }
+
+        /*** GAMEPLAY FUNCTIONS ***/
+        // opening sequence
+        function endingSequence() {
+            console.log("final scene...");
+            toggleDialog();
+            switch (localStorage.getItem("branch1")) {
+                case "anvi":
+                    anviEnd(0);
+                    break;
+                case "ryan":
+                    ryanEnd(0);
+                    break;
+                case "lisa":
+                    lisaEnd(0);
+                    break;
+                case "suzy":
+                    suzyEnd(0);
+                    break;
+                default:
+                    suzyEnd(0);
+                    break;
+            }
+        }
+        // automatic dialog
+        function anviEnd(n) {
+            console.log("anvi ending dialog:", n);
+            if (n == 0) currentDialog[0] = "anviEnd"; // dialog start
+            if (n == anviEnda.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                localStorage.setItem("end", 1);
+                location.href = "./credits.html";
+            }
+            if (anviEndb[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(anviEndb[n]);
+                currentDialog[1]++;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (anviEndb[n].includes("^")) {
+                    let dgs = anviEndb[n].split("^");
+                    charname.innerHTML = anviEnda[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = anviEnda[n];
+                    dialog.innerHTML = anviEndb[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function ryanEnd(n) {
+            console.log("ryan ending dialog:", n);
+            if (n == 0) currentDialog[0] = "ryanEnd"; // dialog start
+            if (n == ryanEnda.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                localStorage.setItem("end", 1);
+                location.href = "./credits.html";
+            }
+            if (ryanEndb[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(ryanEndb[n]);
+                currentDialog[1]++;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (ryanEndb[n].includes("^")) {
+                    let dgs = ryanEndb[n].split("^");
+                    charname.innerHTML = ryanEnda[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = ryanEnda[n];
+                    dialog.innerHTML = ryanEndb[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function lisaEnd(n) {
+            console.log("lisa ending dialog:", n);
+            if (n == 0) currentDialog[0] = "lisaEnd"; // dialog start
+            if (n == lisaEnda.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                localStorage.setItem("end", 1);
+                location.href = "./credits.html";
+            }
+            if (lisaEndb[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(lisaEndb[n]);
+                currentDialog[1]++;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (lisaEndb[n].includes("^")) {
+                    let dgs = lisaEndb[n].split("^");
+                    charname.innerHTML = lisaEnda[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = lisaEnda[n];
+                    dialog.innerHTML = lisaEndb[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+        function suzyEnd(n) {
+            console.log("suzy ending dialog:", n);
+            if (n == 0) currentDialog[0] = "suzyEnd"; // dialog start
+            if (n == suzyEnda.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
+                currentDialog = ["", 0];
+                localStorage.setItem("end", 1);
+                location.href = "./credits.html";
+            }
+            if (suzyEndb[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(suzyEndb[n]);
+                currentDialog[1]++;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (suzyEndb[n].includes("^")) {
+                    let dgs = suzyEndb[n].split("^");
+                    charname.innerHTML = suzyEnda[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = suzyEnda[n];
+                    dialog.innerHTML = suzyEndb[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
+    </script>
+</html>
