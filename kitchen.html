@@ -135,9 +135,6 @@
         // display katrina based on branch (ROOM SENSITIVE)
         switch (localStorage.getItem("branch1")) {
             case "anvi":
-                unhide(document.getElementById("katrina"));
-                hide(document.getElementById("ryan"));
-                break;
             case "lisa":
                 unhide(document.getElementById("katrina"));
                 hide(document.getElementById("ryan"));
@@ -145,17 +142,8 @@
             default:
                 break;
         }
-        // hide trash already picked up (ROOM SENSITIVE)
-        if (localStorage.getItem("trash") != "") {
-            let trash = localStorage.getItem("trash").split("_");
-            trash.shift();
-            for (let i = 0; i < trash.length; i++) {
-                let t = document.getElementById(trash[i]);
-                if (t) hide(t);
-            }
-        }
         // if suzy's missing, ryan goes to look for her
-        if (localStorage.getItem("suzy") != 0) {
+        if (localStorage.getItem("suzy") == 2) {
             unhide(document.getElementById("katrina"));
             hide(document.getElementById("ryan"));
         }

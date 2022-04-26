@@ -22,7 +22,7 @@ let bracelet1a = [
     "[ something about this BRACELET feels very familiar... ]",
     "[ you can't quite put your finger on it, though. ]",
     "[ maybe SUZY owns a similar one? ]^3",
-    "[ you try to slip the BRACELET into a nearby drawer... but you stop yourself. ]",
+    "[ you try to discreetly throw it out... but you stop yourself. ]",
     "[ it just doesn't feel right. ]"
 ]
 let scrunchie1a = [
@@ -30,7 +30,7 @@ let scrunchie1a = [
     "CHOICE_INSPECT ITEM^0_DROP ITEM^2_DO NOTHING^4",
     "[ you didn't think RYAN's hair was long enough to put in a SCRUNCHIE. ]",
     "[ but then again, you haven't seen him in a while. ]^3",
-    "[ you try to slip the SCRUNCHIE into a nearby drawer... but you stop yourself. ]",
+    "[ you try to discreetly throw it out... but you stop yourself. ]",
     "[ it just doesn't feel right. ]"
 ]
 let lighter1a = [
@@ -38,7 +38,7 @@ let lighter1a = [
     "CHOICE_INSPECT ITEM^0_DROP ITEM^2_DO NOTHING^4",
     "[ you flick the LIGHTER a couple times. nothing happens. ]",
     "[ BRAD must've burnt it out... what's the point of returning it, then? ]^3",
-    "[ you try to slip the SCRUNCHIE into a nearby drawer... but you stop yourself. ]",
+    "[ you try to discreetly throw it out... but you stop yourself. ]",
     "[ it just doesn't feel right. ]"
 ]
 let trash1a = [
