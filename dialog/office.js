@@ -25,16 +25,18 @@ let laurenf1a = [
     "LAUREN F.:",
     "LAUREN F.:",
     "LAUREN F.:",
+    "",
     "LAUREN F.:",
     "",
     ""
 ]
 let laurenf1b = [
     "[ LAUREN FERNANDEZ, one of your teammates. there are two LAURENS, so everyone calls her LAUREN F.]",
-    "CHOICE_ggTALK TO LAUREN F.^0_ssHAVE YOU SEEN SUZY?^1_yyASK TO SIGN YEARBOOK^3_DO NOTHING^6",
-    "VARY^6",
+    "CHOICE_ggTALK TO LAUREN F.^0_ssHAVE YOU SEEN SUZY?^1_yyASK TO SIGN YEARBOOK^4_DO NOTHING^7",
+    "VARY^7",
     "hmm, let me think...",
-    "actually, i think i saw a little girl run to the BATHROOM? maybe check there?^4",
+    "actually, i think i saw a little girl run to the BATHROOM? maybe check there?",
+    "FOUND^4",
     "sure!",
     "[ LAUREN F. signs your YEARBOOK. ]",
     "SIGN"

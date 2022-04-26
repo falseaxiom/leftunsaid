@@ -403,6 +403,14 @@
                 currentDialog = ["", 0];
                 return;
             }
+            else if (laurenf1b[n].substring(0,5) == "FOUND") { // FOUND SUZY!!!
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dlaurenf);
+                toggleDialog();
+                currentDialog = ["", 0];
+                localStorage.setItem("suzy", 3);
+                return;
+            }
             else if (laurenf1b[n].substring(0,4) == "VARY") { // changes based on branch
                 if (!isHidden(dark2)) toggleChoices();
                 charname.innerHTML = laurenf1a[n];
@@ -421,7 +429,7 @@
                         dialog.innerHTML = "you should've come to parties more often, DREW. it's never as chill without you.";
                         break;
                 }
-                currentDialog[1] += 6;
+                currentDialog[1] += 7;
             }
             else { // mid-dialog
                 if (!isHidden(dark2)) toggleChoices();

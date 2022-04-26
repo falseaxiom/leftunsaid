@@ -140,8 +140,8 @@
             console.log("omg u lost suzy :(");
             localStorage.setItem("suzy", 1);
         }
-        // if we know suzy's missing, appearify her
-        if (localStorage.getItem("suzy") == 2) {
+        // if we know suzy's missing, appearify her & initiate auto dialog
+        if (localStorage.getItem("suzy") == 3) {
             console.log("found suzy :)")
             unhide(document.getElementById("suzy"));
             if (localStorage.getItem("branch1") != "suzy") unhide(document.getElementById("mystery"));
