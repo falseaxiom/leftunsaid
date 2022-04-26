@@ -62,8 +62,8 @@
             </div>
             <img id="map">
             <div class="buttonContainer">
-                <button id="new" onclick="location.href='./frontyard.html'">new game</button>
-                <button id="load" onclick="load()">load game</button>
+                <button id="new" onclick="newGame()">new game</button>
+                <button id="load" onclick="loadGame()">load game</button>
                 <button id="credits" onclick="location.href='./credits.html'">credits</button>
             </div>
         </div>
@@ -89,8 +89,16 @@
         if (start) document.getElementById("load").style.color = colors[r];
         document.getElementById("credits").style.color = colors[r];
 
-        function load() {
-            location.href = './' + savedata + ".html";
+        function newGame() {
+            if (start) {
+                if (confirm("Are you sure? Starting a new game will erase all progress.")) {
+                    location.href = "./frontyard.html";
+                }
+            }
+            else location.href = "./frontyard.html";
+        }
+        function loadGame() {
+            location.href = "./" + savedata + ".html";
         }
     </script>
 </html>

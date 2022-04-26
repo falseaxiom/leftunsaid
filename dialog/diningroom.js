@@ -6,7 +6,7 @@ let anvi1a = [
     ""
 ]
 let anvi1b = [
-    "[ ANVI RAGHAVAN, a WBHS VARSITY TENNIS player and your ex girlfriend. ]",
+    "[ ANVI RAGHAVAN, a WBHS VARSITY TENNIS player and your ex-girlfriend. ]",
     "CHOICE_GIVE BRACELET BACK^0_DO NOTHING^2",
     "lol thanks.",
     "RETURN"
@@ -19,7 +19,7 @@ let anvi2a = [
     ""
 ]
 let anvi2b = [
-    "[ ANVI RAGHAVAN, a WBHS VARSITY TENNIS player and your ex girlfriend. ]",
+    "[ ANVI RAGHAVAN, a WBHS VARSITY TENNIS player and your ex-girlfriend. ]",
     "CHOICE_TALK TO ANVI^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
     "no.^3",
     "[ ANVI signs your YEARBOOK. ]",
@@ -34,7 +34,7 @@ let laurenp1a = [
 
 ]
 let laurenp1b = [
-    "[ LAUREN P., one of your teammates. ]",
+    "[ LAUREN PHILIPS, one of your teammates. there are two LAURENS, so everyone calls her LAUREN P. ]",
     "CHOICE_TALK TO LAUREN P.^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
     "hey drew!.^3",
     "[ LAUREN P. signs your YEARBOOK. ]",

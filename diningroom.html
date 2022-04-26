@@ -332,7 +332,7 @@
                     case ("map"): // ui
                         map(currentDialog[1]);
                         break;
-                        case ("map2"):
+                    case ("map2"):
                         map2(currentDialog[1]);
                         break;
                     case ("phone"):
@@ -380,10 +380,12 @@
                 return;
             }
             anvi1a[n] == "ANVI:" ? unhide(danvi) : hide(danvi); // show anvi's sprite when she's talking
+            anvi1a[n] == "LAUREN P.:" ? unhide(dlaurenp) : hide(dlaurenp); // lauren p
+            anvi1a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // suzy
             if (anvi1b[n].substring(0,6) == "CHOICE") { // choice
                 charname.innerHTML = "";
                 dialog.innerHTML = "";
-                getChoices(anvi1b[n], "ellie");
+                getChoices(anvi1b[n]);
                 currentDialog[1]++;
             }
             else if (anvi1b[n].substring(0,6) == "RETURN") { // return item
