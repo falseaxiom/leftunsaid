@@ -1,6 +1,7 @@
 // automatic dialog
 let suzy1a = [
     "",
+    "",
     "SUZY:",
     "SUZY:",
     "SUZY:",
@@ -29,7 +30,8 @@ let suzy1a = [
     "SUZY:"
 ]
 let suzy1b = [
-    "[ your name is DREW REYES, and you've just arrived at a HIGH SCHOOL PARTY. eugh. ]",
+    "[ your name is DREW REYES, and you've just arrived at a HIGH SCHOOL PARTY. ]",
+    "[ ugh. let's get this over with. ]",
     "finally, we're here!!!",
     "you were driving like an old lady the whole way.",
     "i bet i could've gotten us here faster.",
@@ -165,7 +167,7 @@ let frontdoor1a = [
 
 // ui
 let map0a = [
-    "[ you've been to jake's house a couple times for the errant post-practice-turned-hangout. ]", 
+    "[ you've been to JAKE's house a couple times for the errant post-practice-turned-hangout. ]", 
     "[ and for the even more sporadic house-party-you-feel-somewhat-obligated-to-attend. ]",
     "[ you can't say you know its layout very well. ]"
 ]
