@@ -20,6 +20,14 @@
                 --f: #ccffe655;
             }
         </style>
+        <script>
+            /*** SETUP p0 (so suzy goes missing right away) ***/
+             // if on suzy's route and first time, LOSE HER!!!
+            if (localStorage.getItem("branch1") == "suzy" && localStorage.getItem("suzy") == 0) {
+                console.log("omg u lost suzy :(");
+                localStorage.setItem("suzy", 1);
+            }
+        </script>
     </head>
     <body>
         <div class="box">
@@ -77,7 +85,7 @@
             </div>
 
             <!-- choices -->
-            <img class="d big hidden" id="dark2" src="./imgs/3 kitchen/dialog/dark.png" style="opacity: 50%">
+            <img class="d big hidden" id="dark2" src="./imgs/5 bathroom/dialog/dark.png" style="opacity: 50%">
             <div class="d choicebox hidden" id="choicebox">
                 <em class="d choicehelper hidden" id="choicehelper">(click one of the dialog options to continue.)</em>
                 <button class="choice hidden" id="choice0">choice0</button>
@@ -135,11 +143,6 @@
         // (see default.js for others)
         // change current room
         localStorage.setItem("curr", "bathroom")
-        // if on suzy's route and first time, LOSE HER!!!
-        if (localStorage.getItem("branch1") == "suzy" && localStorage.getItem("suzy") == 0) {
-            console.log("omg u lost suzy :(");
-            localStorage.setItem("suzy", 1);
-        }
         // if we know suzy's missing, appearify her & initiate auto dialog
         if (localStorage.getItem("suzy") == 3) {
             console.log("found suzy :)")
@@ -709,6 +712,8 @@
             if (n == 0) currentDialog[0] = "mirror";
             if (n == mirror1a.length) {
                 hide(dmirror);
+                if (!isHidden(dark2)) toggleChoices();
+                toggleDialog();
                 currentDialog = ["", 0];
                 return;
             }
@@ -718,9 +723,11 @@
                 currentDialog[1]++;
             }
             else if (mirror1a[n].substring(0,4) == "LOOK") {
-                unhide(dmirror); // look at urself
                 if (!isHidden(dark2)) toggleChoices();
                 toggleDialog();
+
+                unhide(dmirror); // look at urself
+                unhide(dark);
                 currentDialog[1]++;
             }
             else {
