@@ -154,7 +154,7 @@ let angela1b = [
     "i do have a teeny tiny little favor to ask you.",
     "i borrowed this SCRUNCHIE from RYAN a long time ago and keep forgetting to give it back - could you do it for me instead?",
     "i'd go find him myself, but i don't really want to get up, is the thing.",
-    "FAKECHOICE_no._no way in hell._go fuck yourself.",
+    "CHOICE_no.^0_no way in hell.^0_i'd rather die.^0",
     "yay amazing!!! thanks so much <3 <3 <3",
     "[ ANGELA gives you RYAN'S SCRUNCHIE. ]",
     "last i saw him, he was in the KITCHEN.",
