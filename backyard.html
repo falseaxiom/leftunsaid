@@ -146,11 +146,14 @@
             hide(document.getElementById("lisa"));
         }
         // if haven't seen kat in this room yet, add to thing
-        if (!localStorage.getItem("kat").includes("backyard")) {
+        if (!isHidden(document.getElementById("katrina")) && !localStorage.getItem("kat").includes("backyard")) {
             localStorage.setItem("kat", localStorage.getItem("kat") + "_backyard");
         }
-        let kat = localStorage.getItem("kat").split("_");
-        kat.shift();
+        let kat = localStorage.getItem("kat");
+        if (kat) {
+            kat = kat.split("_");
+            kat.shift();
+        }
 
         /*** CLICKING ***/
         $(document).click(function(event) {

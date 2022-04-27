@@ -605,19 +605,43 @@ let katrina1a = [
     "",
     "KAT:",
     "",
+    "KAT:",
+    "KAT:",
+    "KAT:",
+    "KAT:",
+    "KAT:",
+    "KAT:",
+    "KAT:",
+    "KAT:",
+    "KAT:",
+    "",
+    "KAT:",
+    "",
     ""
-
 ]
 let katrina1b = [
     "[ KATRINA \"KAT\" GONZALEZ, your family friend. ]",
-    "CHOICE_TALK TO KAT^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
-    "DREW. you mother fucker, come here. mano po.^3",
-    "[ KATRINA signs your YEARBOOK. ]",
+    "CHOICE_TALK TO KAT^0_yyASK TO SIGN YEARBOOK^12_DO NOTHING^15",
+    "DREW. you mother fucker, come here. i'll give you mano po.*<br/><br/><br/><em style='color:var(--d)'>(*in filipino culture, 'mano po' means to touch an elder's hand to your forehead as a sign of respect.)</em>",
+    "CHOICE_who invited you?^0_how did you get here?^3_i'm older than you.^5",
+    "pshh. you hearing this guy?",
+    "who needs to be \"\"\"invited\"\"\" to things when you have evidence the host is cheating on his english exams?",
+    "and his girlfriend. and his taxes, probably.^4",
+    "helicopter.",
+    "what kind of a fucking question is that? LAUREN F. drove me.^2",
+    "oh, sorry, po. i'll be more mindful of that, po. kuya DREW po.*<br/><br/><br/><br/><em style='color:var(--d)'>(*all you really need to know is she's using a bunch of honorifics for comedic purposes.)</em>",
+    "anyway do you know if anything fun is happening at this party?",
+    "what am i talking about. of course you don't.",
+    "i'll figure it out later. pleasure seeing you as always.",
+    "[ you've known KAT since birth, but you'll never figure out why she's like this. ]^4",
+    "oh, yes. gimme gimme gimme",
+    "[ KAT signs your YEARBOOK. ]",
     "SIGN"
 ]
 let katrina2a = [
     "",
     "",
+    "KAT:",
     "KAT:",
     "",
     ""
@@ -625,8 +649,9 @@ let katrina2a = [
 ]
 let katrina2b = [
     "[ KATRINA \"KAT\" GONZALEZ, your family friend. ]",
-    "CHOICE_WEREN'T YOU IN THE OTHER ROOM?^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
-    "weren't YOU in the other room?^3",
+    "CHOICE_WEREN'T YOU IN THE OTHER ROOM?^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^4",
+    "weren't YOU in the other room?^4",
+    "oh, yes. gimme gimme gimme",
     "[ KATRINA signs your YEARBOOK. ]",
     "SIGN"
 ]
@@ -634,14 +659,16 @@ let katrina3a = [
     "",
     "",
     "KAT:",
+    "KAT:",
     "",
     ""
 
 ]
 let katrina3b = [
     "[ KATRINA \"KAT\" GONZALEZ, your family friend. ]",
-    "CHOICE_YOU AGAIN.^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
-    "i'm everywhere bitch. you can't get rid of me.^3",
+    "CHOICE_YOU AGAIN.^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^4",
+    "i'm everywhere, bitch. you can't get rid of me.^4",
+    "oh, yes. gimme gimme gimme",
     "[ KATRINA signs your YEARBOOK. ]",
     "SIGN"
 ]
