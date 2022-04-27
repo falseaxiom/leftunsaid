@@ -160,6 +160,12 @@
             unhide(document.getElementById("katrina"));
             hide(document.getElementById("anvi"));
         }
+        // if haven't seen kat in this room yet, add to thing
+        if (localStorage.getItem("kat").includes("diningroom")) {
+            localStorage.setItem("kat", localStorage.getItem("kat") + "_diningroom");
+        }
+        let kat = localStorage.getItem("kat").split("_");
+        kat.shift();
 
         /*** CLICKING ***/
         $(document).click(function(event) {
@@ -199,8 +205,10 @@
                         break;
                     case("katrina"):
                         toggleDialog();
-                        let kat = localStorage.getItem("katrina");
-                        katrina1(0);
+                        let i = kat.findIndex(x => x == localStorage.getItem("curr"));
+                        if (i == 0)      katrina1(0);
+                        else if (i == 1) katrina2(0);
+                        else             katrina3(0)
                         break;
                     default:
                         break;
