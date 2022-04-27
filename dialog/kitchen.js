@@ -111,14 +111,24 @@ let emily1a = [
     "",
     "",
     "EMILY:",
+    "EMILY:",
+    "EMILY:",
+    "EMILY:",
+    "EMILY:",
+    "EMILY:",
     "",
     ""
 
 ]
 let emily1b = [
     "[ EMILY MONROE, one of your teammates. ]",
-    "CHOICE_TALK TO EMILY^0_yyASK TO SIGN YEARBOOK^1_DO NOTHING^3",
-    "hiiii drew!^3",
+    "CHOICE_ggTALK TO EMILY^0_ssHAVE YOU SEEN SUZY?^4_yyASK TO SIGN YEARBOOK^5_DO NOTHING^8",
+    "hiiii drew!",
+    "so good to see you. so so good.",
+    "i wish you'd come to parties more. you have such great vibes.",
+    "they really balance out the JAKE-ness of this place. lol.^5",
+    "oh nooo, i'm sorry, i didn't see her...^4",
+    "yesss of course i'll sign it >:)",
     "[ EMILY signs your YEARBOOK. ]",
     "SIGN"
 ]
