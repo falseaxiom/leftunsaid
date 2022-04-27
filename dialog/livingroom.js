@@ -72,6 +72,7 @@ let ellie1a = [
     "ELLIE:",
     "",
     "ELLIE:",
+    "ELLIE:",
     "",
     "ELLIE:",
     "",
@@ -79,7 +80,7 @@ let ellie1a = [
 ]
 let ellie1b = [
     "[ ELLIE MACLEAN, a front crawler on WBHS VARSITY WOMEN'S SWIM. ]",
-    "CHOICE_TALK TO ELLIE^0_yyASK TO SIGN YEARBOOK^19_DO NOTHING^22",
+    "CHOICE_TALK TO ELLIE^0_yyASK TO SIGN YEARBOOK^20_DO NOTHING^23",
     "DREW. good to see you.",
     "...",
     "so, uh. kinda thought you wouldn't be here, so i invited ANVI. sorry about that.",
@@ -98,6 +99,7 @@ let ellie1b = [
     "anyway here you go.",
     "[ ELLIE gives you ANVI'S BRACELET. ]",
     "she's probably in the DINING ROOM right now.",
+    "walk around a bit first, though. i'm sure you're in no rush to see her. or her, you.",
     "BRANCH^4",
     "...",
     "[ ELLIE signs your YEARBOOK. ]",
@@ -124,6 +126,8 @@ let angela1a = [
     "ANGELA:",
     "",
     "ANGELA:",
+    "ANGELA:",
+    "ANGELA:",
     "",
     "ANGELA:",
     "",
@@ -133,7 +137,7 @@ let angela1a = [
 ]
 let angela1b = [
     "[ ANGELA YAO, a backstroker for WBHS VARSITY WOMEN'S SWIM. ]",
-    "CHOICE_TALK TO ANGELA^0_yyASK TO SIGN YEARBOOK^21_DO NOTHING^24",
+    "CHOICE_TALK TO ANGELA^0_yyASK TO SIGN YEARBOOK^23_DO NOTHING^26",
     "drew!! it's so nice to see you again.",
     "sooo, slight mishap...",
     "i thought you might not come, so i sorta invited RYAN. i hope that's ok?",
@@ -154,6 +158,8 @@ let angela1b = [
     "yay amazing!!! thanks so much <3 <3 <3",
     "[ ANGELA gives you RYAN'S SCRUNCHIE. ]",
     "last i saw him, he was in the KITCHEN.",
+    "but you should get loose first! walk around, say hi to everyone.",
+    "it's a party, not a funeral ;)",
     "BRANCH^4",
     "omg of course i'll sign your yearbook!!!",
     "[ ANGELA signs your YEARBOOK. ]",
@@ -184,6 +190,7 @@ let brad1a = [
     "BRAD:",
     "",
     "BRAD:",
+    "BRAD:",
     "",
     "",
     "BRAD:",
@@ -192,7 +199,7 @@ let brad1a = [
 ]
 let brad1b = [
     "[ BRAD SZYMANSKI, a breaststroker for WBHS VARSITY MEN'S SWIM. ]",
-    "CHOICE_TALK TO BRAD^0_yyASK TO SIGN YEARBOOK^24_DO NOTHING^27",
+    "CHOICE_TALK TO BRAD^0_yyASK TO SIGN YEARBOOK^25_DO NOTHING^28",
     "ANDYYYY, my main man!",
     "can i hit you up with anything? vodka? beer? white talon?",
     "just kidding - i know you don't drink, haha.",
@@ -215,6 +222,7 @@ let brad1b = [
     "because if i'm being honest, i can't even stand up right now.",
     "[ BRAD gives you LISA'S LIGHTER. ]",
     "she's defo somewhere out in the BACKYARD.",
+    "you should enjoy the party first, though! let that secondhand VAPE settle into your lungs.",
     "[ before you can even protest, BRAD has already checked out of the conversation, demolishing a family-size pack of RODITOS he has somehow materialized. ]",
     "BRANCH^4",
     "hell yeah, dude! i'll sign your yearbook.",
