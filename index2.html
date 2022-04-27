@@ -9,96 +9,53 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./css/room.css">
         <style>
+            :root {
+                --yellow: #fdc316;
+                --red: #ff3542;
+                --purple: #cb74ff;
+                --teal: #01e09c;
+                --grey: #b9b9b9;
+            }
+            body {
+                top: 0;
+                left: 0;
+                color: white;
+                background: black;
+                font-family: 'Roboto Mono', monospace;
+            }
             .box {
-                /* background: blue; */
+                width: calc(100vw - 10px);
+                height: calc(100vh - 20px);
+                display: grid;
+                place-items: center;
+                text-align: center;
+            }
+            .imgContainer {
+                width: 50vh;
+                margin-top: -3em;
+                height: 50vh;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
             }
             img {
-                width: 286px;
-                height: 246px;
+                margin-left: 15px;
+                max-width: 100%;
+                max-height: 100%;
             }
-            .title {
-                font-size: 5rem;
-                padding: 0px 5px;
-                color: white;
-            }
-            .buttonContainer {
-                display: flex;
-                flex-direction: column;
-                height: auto;
-                width: 500px;
-                align-items: center;
-            }
-            button {
-                position: relative;
-                font-family: inherit;
-                font-size: 3rem;
-                background: none;
-                border: none;
-                margin: 5px;
-                color: white;
-                width:fit-content;
-            }
-            button:hover {
-                color: white!important;
-            }
-            button:disabled {
-                color: dimgray;
-            }
-            button:disabled:hover {
-                color: dimgray!important;
+            span {
+                margin-top: -30%;
             }
         </style>
     </head>
     <body>
         <div class="box">
-            <div class="title">
-                left unsaid
-            </div>
-            <img id="map">
-            <div class="buttonContainer">
-                <button id="new" onclick="newGame()">new game</button>
-                <button id="load" onclick="loadGame()">load game</button>
-                <button id="credits" onclick="location.href='./credits.html'">credits</button>
+            <div class="imgContainer">
+                <img src="./imgs/placeholder.png">
+                <span>the party will begin on april 27, 2022</span>
             </div>
         </div>
     </body>
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous">
-    </script>
     <script>
-        // save data
-        let start = localStorage.getItem("start");
-        let savedata = localStorage.getItem("curr");
-        if (!start) document.getElementById("load").disabled = true;
-
-        // random map
-        let map = document.getElementById("map")
-        let rooms = ["0 front yard", "1 living room", "2 dining room", "3 kitchen", "4 backyard", "5 bathroom", "6 rec room", "7 office"];
-        let colors = ["#b9b9b9", "#82c40d", "#fdc316", "#ff3542", "#cb74ff", "#94ffd2", "#9070ff", "#c4905d"]
-        let r = Math.floor(Math.random() * rooms.length);
-        map.src="./imgs/" + rooms[r] + "/ui/0 map.png";
-        document.getElementById("new").style.color = colors[r];
-        if (start) document.getElementById("load").style.color = colors[r];
-        document.getElementById("credits").style.color = colors[r];
-
-        function newGame() {
-            if (start) {
-                if (confirm("Are you sure? Starting a new game will erase all progress.")) {
-                    location.href = "./frontyard.html";
-                }
-            }
-            else location.href = "./frontyard.html";
-        }
-        function loadGame() {
-            location.href = "./" + savedata + ".html";
-        }
     </script>
 </html>

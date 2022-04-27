@@ -176,13 +176,13 @@ function toggleYearbook() {
 }
 // go home
 function home() {
-    location.href = "./index2.html";
+    location.href = "./";
 }
 // reset game
 function reset() {
     if (confirm("Are you sure? Resetting will erase all progress.")) {
         localStorage.clear();
-        location.href="./index2.html";
+        location.href="./";
     }
 }
 
