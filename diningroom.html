@@ -161,7 +161,7 @@
             hide(document.getElementById("anvi"));
         }
         // if haven't seen kat in this room yet, add to thing
-        if (localStorage.getItem("kat").includes("diningroom")) {
+        if (!localStorage.getItem("kat").includes("diningroom")) {
             localStorage.setItem("kat", localStorage.getItem("kat") + "_diningroom");
         }
         let kat = localStorage.getItem("kat").split("_");
@@ -317,7 +317,7 @@
                         katrina2(currentDialog[1]);
                         break;
                     case("katrina3"):
-                        katrina2(currentDialog[1]);
+                        katrina3(currentDialog[1]);
                         break;
                     case ("cup1"): // interactive
                         cup1(currentDialog[1]);

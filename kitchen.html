@@ -148,7 +148,7 @@
             hide(document.getElementById("ryan"));
         }
         // if haven't seen kat in this room yet, add to thing
-        if (localStorage.getItem("kat").includes("kitchen")) {
+        if (!localStorage.getItem("kat").includes("kitchen")) {
             localStorage.setItem("kat", localStorage.getItem("kat") + "_kitchen");
         }
         let kat = localStorage.getItem("kat").split("_");
@@ -300,7 +300,7 @@
                         katrina2(currentDialog[1]);
                         break;
                     case("katrina3"):
-                        katrina2(currentDialog[1]);
+                        katrina3(currentDialog[1]);
                         break;
                     case ("food"): // interactive
                         food(currentDialog[1]);

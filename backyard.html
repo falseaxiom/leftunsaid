@@ -28,7 +28,6 @@
             <img class="big hidden" id="nolisa" src="./imgs/4 backyard/nolisa.png">
             <!-- <img class="big" src="./imgs/4 backyard/ref.png" style="opacity: 30%;"> -->
             
-
             <!-- interactive items -->
             <img class="i small" id="pool" style="top: 405px; left: 27px;" src="./imgs/4 backyard/interactive/pool.png">
             <img class="i small" id="chair1" style="top: 219px; left: 1290px;" src="./imgs/4 backyard/interactive/chair1.png">
@@ -147,7 +146,7 @@
             hide(document.getElementById("lisa"));
         }
         // if haven't seen kat in this room yet, add to thing
-        if (localStorage.getItem("kat").includes("backyard")) {
+        if (!localStorage.getItem("kat").includes("backyard")) {
             localStorage.setItem("kat", localStorage.getItem("kat") + "_backyard");
         }
         let kat = localStorage.getItem("kat").split("_");
@@ -284,7 +283,7 @@
                         katrina2(currentDialog[1]);
                         break;
                     case("katrina3"):
-                        katrina2(currentDialog[1]);
+                        katrina3(currentDialog[1]);
                         break;
                     case ("pool"): // interactive
                         pool(currentDialog[1]);
