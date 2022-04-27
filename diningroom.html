@@ -136,10 +136,8 @@
         // display katrina based on branch (ROOM SENSITIVE)
         switch (localStorage.getItem("branch1")) {
             case "ryan":
-                unhide(document.getElementById("katrina"));
-                hide(document.getElementById("anvi"));
-                break;
             case "lisa":
+            case "suzy":
                 unhide(document.getElementById("katrina"));
                 hide(document.getElementById("anvi"));
                 break;
