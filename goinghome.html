@@ -189,8 +189,10 @@
         }
         // reset game
         function reset() {
-            localStorage.clear();
-            location.href="./";
+            if (confirm("Are you sure? Resetting will erase all progress.")) {
+                localStorage.clear();
+                location.href="./";
+            }
         }
 
         /*** GAMEPLAY FUNCTIONS ***/
