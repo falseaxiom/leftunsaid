@@ -45,7 +45,7 @@ let ryan1b = [
     "[ you could cry, you're so relieved. ]",
     "[ you're not going to. but you COULD throw up. especially with how it smells in here. ]",
     "[ someone's seems to be with her, though...? ]",
-    "you got it, you got it... oh, man...",
+    "you got it, you got it... oh, boy...",
     "[ SUZY retches into the bowl. ]",
     "CHOICE_RYAN?^0_thank you for finding her.^1",
     "DREW! thank god you're here.^2",
