@@ -143,3 +143,9 @@ let suzy1a = [
 let suzy1b = [
     "LOL why is ANVI here. that's so embarrassing for you. hahaha" 
 ]
+let suzy2a = [
+    "SUZY:"
+]
+let suzy2b = [
+    "i'm bored."
+]

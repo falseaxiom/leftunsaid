@@ -251,7 +251,7 @@
                         break;
                     case("usuzy"):
                         toggleDialog();
-                        suzy1(0);
+                        localStorage.getItem("branch1") == "lisa" ? suzy1(0) : suzy2(0);
                         break;
                     case("unosuzy"):
                         toggleDialog();
@@ -324,6 +324,9 @@
                         break;
                     case ("suzy"):
                         suzy1(currentDialog[1]);
+                        break;
+                    case ("suzy2"):
+                        suzy2(currentDialog[1]);
                         break;
                     case ("nosuzy1"):
                         nosuzy1(currentDialog[1]);
@@ -511,5 +514,37 @@
             }
         }
         // ui dialog (see default.js)
+        function suzy2(n) {
+            console.log("suzy2 dialog:", n);
+            if (n == 0) currentDialog[0] = "suzy2"; // dialog start
+            if (n == suzy2a.length) { // dialog finish
+                if (!isHidden(dark2)) toggleChoices();
+                hide(dsuzy);
+                toggleDialog();
+                currentDialog = ["", 0];
+                return;
+            }
+            suzy2a[n] == "SUZY:" ? unhide(dsuzy) : hide(dsuzy); // suzy
+            if (suzy2b[n].substring(0,6) == "CHOICE") { // choice
+                charname.innerHTML = "";
+                dialog.innerHTML = "";
+                getChoices(suzy2b[n]);
+                currentDialog[1]++;
+            }
+            else { // mid-dialog
+                if (!isHidden(dark2)) toggleChoices();
+                if (suzy2b[n].includes("^")) {
+                    let dgs = suzy2b[n].split("^");
+                    charname.innerHTML = suzy2a[n];
+                    dialog.innerHTML = dgs[0];
+                    currentDialog[1] += parseInt(dgs[1]);
+                }
+                else {
+                    charname.innerHTML = suzy2a[n];
+                    dialog.innerHTML = suzy2b[n];
+                    currentDialog[1]++;
+                }
+            }
+        }
    </script>
 </html>

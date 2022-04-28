@@ -121,3 +121,9 @@ let suzy1a = [
 let suzy1b = [
     "LISA is so cool. i don't know how you ever thought she was into you." 
 ]
+let suzy2a = [
+    "SUZY:"
+]
+let suzy2b = [
+    "why does it smell like a skunk died out here...??"
+]

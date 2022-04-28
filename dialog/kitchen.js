@@ -186,3 +186,13 @@ let suzy1a = [
 let suzy1b = [
     "RYAN's here???? omg omg omg. why didn't you tell me? does my hair look ok??" 
 ]
+let suzy2a = [
+    "SUZY:",
+    "",
+    "SUZY:"
+]
+let suzy2b = [
+    "can i try a WHITE TALON?",
+    "CHOICE_no.^0_it won't taste good.^0_remember what MAMA said: if you drink alcohol, you die instantly.^0",
+    "you're no fun."
+]
