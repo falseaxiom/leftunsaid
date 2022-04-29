@@ -131,3 +131,9 @@ let mirror1a = [
 ]
 
 // ui
+let suzy1a = [
+    "SUZY:"
+]
+let suzy1b = [
+    "this bathroom is pretty small for someone who lives downtown..."
+]
