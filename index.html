@@ -92,6 +92,7 @@
         function newGame() {
             if (start) {
                 if (confirm("Are you sure? Starting a new game will erase all progress.")) {
+                    localStorage.clear();
                     location.href = "./frontyard.html";
                 }
             }
