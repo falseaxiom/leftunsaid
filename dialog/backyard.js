@@ -111,7 +111,7 @@ let chair1a = [
 let chair2a = [
     "[ the same exact LAWN CHAIR, just facing a different direction. ]",
     "CHOICE_SIT DOWN^0_DO NOTHING^1",
-    "[ actually, the first one looked way comfier. ]"
+    "[ actually, the other one looked way comfier. ]"
 ]
 
 // ui

@@ -49,10 +49,12 @@ let trophy1a = [
     "[ upon reading the plaque, the trophy belongs to MR. GIORDANO. ]",
     "[ you wonder why that talent never got passed on... JAKE's a known splasher when he dives. ]"
 ]
-let computer1a = [
+let computer1a = [ // replacing some lines bc i don't want ppl exiting out of the tab...
     "[ a sleek new COMPUTER. ]",
-    "CHOICE_BROWSE THE WEB^0_DELETE IMPORTANT WORK FILES^1_DO NOTHING^4",
-    "[ KAT showed you <a href='https://dumpling.love/forest/welcome.html' target='_blank'>this website</a> once. you like to leave it on random browsers to confuse people. ]^4",
+    "CHOICE_CHECK INTERNET HISTORY^0_DELETE IMPORTANT WORK FILES^1_DO NOTHING^4",
+    "[ page after page of TESLO maintenance forums. expected, but kind of boring. ]^4",
+    // "CHOICE_BROWSE THE WEB^0_DELETE IMPORTANT WORK FILES^1_DO NOTHING^4",
+    // "[ KAT showed you <a href='https://dumpling.love/forest/welcome.html' target='_blank'>this website</a> once. you like to leave it on random browsers to confuse people. ]^4",
     "[ that would be really funny. too bad MR. GIORDANO's desktop is a scattered mess of files. ]",
     "[ whatever. you select a random group of files and drag them to the TRASH. ]",
     "[ maybe one of those will bring them down a peg. socioeconomically. ]"
